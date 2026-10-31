@@ -1,0 +1,24 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Paraboloida eliptyczna</h1>
+<p class="lead">Ta powierzchnia przypomina otwartą miskę. Przekroje poziome powyżej jej najniższego punktu są elipsami.</p>
+<pre data-example="paraboloida-start"><code>import ms3d
+
+rysuj_3(ms3d.paraboloida_eliptyczna(a=3, b=3))
+</code></pre>
+<p>Zmień <code>a</code> na 5, a <code>b</code> pozostaw równe 3. W którym kierunku miska staje się szersza? Obróć model, aby to sprawdzić.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="paraboloida"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża. Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Model przedstawia pierwszy przykład. Zmianę parametrów wykonaj w edytorze. Pokazujemy fragment powierzchni, a nie zamkniętą bryłę.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry</summary><div class="discovery-content"><p>Wartości domyślne to <code>a=3, b=3</code>. Większe a rozszerza powierzchnię w kierunku X. Większe b rozszerza ją w kierunku Y. Gdy a = b, poziome przekroje są okręgami.</p><p>Oba parametry muszą być dodatnimi, skończonymi liczbami <code>int</code> lub <code>float</code>, bez wartości logicznych.</p></div></details>
+<details><summary><span>B</span>Wzór i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="z równa się x przez a do kwadratu plus y przez b do kwadratu"><mi>z</mi><mo>=</mo><msup><mrow><mo>(</mo><mfrac><mi>x</mi><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><mfrac><mi>y</mi><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></math><p>Wysokość z jest określona dla każdej pary rzeczywistych x i y. Funkcja F używana przez bibliotekę przyjmuje dowolną trójkę liczb rzeczywistych. Zwraca z pomniejszone o prawą stronę wzoru. Powierzchnię tworzą punkty F = 0.</p><p>Najniższy punkt to (0, 0, 0). Dlaczego wysokość nie może być ujemna?</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="paraboloida-def"><code>def F(x, y, z, a=3, b=3):
+    return z - (x/a)**2 - (y/b)**2
+
+rysuj_3(F)
+</code></pre><p>Sprawdź punkt (3, 0, 1). Jaki wynik daje funkcja?</p></div></details>
+<details><summary><span>D</span>Zapis lambda</summary><div class="discovery-content"><pre data-example="paraboloida-lambda"><code>rysuj_3(lambda x, y, z: z - (x/3)**2 - (y/3)**2)
+</code></pre><p>Porównaj tę powierzchnię z parabolą y = x². Co zobaczysz w przekroju płaszczyzną Y = 0?</p></div></details>
+</div>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność i obszar modeli 3D</a></p>
+{{RELATED}}
+{{PATH_NAV}}

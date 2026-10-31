@@ -1,0 +1,52 @@
+<h1>Możliwości i ograniczenia środowiska</h1>
+<p class="lead">Ponieważ program działa w przeglądarce, wprowadziliśmy ograniczenia czasu i złożoności obliczeń, aby zapewnić szybkie i stabilne działanie.</p>
+<p>To wspólne miejsce dla informacji potrzebnych podczas doświadczeń. Nie musisz zapamiętywać wszystkich liczb.</p>
+<h2 id="czas">Czas i dane wejściowe</h2>
+<ul>
+  <li>Program może działać do 10 minut, wliczając oczekiwanie na odpowiedzi.</li>
+  <li>Na odpowiedź na pytanie zadane przez <code>input()</code> masz do 5 minut, w ramach czasu programu.</li>
+  <li>Uruchomienie środowiska ma limit 120 sekund.</li>
+  <li>Sesja to czas, w którym środowisko może wykonywać programy. Trwa 30 minut. Każde rozpoczęcie programu odnawia ten czas.</li>
+  <li>Edytowanie kodu nie ma limitu czasu.</li>
+</ul>
+<p>Możesz odpowiadać na pytania programu na bieżąco albo przygotować dane przed uruchomieniem. Pamiętaj o pobieraniu własnych plików <code>.py</code>: kod nie jest automatycznie zapisywany.</p>
+<h2 id="matematyka-2d">Matematyka 2D</h2>
+<ul>
+  <li><code>rysuj</code>: od 1 do 6 funkcji. Dla każdej funkcji program oblicza wartości w 401 punktach dla X od −10 do 10.</li>
+  <li><code>rysuj_2</code>: do 6 funkcji. Dla funkcji dwóch zmiennych program oblicza wartości w 81×81 regularnie rozmieszczonych punktach. Taki układ punktów nazywamy siatką. Badany obszar to [−10, 10]².</li>
+</ul>
+<p>Przybliżanie widoku nie powoduje obliczenia nowych punktów. Program może nie rozpoznać wszystkich przerw i skoków w wykresie, czyli nieciągłości. Może też pominąć bardzo małe szczegóły.</p>
+<p>Lemniskata to krzywa przypominająca ósemkę. Przy niektórych jej położeniach program może błędnie narysować miejsce przecięcia gałęzi, mimo poprawnego równania.</p>
+<h2 id="figury-geometryczne">Niedokładności figur geometrycznych</h2>
+<p>Program oblicza wybrane punkty figury. Na ich podstawie odtwarza kontur. Ostre narożniki mogą zostać niedokładnie odwzorowane. Nie oznacza to błędu matematycznego. Poprawę planujemy w kolejnej wersji.</p>
+<h2 id="matematyka-3d">Matematyka 3D</h2>
+<ul>
+  <li><code>rysuj_3</code>: od 1 do 3 powierzchni na jednej scenie, czyli we wspólnym układzie współrzędnych.</li>
+  <li>Program oblicza wartości w 33×33×33 punktach w sześcianie [−6, 6]³. Odstęp między sąsiednimi punktami wynosi 0,375.</li>
+  <li>Obraz powierzchni składa się z trójkątów. Ich rogi nazywamy wierzchołkami. Na jednej scenie może być do 24 000 wierzchołków i 48 000 trójkątów.</li>
+</ul>
+<p>Obrót i przybliżanie nie powodują obliczenia większej liczby punktów. Powierzchnia może wyglądać kanciasto. Jeśli wykracza poza badany obszar, program pokaże tylko jej fragment.</p>
+<p>Program może pominąć drobne otwory, małe części powierzchni albo miejsca, w których powierzchnie się stykają.</p>
+<p>Wyświetlanie wymaga WebGL2. To obsługa grafiki 3D w przeglądarce.</p>
+<h2 id="statystyka">Statystyka</h2>
+<ul>
+  <li>Do 10 000 obserwacji, czyli pojedynczych wartości w zbiorze danych, na jedno obliczenie.</li>
+  <li>Wykres słupkowy: do 64 różnych wartości.</li>
+  <li>Histogram dzieli dane na przedziały, nazywane klasami. Może mieć od 1 do 32 klas. Gdy wszystkie wartości są takie same, używa jednej klasy.</li>
+</ul>
+<p>Dane muszą być liczbami. Puste zbiory, napisy i wartości nieskończone są odrzucane.</p>
+<p>Populacja to cała badana grupa. Próba to wybrana część tej grupy. Sprawdzaj, dla której z nich chcesz wykonać obliczenia.</p>
+<h2 id="dokladnosc">Dokładność obliczeń i wspólne limity</h2>
+<p>Program tworzy obraz z obliczonych punktów. Wyniki obliczeń mogą być przybliżone, bo komputer zapisuje liczby z ograniczoną dokładnością. Gładki kolor nie oznacza, że kształt został narysowany dokładniej.</p>
+<p>Jedno uruchomienie może utworzyć łącznie do 8 wykresów lub scen.</p>
+<p>Podczas rysowania program przekazuje dane obrazu w małych częściach, nazywanych wiadomościami. Każda taka wiadomość może mieć do 128 KiB.</p>
+<p>Dla 3D limit danych wynosi 2 MiB na scenę i 6 MiB na uruchomienie. KiB i MiB to jednostki rozmiaru danych.</p>
+<h2 id="komunikaty">Gdy pojawia się komunikat</h2>
+<ul>
+  <li><code>ValueError</code>: sprawdź wartość parametru. Na przykład promień sfery musi być dodatni.</li>
+  <li><code>TypeError</code>: sprawdź, co przekazujesz do funkcji. Na przykład podaj liczbę zamiast tekstu, jeśli funkcja oczekuje liczby.</li>
+  <li>Komunikat o limicie: zmniejsz liczbę wyników lub wybierz prostsze doświadczenie.</li>
+  <li>Komunikat o braku powierzchni poziomu zero oznacza, że program nie wyznaczył powierzchni, na której funkcja ma wartość zero. Może ona leżeć poza badanym obszarem albo być zbyt mała, aby program ją wykrył.</li>
+</ul>
+<p>Nie wpisuj haseł ani danych poufnych. Na komputerze współdzielonym dane pozostawione w pamięci przeglądarki mogą być dostępne dla kolejnych użytkowników tego samego profilu.</p>
+{{PATH_NAV}}

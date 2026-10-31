@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Walec</h1>
+<p class="lead">Powierzchnia obejmuje bok walca i dwie kołowe podstawy. Przekroje prostopadłe do jego osi mają ten sam promień. Zmieniaj promień i wysokość, aby porównywać proporcje.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-walec-start"><code>import ms3d
+
+F = ms3d.walec()
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-walec-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-walec"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz r z 3 do 2, nie zmieniając wysokości. Wszystkie poziome przekroje między podstawami zmniejszą się jednakowo.</p>
+<pre data-example="ms3d-walec-zmiana"><code>import ms3d
+
+F = ms3d.walec(r=2)
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-walec-zmiana"><samp>1.0</samp></pre>
+<p>Podstawy leżą na wysokościach -3 i 3 dla domyślnej wysokości 6. Matematycznie bok jest zakrzywiony; widoczne płaskie fragmenty wynikają z przybliżenia trójkątami.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.walec(r=3, wysokosc=6)</code></p><dl class="lesson-parameters"><dt><code>r=3</code></dt><dd>Promień obu kołowych podstaw.</dd><dt><code>wysokosc=6</code></dt><dd>Pełna wysokość wzdłuż osi Z.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Walec - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt><mo>-</mo><mi>r</mi></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Oś to Z, a r i wysokość h są dodatnie. Podstawy leżą na Z = ±h/2. Wzór z maksimum łączy powierzchnię boczną z podstawami; nie oznacza wypełnienia wnętrza.</p><p>Promień i wysokość są dodatnie. F jest określona w całej przestrzeni. Rysowana powierzchnia obejmuje bok i podstawy, bez wypełniania objętości.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-walec-def"><code>import math
+
+def F(x, y, z, r=3, wysokosc=6):
+    r, h = (r, wysokosc)
+    return max(math.hypot(x, y) - r, abs(z) - h / 2)
+
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw wysokość 3 i promień 2. Jak zmienią się odległości między podstawami i długość osi widocznego walca?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

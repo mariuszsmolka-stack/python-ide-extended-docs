@@ -1,0 +1,41 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Torus</h1>
+<p class="lead">Torus jest powierzchnią pierścienia z otworem. Promień R określa rozmiar pierścienia, a r jego grubość. Porównuj proporcje, zachowując R większe od r.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-torus-start"><code>import ms3d
+
+F = ms3d.torus()
+print(round(F(4, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-torus-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-torus"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zwiększ r z 1 do 1.5 przy R=3. Pierścień stanie się grubszy, a otwór węższy.</p>
+<pre data-example="ms3d-torus-zmiana"><code>import ms3d
+
+F = ms3d.torus(r=1.5)
+print(round(F(4, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-torus-zmiana"><samp>-0.5</samp></pre>
+<p>W płaszczyźnie Z=0 odległości skrajnych okręgów od osi wynoszą R-r i R+r. Zwiększanie grubości zmienia więc jednocześnie rozmiar otworu i zewnętrzny obrys.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.torus(R=3, r=1)</code></p><dl class="lesson-parameters"><dt><code>R=3</code></dt><dd>Odległość środka przekroju kołowego od osi Z.</dd><dt><code>r=1</code></dt><dd>Promień kołowego przekroju pierścienia.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Torus - wzór matematyczny"><mrow><mrow><msqrt><mrow><msup><mrow><mo>(</mo><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt><mo>-</mo><mi>R</mi></mrow><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup></mrow></msqrt><mo>-</mo><mi>r</mi></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Warunek biblioteki to R &gt; r &gt; 0, co daje torus pierścieniowy bez samoprzecięć. Osią symetrii jest Z. Równanie opisuje powierzchnię, a nie objętość pierścienia.</p><p>Biblioteka wymaga R&gt;r&gt;0. Zapobiega to zamknięciu otworu i samoprzecięciom. F jest określona w całej przestrzeni, a obraz przedstawia tylko powierzchnię.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-torus-def"><code>import math
+
+def F(x, y, z, R=3, r=1):
+    return math.hypot(math.hypot(x, y) - R, z) - r
+
+print(round(F(4, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms3d-torus-lambda"><code>import math
+
+rysuj_3(lambda x, y, z: math.hypot(math.hypot(x, y) - 3, z) - 1)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Oblicz średnicę otworu dla R=3 i r=1.5. Dlaczego próba ustawienia r=3 jest odrzucana?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

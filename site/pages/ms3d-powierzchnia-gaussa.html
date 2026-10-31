@@ -1,0 +1,40 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Powierzchnia Gaussa</h1>
+<p class="lead">Powierzchnia ma jeden szczyt i łagodnie opada we wszystkich kierunkach. Jej wysokość zbliża się do zera wraz z odległością od szczytu. Zmieniaj szerokość, aby porównać wąskie i rozległe wzniesienie.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-powierzchnia-gaussa-start"><code>import ms3d
+
+F = ms3d.powierzchnia_gaussa()
+print(round(F(0, 0, 4), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-powierzchnia-gaussa-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-powierzchnia-gaussa"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz szerokość z 2 do 1. Szczyt pozostanie na tej samej wysokości, ale wzniesienie stanie się węższe.</p>
+<pre data-example="ms3d-powierzchnia-gaussa-zmiana"><code>import ms3d
+
+F = ms3d.powierzchnia_gaussa(szerokosc=1)
+print(round(F(0, 0, 4), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-powierzchnia-gaussa-zmiana"><samp>0.0</samp></pre>
+<p>Na szczycie wykładnik potęgi e wynosi zero, więc wysokość jest równa parametrowi wysokosc. Dalej od szczytu wartości zbliżają się do zera. Poziome przekroje między wysokością zero a szczytem są okręgami.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.powierzchnia_gaussa(wysokosc=4, szerokosc=2, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>wysokosc=4</code></dt><dd>Dodatnia wysokość szczytu.</dd><dt><code>szerokosc=2</code></dt><dd>Dodatnia skala szerokości w poziomie.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X szczytu.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y szczytu.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Powierzchnia Gaussa - wzór matematyczny"><mrow><mi>z</mi><mo>=</mo><mrow><mi>h</mi><msup><mi>e</mi><mrow><mo>-</mo><mfrac><mrow><msup><mrow><mo>(</mo><mrow><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><mrow><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow><mn>2</mn></msup></mrow><mrow><mn>2</mn><msup><mi>s</mi><mn>2</mn></msup></mrow></mfrac></mrow></msup></mrow></mrow></math><p>Dodatnie h = wysokosc i s = szerokosc określają wysokość oraz skalę poziomą. Szczyt to (x0, y0, h), a dziedziną wysokości jest cała płaszczyzna. To powierzchnia Gaussa bez normalizacji do pola lub objętości 1.</p><p>Wysokość i szerokość są dodatnie, a położenie skończone. Wysokość powierzchni jest określona na całej płaszczyźnie. Nie jest to unormowana gęstość prawdopodobieństwa.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-powierzchnia-gaussa-def"><code>import math
+
+def F(x, y, z, wysokosc=4, szerokosc=2, x0=0, y0=0):
+    h, s = (wysokosc, szerokosc)
+    q = math.hypot((x - x0) / s, (y - y0) / s)
+    return z - h * math.exp(-0.5 * q * q)
+
+print(round(F(0, 0, 4), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń szczyt do (1,-2). Czy jego wysokość zmienia się po samym przesunięciu poziomym?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

@@ -1,0 +1,41 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Wariancja</h1>
+<p class="lead">Wariancja opisuje rozrzut danych wokół średniej, wykorzystując kwadraty odchyleń. Duże odchylenia mają przez to silny wpływ na wynik. Porównaj zbiory o tej samej średniej, ale różnym rozproszeniu.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-wariancja-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.wariancja(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-wariancja-start"><samp>7.04</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Dla tych samych danych zmień proba=False na proba=True. Wynik wzrośnie z 7.04 do 8.8, bo dzielisz sumę kwadratów przez 4 zamiast przez 5.</p>
+<pre data-example="msstat-wariancja-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.wariancja(dane, proba=True)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-wariancja-zmiana"><samp>8.8</samp></pre>
+<p>Wariancja opiera się na kwadratach odchyleń od średniej. Wynik ma więc jednostkę danych podniesioną do kwadratu. Dodanie tej samej liczby do każdej obserwacji nie zmienia odchyleń ani wariancji.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.wariancja(dane, proba=False)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja danych.</dd><dt><code>proba=False</code></dt><dd>False oznacza dzielenie przez n; True przez n-1 i wymaga co najmniej dwóch obserwacji.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Wariancja - wzór matematyczny"><mrow><mi>V</mi><mo>=</mo><mrow><mo>{</mo><mtable><mtr><mtd><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msup><mrow><mo>(</mo><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>-</mo><mi>μ</mi></mrow><mo>)</mo></mrow><mn>2</mn></msup></mrow><mi>n</mi></mfrac></mtd><mtd><mtext>proba = False</mtext></mtd></mtr><mtr><mtd><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msup><mrow><mo>(</mo><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>-</mo><mi>μ</mi></mrow><mo>)</mo></mrow><mn>2</mn></msup></mrow><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></mfrac></mtd><mtd><mtext>proba = True, n ≥ 2</mtext></mtd></mtr></mtable></mrow></mrow></math><p>Symbol μ oznacza średnią z tych samych danych. Dla proba=False używany jest mianownik n, a dla proba=True mianownik n-1 i wymagane są co najmniej dwie obserwacje. Wynik ma jednostkę danych podniesioną do kwadratu.</p><p>Dane są skończonymi liczbami rzeczywistymi, bez wartości logicznych. Parametr proba musi być dokładnie True albo False. Wariancja próby wymaga co najmniej dwóch obserwacji.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-wariancja-def"><code>
+def oblicz(dane, proba=False):
+    n = len(dane)
+    if proba and n &lt; 2:
+        raise ValueError("Próba wymaga dwóch obserwacji")
+    srednia = sum(dane)/n
+    return sum((x-srednia)**2 for x in dane)/(n-1 if proba else n)
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Dodaj 100 do każdej obserwacji i porównaj wariancje. Następnie pomnóż dane przez 2: czy wariancja wzrośnie dwa czy cztery razy?</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

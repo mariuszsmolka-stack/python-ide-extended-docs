@@ -1,0 +1,40 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Cosinusoida</h1>
+<p class="lead">Wykres ma postać powtarzającej się fali. Amplituda, czyli największe wychylenie od linii środkowej, wynosi |A|. Zwiększając |omega|, zmniejszasz odległość między kolejnymi szczytami.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-cosinusoida-start"><code>import ms2d
+
+f = ms2d.cosinusoida()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-cosinusoida-start"><samp>1.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-cosinusoida"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Nadaj fazie wartość π/2 zamiast zera. Przy dodatnim domyślnym omega przesuwa to falę w lewo o π/2.</p>
+<pre data-example="ms2d-cosinusoida-zmiana"><code>import ms2d
+import math
+
+f = ms2d.cosinusoida(faza=math.pi/2)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-cosinusoida-zmiana"><samp>0.0</samp></pre>
+<p>Domyślnie w X=0 występuje maksimum równe 1. Po zmianie fazy wartość w tym punkcie jest bliska zeru, a wykres przechodzi przez linię środkową. Obliczenia kąta używają radianów.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.cosinusoida(A=1, omega=1, faza=0, d=0)</code></p><dl class="lesson-parameters"><dt><code>A=1</code></dt><dd>Skala wychylenia; amplituda wynosi |A|. Ujemne A odwraca falę.</dd><dt><code>omega=1</code></dt><dd>Zmiana kąta na jednostkę X; wpływa na okres.</dd><dt><code>faza=0</code></dt><dd>Przesunięcie argumentu wyrażone w radianach.</dd><dt><code>d=0</code></dt><dd>Wysokość linii środkowej.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Cosinusoida - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>A</mi><mrow><mi>cos</mi><mrow><mo>(</mo><mrow><mrow><mi>ω</mi><mi>x</mi></mrow><mo>+</mo><mi>φ</mi></mrow><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mi>d</mi></mrow></mrow></math><p>Dziedziną są wszystkie liczby rzeczywiste, a kąty są w radianach. Linia środkowa to Y = d, faza zmienia przesunięcie poziome, a dla A i omega różnych od zera okres wynosi 2π/|omega|. Przy zerowym A lub omega wynik jest stały.</p><p>Dziedziną są wszystkie liczby rzeczywiste. Parametry są skończone. Gdy A lub omega jest zerowe, wynik jest stały.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-cosinusoida-def"><code>import math
+
+def f(x, A=1, omega=1, faza=0, d=0):
+    kat = omega * x + faza
+    return A * math.cos(kat) + d
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj A=1 i A=2 bez zmiany omega. Czy odległość między sąsiednimi szczytami pozostaje taka sama?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

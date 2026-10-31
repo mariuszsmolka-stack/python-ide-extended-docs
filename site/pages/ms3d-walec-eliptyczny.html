@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Walec eliptyczny</h1>
+<p class="lead">Podstawy tej powierzchni są elipsami, a niekoniecznie kołami. Poziome przekroje zachowują te same wymiary. Zmieniaj a i b, aby porównać przekrój okrągły z wydłużonym.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-walec-eliptyczny-start"><code>import ms3d
+
+F = ms3d.walec_eliptyczny()
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-walec-eliptyczny-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-walec-eliptyczny"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień a z 3 na 2 przy b=2. Eliptyczne podstawy staną się kołami.</p>
+<pre data-example="ms3d-walec-eliptyczny-zmiana"><code>import ms3d
+
+F = ms3d.walec_eliptyczny(a=2)
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-walec-eliptyczny-zmiana"><samp>0.5</samp></pre>
+<p>Wysokość nie wpływa na kształt podstaw. Każdy przekrój prostopadły do osi Z ma te same półosie. Jest to zmiana równania powierzchni, nie zniekształcenie obrazu przez kamerę.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.walec_eliptyczny(a=3, b=2, wysokosc=6)</code></p><dl class="lesson-parameters"><dt><code>a=3</code></dt><dd>Półoś podstawy w kierunku X.</dd><dt><code>b=2</code></dt><dd>Półoś podstawy w kierunku Y.</dd><dt><code>wysokosc=6</code></dt><dd>Pełna wysokość między podstawami.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Walec eliptyczny - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><msqrt><mrow><msup><mrow><mo>(</mo><mfrac><mi>x</mi><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><mfrac><mi>y</mi><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow></msqrt><mo>-</mo><mn>1</mn></mrow><mo>,</mo><mrow><mfrac><mrow><mn>2</mn><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow></mrow><mi>h</mi></mfrac><mo>-</mo><mn>1</mn></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Dodatnie a i b są półosiami podstaw, a h = wysokosc &gt; 0. Oś to Z, a powierzchnia obejmuje obie podstawy. Dla a = b otrzymujemy walec kołowy.</p><p>Półosie i wysokość są dodatnie. F jest określona w całej przestrzeni. Rysowana jest powierzchnia boczna i obie eliptyczne podstawy.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-walec-eliptyczny-def"><code>import math
+
+def F(x, y, z, a=3, b=2, wysokosc=6):
+    return max(math.hypot(x / a, y / b) - 1, 2 * (abs(z) / wysokosc) - 1)
+
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Zwiększ tylko b dwa razy. Które punkty podstawy przesuną się, a które skrajne punkty na osi X pozostaną na miejscu?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

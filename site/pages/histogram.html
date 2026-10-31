@@ -1,0 +1,31 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Histogram</h1>
+<p class="lead">Histogram grupuje liczby w przedziały. Pomaga zobaczyć, gdzie skupia się najwięcej danych.</p>
+<pre data-example="histogram-start"><code>import msstat
+
+dane = [1, 1, 2, 2, 3, 4, 5, 7, 8, 9]
+rysuj_stat(msstat.histogram(dane, przedzialy=4))
+</code></pre>
+<p>Zmień <code>przedzialy</code> na 2, a potem na 8. Czy dane się zmieniły? Czy ten sam zbiór może wyglądać inaczej po zmianie przedziałów?</p>
+<div id="plot" class="docs-plot" data-preview="histogram"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy przykład z czterema przedziałami. W sekcji Dane wykresu zobaczysz ich granice i liczebności.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry i warunki</summary><div class="discovery-content"><p>Sygnatura to <code>msstat.histogram(dane, przedzialy=10)</code>. Dane są wymagane. Domyślna liczba przedziałów wynosi 10, choć w naszym przykładzie wybraliśmy 4.</p><p><code>przedzialy</code> musi być liczbą całkowitą od 1 do 32, bez wartości logicznych. Dane muszą tworzyć niepustą kolekcję skończonych liczb rzeczywistych, bez wartości logicznych. Pełne <a href="ograniczenia.html#statystyka">ograniczenia danych</a> opisano osobno.</p></div></details>
+<details><summary><span>B</span>Granice i znaczenie słupków</summary><div class="discovery-content"><p>Dla różnych wartości minimum i maksimum szerokość każdego przedziału wynosi:</p><math display="block" aria-label="szerokość równa się maksimum minus minimum podzielone przez liczbę przedziałów"><mi>h</mi><mo>=</mo><mfrac><mrow><msub><mi>x</mi><mtext>max</mtext></msub><mo>-</mo><msub><mi>x</mi><mtext>min</mtext></msub></mrow><mi>k</mi></mfrac></math><p>Przedział obejmuje lewy koniec, a nie obejmuje prawego: [a, b). Ostatni obejmuje oba końce: [a, b]. Liczba leżąca na wspólnej granicy trafia do przedziału po prawej.</p><p>Dla przykładu granice to 1, 3, 5, 7 i 9, a liczebności to 4, 2, 1 i 3. Wysokość słupka oznacza liczebność, nie gęstość.</p><p>Jeśli wszystkie wartości są jednakowe, biblioteka tworzy jeden przedział wokół nich. Nie dzieli wtedy zerowej rozpiętości na dziesięć części.</p></div></details>
+<details><summary><span>C</span>Sprawdź wynik obliczenia</summary><div class="discovery-content"><pre data-example="histogram-dane"><code>import msstat
+
+wynik = msstat.histogram([1, 1, 2, 2, 3, 4, 5, 7, 8, 9], przedzialy=4)
+print(wynik["x"])
+print(wynik["counts"])
+rysuj_stat(wynik)
+</code></pre><p>Bardzo wąskie przedziały mogą przekroczyć dokładność zapisu liczb. Wtedy program zgłosi błąd. Wybierz szersze przedziały.</p></div></details>
+<details><summary><span>D</span>Własna funkcja i doświadczenie</summary><div class="discovery-content"><pre data-example="histogram-def"><code>import msstat
+
+def pokaz(dane, przedzialy=4):
+    rysuj_stat(msstat.histogram(dane, przedzialy=przedzialy))
+
+pokaz([5, 5, 5, 5])
+</code></pre><p>Funkcja pokaz wyświetla histogram przekazanych danych. Dlaczego widzisz jeden słupek? Porównaj ten wynik z wykresem słupkowym tych samych danych.</p></div></details>
+</div>
+{{RELATED}}
+{{PATH_NAV}}

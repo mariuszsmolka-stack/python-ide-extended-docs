@@ -1,0 +1,14 @@
+{
+  "name": "python-ide-extended-docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Materiały edukacyjne Python IDE Extended",
+  "author": "Mariusz Smółka",
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node check.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,33 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Wykres słupkowy</h1>
+<p class="lead">Słupek pokazuje, ile razy dana wartość wystąpiła w zbiorze danych. Taką liczbę wystąpień nazywamy liczebnością.</p>
+<pre data-example="slupki-start"><code>import msstat
+
+dane = [1, 1, 2, 2, 2, 3, 4, 4]
+rysuj_stat(msstat.slupki(dane))
+</code></pre>
+<p>Dopisz jeszcze trzy dwójki do listy. Który słupek urośnie? Czy zmieni się liczba różnych wartości?</p>
+<div id="plot" class="docs-plot" data-preview="slupki"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Wykres pokazuje dane z pierwszego przykładu. Rozwiń Dane wykresu pod nim, aby sprawdzić liczebności. Zmienioną listę sprawdzaj w edytorze.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Dane i parametry</summary><div class="discovery-content"><p>Wywołanie ma postać <code>msstat.slupki(dane)</code>. Argument <code>dane</code> jest wymagany. Nie ma wartości domyślnej.</p><p>Podaj niepustą kolekcję liczb rzeczywistych, na przykład listę. Napisy, wartości logiczne i wartości niefinitywne, czyli NaN oraz nieskończoności, są odrzucane. Ograniczenia wielkości danych znajdziesz w <a href="ograniczenia.html#statystyka">rozdziale technicznym</a>.</p></div></details>
+<details><summary><span>B</span>Co dokładnie liczymy?</summary><div class="discovery-content"><p>Dla każdej różnej wartości v zliczamy elementy równe v. Wartości na osi X są uporządkowane rosnąco. Oś Y pokazuje liczbę wystąpień, nie procent.</p><math display="block" aria-label="suma liczebności równa się liczbie danych"><mo>∑</mo><msub><mi>n</mi><mi>v</mi></msub><mo>=</mo><mi>n</mi></math><p>W przykładzie liczebności to 2, 3, 1 i 2. Ich suma to 8. Dlaczego jest równa długości listy?</p></div></details>
+<details><summary><span>C</span>Sprawdź liczby w Pythonie</summary><div class="discovery-content"><pre data-example="slupki-dane"><code>import msstat
+
+dane = [1, 1, 2, 2, 2, 3, 4, 4]
+wykres = msstat.slupki(dane)
+print(wykres["x"])
+print(wykres["counts"])
+print(wykres["n"])
+rysuj_stat(wykres)
+</code></pre><p><code>slupki()</code> przygotowuje dane wykresu. Dopiero <code>rysuj_stat()</code> je pokazuje. Wypisane listy zawierają wartości X i odpowiadające im liczebności.</p></div></details>
+<details><summary><span>D</span>Użyj własnej funkcji</summary><div class="discovery-content"><pre data-example="slupki-def"><code>import msstat
+
+def pokaz(dane):
+    rysuj_stat(msstat.slupki(dane))
+
+pokaz([2, 2, 3, 5, 5, 5])
+</code></pre><p>Funkcja <code>pokaz</code> wyświetla wykres dla przekazanej listy. Jakie trzy słupki powstaną?</p></div></details>
+</div>
+{{RELATED}}
+{{PATH_NAV}}

@@ -1,0 +1,45 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja sinc</h1>
+<p class="lead">Wykres jest symetryczny względem osi Y i ma w środku wartość 1. Kolejne oscylacje, czyli powtarzające się wychylenia, stają się coraz mniejsze. Porównaj wartości w równych odległościach po obu stronach zera.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-sinc-start"><code>import ms2d
+
+f = ms2d.sinc()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-sinc-start"><samp>1.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-sinc"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Ta funkcja nie przyjmuje ustawień. Zamiast nich porównaj wartości dla X=0, X=π i X=2π oraz zachowanie po obu stronach zera.</p>
+<pre data-example="ms2d-sinc-zmiana"><code>import math
+import ms2d
+
+f = ms2d.sinc()
+for x in [0, math.pi, 2*math.pi]:
+    print(f(x))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-sinc-zmiana"><samp>1.0
+3.8981718325193755e-17
+-3.8981718325193755e-17</samp></pre>
+<p>Nie należy traktować zera jako przerwy. Wartość w środku została określona tak, aby krzywa była ciągła. W punktach będących wielokrotnościami π komputer może otrzymać bardzo małą liczbę zamiast dokładnego zera.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.sinc()</code></p><p>Ta funkcja nie przyjmuje parametrów. Nie dopisuj do wywołania dodatkowych argumentów.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja sinc - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mo>{</mo><mtable><mtr><mtd><mfrac><mrow><mi>sin</mi><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow><mi>x</mi></mfrac></mtd><mtd><mtext>x ≠ 0</mtext></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mtext>x = 0</mtext></mtd></mtr></mtable></mrow></mrow></math><p>Dziedziną są wszystkie liczby rzeczywiste: w zerze przyjęto wartość graniczną 1. Pozostałe miejsca zerowe to niezerowe całkowite wielokrotności π. Funkcja nie ma parametrów.</p><p>Dziedziną są wszystkie liczby rzeczywiste. Funkcja nie ma parametrów; w zerze przyjmuje osobno wartość 1, równą granicy sin(x)/x.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-sinc-def"><code>import math
+
+def f(x):
+    return 1.0 if x == 0 else math.sin(x) / x
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Wartość w zerze wynosi 1; dla pozostałych argumentów dzielimy sinus przez argument.</p><pre data-example="ms2d-sinc-lambda"><code>import math
+
+rysuj(lambda x: 1.0 if x == 0 else math.sin(x) / x)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj sinc z sinusem na tych samych osiach. Dlaczego odległe wychylenia pierwszej krzywej są mniejsze?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

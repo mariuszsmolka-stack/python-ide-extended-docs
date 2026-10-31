@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Parabola pozioma</h1>
+<p class="lead">Ta parabola jest otwarta w prawo i symetryczna względem poziomej prostej przechodzącej przez wierzchołek. Parametr p wpływa na jej rozwarcie. Zmieniaj (x0, y0), aby przesuwać wierzchołek.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-parabola-pozioma-start"><code>import ms2d
+
+F = ms2d.parabola_pozioma()
+print(round(F(0, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-parabola-pozioma-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-parabola-pozioma"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień p z 1 na 2. Przy tej samej odległości X od wierzchołka pionowa odległość ramion będzie większa.</p>
+<pre data-example="ms2d-parabola-pozioma-zmiana"><code>import ms2d
+
+F = ms2d.parabola_pozioma(p=2)
+print(round(F(0, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-parabola-pozioma-zmiana"><samp>0.0</samp></pre>
+<p>Osią symetrii jest Y=y0. Dla X większego od x0 zwykle występują dwa punkty krzywej o przeciwnych odchyleniach od tej osi. Wierzchołek pozostaje jeden.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.parabola_pozioma(p=1, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>p=1</code></dt><dd>Dodatnia odległość ogniska od wierzchołka.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X wierzchołka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y wierzchołka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Parabola pozioma - wzór matematyczny"><mrow><msup><mrow><mo>(</mo><mrow><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mrow><mn>4</mn><mi>p</mi><mrow><mo>(</mo><mrow><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><mo>)</mo></mrow></mrow></mrow></math><p>Wymagane jest p &gt; 0. Wierzchołek to (x0, y0), a ognisko jest przesunięte od niego o p w prawo. Funkcja F jest określona na całej płaszczyźnie.</p><p>Wymagane jest p&gt;0. Funkcja pomocnicza F przyjmuje wszystkie pary rzeczywistych współrzędnych. Na samej paraboli X jest nie mniejsze niż x0.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-parabola-pozioma-def"><code>
+def F(x, y, p=1, x0=0, y0=0):
+    return (y - y0) ** 2 - 4 * p * (x - x0)
+
+print(round(F(0, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-parabola-pozioma-lambda"><code>rysuj_2(lambda x, y: (y - 0) ** 2 - 4 * 1 * (x - 0))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń wierzchołek do (-2,1). Gdzie znajdzie się ognisko, jeżeli p=2?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Paraboloida hiperboliczna</h1>
+<p class="lead">Powierzchnia wygina się w górę w jednym kierunku i w dół w drugim. Punkt środkowy nie jest ani minimum, ani maksimum. Zmieniaj a i b, aby porównać oba wygięcia.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-paraboloida-hiperboliczna-start"><code>import ms3d
+
+F = ms3d.paraboloida_hiperboliczna()
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-paraboloida-hiperboliczna-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-paraboloida-hiperboliczna"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz b z 3 do 1.5. Przekrój w kierunku Y będzie opadał szybciej, podczas gdy przekrój Y=0 pozostanie bez zmian.</p>
+<pre data-example="ms3d-paraboloida-hiperboliczna-zmiana"><code>import ms3d
+
+F = ms3d.paraboloida_hiperboliczna(b=1.5)
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-paraboloida-hiperboliczna-zmiana"><samp>0.0</samp></pre>
+<p>W początku układu można zwiększyć wysokość, idąc wzdłuż X, albo ją zmniejszyć, idąc wzdłuż Y. Punkt ten jest siodłowy: nie jest ani lokalnym minimum, ani maksimum.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.paraboloida_hiperboliczna(a=3, b=3)</code></p><dl class="lesson-parameters"><dt><code>a=3</code></dt><dd>Dodatnia skala w kierunku X.</dd><dt><code>b=3</code></dt><dd>Dodatnia skala w kierunku Y.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Paraboloida hiperboliczna - wzór matematyczny"><mrow><mi>z</mi><mo>=</mo><mrow><msup><mrow><mo>(</mo><mfrac><mi>x</mi><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>y</mi><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow></mrow></math><p>Wymagane jest a, b &gt; 0, a wysokość istnieje dla dowolnych x i y. Przekroje X = 0 i Y = 0 są parabolami skierowanymi przeciwnie. W początku układu leży punkt siodłowy.</p><p>Parametry a i b są dodatnie. Wysokość jest określona dla każdej pary X,Y, a F dla każdej trójki współrzędnych. Powierzchnia nie jest granicą zamkniętej bryły.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-paraboloida-hiperboliczna-def"><code>
+def F(x, y, z, a=3, b=3):
+    return z - (x / a) ** 2 + (y / b) ** 2
+
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms3d-paraboloida-hiperboliczna-lambda"><code>rysuj_3(lambda x, y, z: z - (x / 3) ** 2 + (y / 3) ** 2)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj przekroje X=0 i Y=0. Jak zmieni się obraz, jeżeli zamienisz rolę dodatniego i ujemnego składnika wzoru?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

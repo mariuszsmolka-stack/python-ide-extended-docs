@@ -1,0 +1,24 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Parabola</h1>
+<p class="lead">Parabola jest wykresem funkcji kwadratowej. Ma wierzchołek i dwa ramiona. Zmiana współczynników pozwala zmieniać jej położenie, rozwarcie ramion i kierunek ich zwrócenia.</p>
+<pre data-example="parabola-start"><code>import ms2d
+
+rysuj(ms2d.parabola(a=1, b=0, c=-4))
+</code></pre>
+<p>Zmień <code>c=-4</code> na <code>c=0</code>. Potem wybierz <code>a=-1</code>. W którą stronę przesunął się wykres? Kiedy jego ramiona są skierowane w dół?</p>
+<div id="plot" class="docs-plot" data-preview="parabola"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy przykład. Przybliżaj przyciskami i przesuwaj wykres myszą lub strzałkami. Zmianę parametrów sprawdzaj w edytorze.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p><code>ms2d.parabola(a=1, b=0, c=-4)</code> to wartości domyślne. Parametr <code>a</code> zmienia rozwarcie i kierunek ramion. Parametry <code>b</code> i <code>c</code> wpływają na położenie.</p><p>W punkcie X = 0 wartość Y wynosi <code>c</code>. Zmiana samego <code>b</code> może zmienić obie współrzędne wierzchołka.</p></div></details>
+<details><summary><span>B</span>Wzór, dziedzina i warunki</summary><div class="discovery-content"><math display="block" aria-label="y równa się a x kwadrat plus b x plus c"><mi>y</mi><mo>=</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>c</mi></math><math display="block" aria-label="a różne od zera"><mi>a</mi><mo>≠</mo><mn>0</mn></math><p>Dziedzina to wszystkie liczby rzeczywiste. Parametry muszą być skończonymi liczbami <code>int</code> lub <code>float</code>, bez wartości logicznych. <code>a</code> musi być różne od zera: biblioteka odrzuca <code>a=0</code> błędem <code>ValueError</code>. Matematycznie równanie z a = 0 opisuje prostą i przestaje być funkcją kwadratową.</p><p>Dla pierwszego przykładu miejsca zerowe to -2 i 2, a wierzchołek to (0, -4). Czy widzisz je na wykresie?</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="parabola-def"><code>def f(x, a=1, b=0, c=-4):
+    return (a*x + b)*x + c
+
+rysuj(f)
+</code></pre></div></details>
+<details><summary><span>D</span>Zapis lambda i porównanie</summary><div class="discovery-content"><pre data-example="parabola-lambda"><code>rysuj(lambda x: x*x - 4, lambda x: -x*x + 4)
+</code></pre><p>Które punkty mają oba wykresy wspólne? Ukryj jedną funkcję przez legendę, a potem pokaż ją ponownie.</p></div></details>
+</div>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność i obszar wykresów 2D</a></p>
+{{RELATED}}
+{{PATH_NAV}}

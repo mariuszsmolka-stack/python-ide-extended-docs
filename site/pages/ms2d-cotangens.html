@@ -1,0 +1,43 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Cotangens</h1>
+<p class="lead">Przy domyślnych parametrach wykres ma powtarzające się, opadające gałęzie. Przerwy występują tam, gdzie sinus kąta jest równy zero. Zmieniając fazę, porównaj położenie gałęzi.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-cotangens-start"><code>import ms2d
+import math
+
+f = ms2d.cotangens()
+print(round(f(math.pi/4), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-cotangens-start"><samp>1.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-cotangens"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień fazę z 0 na π/4. Dla omega=1 wykres przesunie się w lewo o π/4, a X=0 przestanie być niedozwolonym argumentem.</p>
+<pre data-example="ms2d-cotangens-zmiana"><code>import ms2d
+import math
+
+f = ms2d.cotangens(faza=math.pi/4)
+print(round(f(math.pi/4), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-cotangens-zmiana"><samp>0.0</samp></pre>
+<p>Cotangens jest ilorazem cosinusa i sinusa tego samego kąta. Przy zerowym sinusie iloraz nie istnieje. Dla niezerowych A i omega asymptoty oddzielają gałęzie, które przy dodatnim A·omega są malejące.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.cotangens(A=1, omega=1, faza=0, d=0)</code></p><dl class="lesson-parameters"><dt><code>A=1</code></dt><dd>Skala wartości; ujemna odwraca kierunek gałęzi.</dd><dt><code>omega=1</code></dt><dd>Zmiana kąta na jednostkę X; określa odstępy między gałęziami.</dd><dt><code>faza=0</code></dt><dd>Przesunięcie kąta, w radianach.</dd><dt><code>d=0</code></dt><dd>Przesunięcie pionowe.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Cotangens - wzór matematyczny"><mrow><mrow><mi>ctg</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mi>cos</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow><mrow><mi>sin</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow></mfrac></mrow></math><math display="block" aria-label="Cotangens - wzór matematyczny"><mrow><mrow><mi>α</mi><mo>=</mo><mrow><mrow><mi>ω</mi><mi>x</mi></mrow><mo>+</mo><mi>φ</mi></mrow></mrow><mo>,</mo><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>A</mi><mrow><mi>ctg</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mi>d</mi></mrow></mrow></mrow></math><math display="block" aria-label="Cotangens - wzór matematyczny"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mrow><mi>j</mi><mi>π</mi></mrow><mo>-</mo><mi>φ</mi></mrow><mi>ω</mi></mfrac></mrow></math><p>We wzorze ω oznacza omega, φ oznacza faza, a α jest kątem w radianach; wymagane jest sin(α) ≠ 0. Dla niezerowych A i omega proste wyznaczone przez α = jπ są pionowymi asymptotami: gałęzie zbliżają się do nich, lecz ich nie przecinają; j jest całkowite. Okres wynosi π/|omega|, a d przesuwa wykres pionowo. Przy dodatnim A·omega tangens rośnie, a cotangens maleje; ujemny iloczyn odwraca kierunek. Dla A = 0 wartości są stałe, ale wykluczenia pozostają. Dla omega = 0 otrzymujemy stałą tylko dla dozwolonego kąta.</p><p>Wykluczone są argumenty, dla których sin(omega*x+faza)=0. Przy omega=0 wynik istnieje tylko dla dozwolonej fazy. Parametry są skończone.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-cotangens-def"><code>import math
+
+def f(x, A=1, omega=1, faza=0, d=0):
+    kat = omega * x + faza
+    if math.remainder(kat, math.pi) == 0:
+        raise ValueError('Niedozwolony kąt')
+    return A * (math.cos(kat) / math.sin(kat)) + d
+
+print(round(f(math.pi/4), 6))
+rysuj(f)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj tangens i cotangens dla A=1 oraz omega=1. Czy ich asymptoty leżą w tych samych miejscach?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

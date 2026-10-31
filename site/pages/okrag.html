@@ -1,0 +1,28 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Okrąg</h1>
+<p class="lead">Każdy punkt okręgu leży w tej samej odległości od środka. Okrąg jest brzegiem koła. Nie zawiera jego wnętrza.</p>
+<pre data-example="okrag-start"><code>import ms2d
+
+rysuj_2(ms2d.okrag(r=4, x0=0, y0=0))
+</code></pre>
+<p>Zmień <code>r</code> na 2. Potem ustaw <code>x0=2</code>. Co zmienia promień, a co położenie środka?</p>
+<div id="plot" class="docs-plot" data-preview="okrag"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd pokazuje pierwszy przykład. Możesz przybliżać i przesuwać widok. Jednostki obu osi mają jednakową długość.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry</summary><div class="discovery-content"><p>Wartości domyślne to <code>r=4, x0=0, y0=0</code>. Parametr <code>r</code> jest promieniem. Para <code>(x0, y0)</code> określa środek.</p><p>Wszystkie parametry muszą być skończonymi liczbami <code>int</code> lub <code>float</code>, bez wartości logicznych. Promień musi być dodatni.</p></div></details>
+<details><summary><span>B</span>Równanie i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="x minus x zero do kwadratu plus y minus y zero do kwadratu równa się r kwadrat"><msup><mrow><mo>(</mo><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mi>r</mi><mn>2</mn></msup></math><p>Biblioteka zwraca odległość od środka pomniejszoną o promień. Funkcja przyjmuje dowolną parę liczb rzeczywistych. Do okręgu należą tylko punkty, w których wynik wynosi zero.</p><p>Dlaczego dla jednego X okrąg może mieć dwie wartości Y? Dlatego używamy <code>rysuj_2()</code>, a nie wykresu jednej wartości y = f(x).</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="okrag-def"><code>import math
+
+def F(x, y, r=4, x0=0, y0=0):
+    return math.hypot(x-x0, y-y0) - r
+
+rysuj_2(F)
+</code></pre><p><code>math.hypot</code> oblicza tutaj odległość punktu od środka okręgu. Sprawdź wynik F(4, 0) i F(0, 0).</p></div></details>
+<details><summary><span>D</span>Zapis lambda</summary><div class="discovery-content"><pre data-example="okrag-lambda"><code>import math
+
+rysuj_2(lambda x, y: math.hypot(x, y) - 4)
+</code></pre><p>Czy punkt (0, -4) też należy do tego okręgu? Zanim uruchomisz kod, policz odległość od środka.</p></div></details>
+</div>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność rysowania krzywych</a></p>
+{{RELATED}}
+{{PATH_NAV}}

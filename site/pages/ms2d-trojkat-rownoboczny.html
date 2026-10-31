@@ -1,0 +1,43 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Trójkąt równoboczny</h1>
+<p class="lead">Trójkąt ma trzy równe boki i trzy kąty po 60°. Rysowany jest jego obwód, z jednym wierzchołkiem skierowanym w górę. Zmieniaj bok oraz środek ciężkości, aby porównywać rozmiar i położenie.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-trojkat-rownoboczny-start"><code>import ms2d
+import math
+
+F = ms2d.trojkat_rownoboczny()
+print(round(F(0, -math.sqrt(3)), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-trojkat-rownoboczny-start"><samp>-0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-trojkat-rownoboczny"></div><p id="plot-status" class="small-note" role="status"></p>
+{{VISUALIZATION_NOTES}}
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień bok z 6 na 4. Wszystkie odległości od środka ciężkości do odpowiadających sobie punktów zmniejszą się w tej samej proporcji.</p>
+<pre data-example="ms2d-trojkat-rownoboczny-zmiana"><code>import ms2d
+import math
+
+F = ms2d.trojkat_rownoboczny(bok=4)
+print(round(F(0, -math.sqrt(3)), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-trojkat-rownoboczny-zmiana"><samp>0.57735</samp></pre>
+<p>Wysokość trójkąta wynosi √3 razy bok podzielone przez 2. Środek ciężkości dzieli wysokość w stosunku 2:1, dlatego górny i dolny skrajny punkt nie są jednakowo oddalone od y0.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.trojkat_rownoboczny(bok=6, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>bok=6</code></dt><dd>Pełna długość każdego boku.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka ciężkości.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka ciężkości.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Trójkąt równoboczny - wzór matematyczny"><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><msqrt><mn>3</mn></msqrt><mi>b</mi></mrow><mn>2</mn></mfrac></mrow></math><math display="block" aria-label="Trójkąt równoboczny - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mi>Y</mi></mrow><mo>-</mo><mfrac><mi>t</mi><mn>3</mn></mfrac></mrow><mo>,</mo><mfrac><mrow><mrow><mrow><msqrt><mn>3</mn></msqrt><mi>X</mi></mrow><mo>+</mo><mi>Y</mi></mrow><mo>-</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mn>3</mn></mfrac></mrow><mn>2</mn></mfrac><mo>,</mo><mfrac><mrow><mrow><mrow><mo>-</mo><mrow><msqrt><mn>3</mn></msqrt><mi>X</mi></mrow></mrow><mo>+</mo><mi>Y</mi></mrow><mo>-</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mn>3</mn></mfrac></mrow><mn>2</mn></mfrac></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Dodatni bok oznaczono jako b, a wysokość trójkąta jako t = √3·b/2. We wzorze X = x-x0 i Y = y-y0; (x0, y0) jest środkiem ciężkości, nie środkiem prostokąta otaczającego trójkąt.</p><p>Bok musi być dodatni, a położenie skończone. F jest określona na całej płaszczyźnie. Środek ciężkości nie jest środkiem prostokąta otaczającego trójkąt.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-trojkat-rownoboczny-def"><code>import math
+
+def F(x, y, bok=6, x0=0, y0=0):
+    t = math.sqrt(3) * bok / 2
+    X, Y = (x - x0, y - y0)
+    return max(-Y - t / 3, (math.sqrt(3) * X + Y - 2 * t / 3) / 2, (-math.sqrt(3) * X + Y - 2 * t / 3) / 2)
+
+print(round(F(0, -math.sqrt(3)), 6))
+rysuj_2(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Oblicz współrzędne trzech wierzchołków dla boku 4 i środka (0,0). Który z nich leży najwyżej?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Lemniskata Bernoulliego</h1>
+<p class="lead">Krzywa ma dwa płatki stykające się w środku i przypomina ósemkę. Jest symetryczna względem obu osi przechodzących przez środek. Zmieniaj skalę i położenie; obraz styku gałęzi może być niedokładny.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-lemniskata-start"><code>import ms2d
+
+F = ms2d.lemniskata()
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-lemniskata-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-lemniskata"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień a z 4 na 2. Odległość od środka do skrajnego punktu każdego płatka zmniejszy się dwukrotnie.</p>
+<pre data-example="ms2d-lemniskata-zmiana"><code>import ms2d
+
+F = ms2d.lemniskata(a=2)
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-lemniskata-zmiana"><samp>12.0</samp></pre>
+<p>Krzywa przecina samą siebie w środku. Przy niektórych przesunięciach siatka obliczeń może błędnie odtworzyć to przecięcie. Równanie pozostaje poprawne; zmiana obrazu w tym miejscu nie jest dowodem zmiany topologii figury.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.lemniskata(a=4, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>a=4</code></dt><dd>Dodatnia skala obu płatków.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X punktu przecięcia gałęzi.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y punktu przecięcia gałęzi.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Lemniskata Bernoulliego - wzór matematyczny"><mrow><msup><mrow><mo>(</mo><mrow><msup><mi>X</mi><mn>2</mn></msup><mo>+</mo><msup><mi>Y</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mrow><msup><mi>a</mi><mn>2</mn></msup><mrow><mo>(</mo><mrow><msup><mi>X</mi><mn>2</mn></msup><mo>-</mo><msup><mi>Y</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow></math><p>Parametr a jest dodatni, a X = x-x0 i Y = y-y0. Płatki są skierowane wzdłuż X, a ich skrajne punkty są oddalone od środka o a. Równanie jest poprawne także wtedy, gdy siatka nie odtworzy przecięcia gałęzi.</p><p>Parametr a jest dodatni, a położenie skończone. Wielomian pomocniczy jest określony na całej płaszczyźnie. Równanie opisuje dwa płatki wzdłuż X.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-lemniskata-def"><code>
+def F(x, y, a=4, x0=0, y0=0):
+    X, Y = ((x - x0) / a, (y - y0) / a)
+    return (X * X + Y * Y) ** 2 - X * X + Y * Y
+
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń krzywą przez x0=0.13 i y0=0.07. Porównaj matematyczne położenie przecięcia z podglądem i przeczytaj znane ograniczenie w rozdziale technicznym.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

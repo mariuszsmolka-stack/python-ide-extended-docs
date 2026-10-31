@@ -1,0 +1,37 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Średnia arytmetyczna</h1>
+<p class="lead">Średnia arytmetyczna opisuje poziom danych przez równy udział wszystkich wartości. Pojedyncza bardzo duża lub mała liczba może silnie przesunąć wynik. Dopisz wartość odstającą i porównaj średnią z medianą.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-srednia-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.srednia(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-srednia-start"><samp>3.6</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Zastąp ostatnią liczbę 8 przez 50, nie zmieniając pozostałych danych. Średnia wzrośnie z 3.6 do 12, chociaż cztery liczby pozostają takie same.</p>
+<pre data-example="msstat-srednia-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 5, 50]
+wynik = msstat.srednia(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-srednia-zmiana"><samp>12.0</samp></pre>
+<p>Każda obserwacja wnosi taki sam udział do sumy. Wartość odstająca może więc silnie przesunąć wynik. Średnia nie musi być żadną z liczb występujących w danych.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.srednia(dane)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja liczb, na przykład lista; argument jest wymagany.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Średnia arytmetyczna - wzór matematyczny"><mrow><mi>μ</mi><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>x</mi><mi>i</mi></msub></mrow><mi>n</mi></mfrac></mrow></math><p>Dane muszą tworzyć niepustą kolekcję skończonych liczb rzeczywistych, bez wartości logicznych. Symbol n oznacza liczbę obserwacji. Średnia może nie być żadną z wartości danych.</p><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych. Średnia istnieje już dla jednej obserwacji. Biblioteka nie zmienia listy wejściowej.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-srednia-def"><code>
+def oblicz(dane):
+    return sum(dane)/len(dane)
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj średnią i medianę przed zmianą i po zmianie 8 na 50. Która wielkość lepiej opisuje większość tych pięciu obserwacji?</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

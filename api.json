@@ -1,0 +1,1999 @@
+[
+  {
+    "id": "ms2d.stala",
+    "module": "ms2d",
+    "name": "stala",
+    "signature": "ms2d.stala(c=2)",
+    "parameters": [
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      }
+    ],
+    "defaults": {
+      "c": 2
+    },
+    "examples": [
+      {
+        "id": "ms2d-stala",
+        "file": "ms2d-stala.json",
+        "title": "ms2d: Stała"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.prosta",
+    "module": "ms2d",
+    "name": "prosta",
+    "signature": "ms2d.prosta(a=1, b=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "b": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-prosta",
+        "file": "ms2d-prosta.json",
+        "title": "ms2d: Prosta"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.parabola",
+    "module": "ms2d",
+    "name": "parabola",
+    "signature": "ms2d.parabola(a=1, b=0, c=-4)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": -4
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "b": 0,
+      "c": -4
+    },
+    "examples": [
+      {
+        "id": "ms2d-parabola",
+        "file": "ms2d-parabola.json",
+        "title": "ms2d: Parabola"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.szescienna",
+    "module": "ms2d",
+    "name": "szescienna",
+    "signature": "ms2d.szescienna(a=0.1, b=0, c=-1, d=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0.1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": -1
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 0.1,
+      "b": 0,
+      "c": -1,
+      "d": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-szescienna",
+        "file": "ms2d-szescienna.json",
+        "title": "ms2d: Funkcja sześcienna"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.wartosc_bezwzgledna",
+    "module": "ms2d",
+    "name": "wartosc_bezwzgledna",
+    "signature": "ms2d.wartosc_bezwzgledna(a=1, h=0, k=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "h",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "k",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "h": 0,
+      "k": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-wartosc-bezwzgledna",
+        "file": "ms2d-wartosc-bezwzgledna.json",
+        "title": "ms2d: Wartość bezwzględna"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.sinusoida",
+    "module": "ms2d",
+    "name": "sinusoida",
+    "signature": "ms2d.sinusoida(A=1, omega=1, faza=0, d=0)",
+    "parameters": [
+      {
+        "name": "A",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "omega",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "faza",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "A": 1,
+      "omega": 1,
+      "faza": 0,
+      "d": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-sinusoida",
+        "file": "ms2d-sinusoida.json",
+        "title": "ms2d: Sinusoida"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.cosinusoida",
+    "module": "ms2d",
+    "name": "cosinusoida",
+    "signature": "ms2d.cosinusoida(A=1, omega=1, faza=0, d=0)",
+    "parameters": [
+      {
+        "name": "A",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "omega",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "faza",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "A": 1,
+      "omega": 1,
+      "faza": 0,
+      "d": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-cosinusoida",
+        "file": "ms2d-cosinusoida.json",
+        "title": "ms2d: Cosinusoida"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.wykladnicza",
+    "module": "ms2d",
+    "name": "wykladnicza",
+    "signature": "ms2d.wykladnicza(a=1, b=2, h=0, k=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "h",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "k",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "b": 2,
+      "h": 0,
+      "k": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-wykladnicza",
+        "file": "ms2d-wykladnicza.json",
+        "title": "ms2d: Funkcja wykładnicza"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.logarytmiczna",
+    "module": "ms2d",
+    "name": "logarytmiczna",
+    "signature": "ms2d.logarytmiczna(a=1, b=2, h=0, k=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "h",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "k",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "b": 2,
+      "h": 0,
+      "k": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-logarytmiczna",
+        "file": "ms2d-logarytmiczna.json",
+        "title": "ms2d: Logarytm"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.pierwiastkowa",
+    "module": "ms2d",
+    "name": "pierwiastkowa",
+    "signature": "ms2d.pierwiastkowa(a=1, h=0, k=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "h",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "k",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "h": 0,
+      "k": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-pierwiastkowa",
+        "file": "ms2d-pierwiastkowa.json",
+        "title": "ms2d: Pierwiastek"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.odwrotna",
+    "module": "ms2d",
+    "name": "odwrotna",
+    "signature": "ms2d.odwrotna(a=1, h=0, k=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "h",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "k",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "h": 0,
+      "k": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-odwrotna",
+        "file": "ms2d-odwrotna.json",
+        "title": "ms2d: Funkcja odwrotna"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.sinc",
+    "module": "ms2d",
+    "name": "sinc",
+    "signature": "ms2d.sinc()",
+    "parameters": [],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "ms2d-sinc",
+        "file": "ms2d-sinc.json",
+        "title": "ms2d: Sinc"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.tangens",
+    "module": "ms2d",
+    "name": "tangens",
+    "signature": "ms2d.tangens(A=1, omega=1, faza=0, d=0)",
+    "parameters": [
+      {
+        "name": "A",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "omega",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "faza",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "A": 1,
+      "omega": 1,
+      "faza": 0,
+      "d": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-tangens",
+        "file": "ms2d-tangens.json",
+        "title": "ms2d: Tangens"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.cotangens",
+    "module": "ms2d",
+    "name": "cotangens",
+    "signature": "ms2d.cotangens(A=1, omega=1, faza=0, d=0)",
+    "parameters": [
+      {
+        "name": "A",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "omega",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "faza",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "A": 1,
+      "omega": 1,
+      "faza": 0,
+      "d": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-cotangens",
+        "file": "ms2d-cotangens.json",
+        "title": "ms2d: Cotangens"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.prosta_pionowa",
+    "module": "ms2d",
+    "name": "prosta_pionowa",
+    "signature": "ms2d.prosta_pionowa(c=2)",
+    "parameters": [
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      }
+    ],
+    "defaults": {
+      "c": 2
+    },
+    "examples": [
+      {
+        "id": "ms2d-prosta-pionowa",
+        "file": "ms2d-prosta-pionowa.json",
+        "title": "ms2d: Prosta pionowa"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.okrag",
+    "module": "ms2d",
+    "name": "okrag",
+    "signature": "ms2d.okrag(r=4, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "r",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "r": 4,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-okrag",
+        "file": "ms2d-okrag.json",
+        "title": "ms2d: Okrąg"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.elipsa",
+    "module": "ms2d",
+    "name": "elipsa",
+    "signature": "ms2d.elipsa(a=5, b=3, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 5
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 5,
+      "b": 3,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-elipsa",
+        "file": "ms2d-elipsa.json",
+        "title": "ms2d: Elipsa"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.hiperbola",
+    "module": "ms2d",
+    "name": "hiperbola",
+    "signature": "ms2d.hiperbola(a=3, b=2, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 3,
+      "b": 2,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-hiperbola",
+        "file": "ms2d-hiperbola.json",
+        "title": "ms2d: Hiperbola"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.parabola_pozioma",
+    "module": "ms2d",
+    "name": "parabola_pozioma",
+    "signature": "ms2d.parabola_pozioma(p=1, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "p",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "p": 1,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-parabola-pozioma",
+        "file": "ms2d-parabola-pozioma.json",
+        "title": "ms2d: Parabola pozioma"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.kwadrat",
+    "module": "ms2d",
+    "name": "kwadrat",
+    "signature": "ms2d.kwadrat(bok=6, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "bok",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "bok": 6,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-kwadrat",
+        "file": "ms2d-kwadrat.json",
+        "title": "ms2d: Kwadrat"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.prostokat",
+    "module": "ms2d",
+    "name": "prostokat",
+    "signature": "ms2d.prostokat(szerokosc=8, wysokosc=4, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "szerokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 8
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "szerokosc": 8,
+      "wysokosc": 4,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-prostokat",
+        "file": "ms2d-prostokat.json",
+        "title": "ms2d: Prostokąt"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.romb",
+    "module": "ms2d",
+    "name": "romb",
+    "signature": "ms2d.romb(przekatna_x=8, przekatna_y=6, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "przekatna_x",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 8
+      },
+      {
+        "name": "przekatna_y",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "przekatna_x": 8,
+      "przekatna_y": 6,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-romb",
+        "file": "ms2d-romb.json",
+        "title": "ms2d: Romb"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.trojkat_rownoboczny",
+    "module": "ms2d",
+    "name": "trojkat_rownoboczny",
+    "signature": "ms2d.trojkat_rownoboczny(bok=6, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "bok",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "bok": 6,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-trojkat-rownoboczny",
+        "file": "ms2d-trojkat-rownoboczny.json",
+        "title": "ms2d: Trójkąt równoboczny"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.superelipsa",
+    "module": "ms2d",
+    "name": "superelipsa",
+    "signature": "ms2d.superelipsa(a=4, b=3, n=3, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "n",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 4,
+      "b": 3,
+      "n": 3,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-superelipsa",
+        "file": "ms2d-superelipsa.json",
+        "title": "ms2d: Superelipsa"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.lemniskata",
+    "module": "ms2d",
+    "name": "lemniskata",
+    "signature": "ms2d.lemniskata(a=4, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 4,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-lemniskata",
+        "file": "ms2d-lemniskata.json",
+        "title": "ms2d: Lemniskata Bernoulliego"
+      }
+    ]
+  },
+  {
+    "id": "ms2d.kardioida",
+    "module": "ms2d",
+    "name": "kardioida",
+    "signature": "ms2d.kardioida(a=2, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "a": 2,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms2d-kardioida",
+        "file": "ms2d-kardioida.json",
+        "title": "ms2d: Kardioida"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.sfera",
+    "module": "ms3d",
+    "name": "sfera",
+    "signature": "ms3d.sfera(r=5)",
+    "parameters": [
+      {
+        "name": "r",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 5
+      }
+    ],
+    "defaults": {
+      "r": 5
+    },
+    "examples": [
+      {
+        "id": "ms3d-sfera",
+        "file": "ms3d-sfera.json",
+        "title": "ms3d: Sfera"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.elipsoida",
+    "module": "ms3d",
+    "name": "elipsoida",
+    "signature": "ms3d.elipsoida(a=5, b=3, c=2)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 5
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      }
+    ],
+    "defaults": {
+      "a": 5,
+      "b": 3,
+      "c": 2
+    },
+    "examples": [
+      {
+        "id": "ms3d-elipsoida",
+        "file": "ms3d-elipsoida.json",
+        "title": "ms3d: Elipsoida"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.walec",
+    "module": "ms3d",
+    "name": "walec",
+    "signature": "ms3d.walec(r=3, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "r",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "r": 3,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-walec",
+        "file": "ms3d-walec.json",
+        "title": "ms3d: Walec"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.stozek",
+    "module": "ms3d",
+    "name": "stozek",
+    "signature": "ms3d.stozek(r=3, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "r",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "r": 3,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-stozek",
+        "file": "ms3d-stozek.json",
+        "title": "ms3d: Stożek"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.stozek_podwojny",
+    "module": "ms3d",
+    "name": "stozek_podwojny",
+    "signature": "ms3d.stozek_podwojny(nachylenie=0.65)",
+    "parameters": [
+      {
+        "name": "nachylenie",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0.65
+      }
+    ],
+    "defaults": {
+      "nachylenie": 0.65
+    },
+    "examples": [
+      {
+        "id": "ms3d-stozek-podwojny",
+        "file": "ms3d-stozek-podwojny.json",
+        "title": "ms3d: Stożek podwójny"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.torus",
+    "module": "ms3d",
+    "name": "torus",
+    "signature": "ms3d.torus(R=3, r=1)",
+    "parameters": [
+      {
+        "name": "R",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "r",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      }
+    ],
+    "defaults": {
+      "R": 3,
+      "r": 1
+    },
+    "examples": [
+      {
+        "id": "ms3d-torus",
+        "file": "ms3d-torus.json",
+        "title": "ms3d: Torus"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.prostopadloscian",
+    "module": "ms3d",
+    "name": "prostopadloscian",
+    "signature": "ms3d.prostopadloscian(szerokosc=6, glebokosc=4, wysokosc=3)",
+    "parameters": [
+      {
+        "name": "szerokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      },
+      {
+        "name": "glebokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      }
+    ],
+    "defaults": {
+      "szerokosc": 6,
+      "glebokosc": 4,
+      "wysokosc": 3
+    },
+    "examples": [
+      {
+        "id": "ms3d-prostopadloscian",
+        "file": "ms3d-prostopadloscian.json",
+        "title": "ms3d: Prostopadłościan"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.stozek_sciety",
+    "module": "ms3d",
+    "name": "stozek_sciety",
+    "signature": "ms3d.stozek_sciety(r_dol=3, r_gora=1.5, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "r_dol",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "r_gora",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1.5
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "r_dol": 3,
+      "r_gora": 1.5,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-stozek-sciety",
+        "file": "ms3d-stozek-sciety.json",
+        "title": "ms3d: Stożek ścięty"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.ostroslup",
+    "module": "ms3d",
+    "name": "ostroslup",
+    "signature": "ms3d.ostroslup(bok=6, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "bok",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "bok": 6,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-ostroslup",
+        "file": "ms3d-ostroslup.json",
+        "title": "ms3d: Ostrosłup"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.graniastoslup_trojkatny",
+    "module": "ms3d",
+    "name": "graniastoslup_trojkatny",
+    "signature": "ms3d.graniastoslup_trojkatny(bok=5, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "bok",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 5
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "bok": 5,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-graniastoslup-trojkatny",
+        "file": "ms3d-graniastoslup-trojkatny.json",
+        "title": "ms3d: Graniastosłup trójkątny"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.walec_eliptyczny",
+    "module": "ms3d",
+    "name": "walec_eliptyczny",
+    "signature": "ms3d.walec_eliptyczny(a=3, b=2, wysokosc=6)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 6
+      }
+    ],
+    "defaults": {
+      "a": 3,
+      "b": 2,
+      "wysokosc": 6
+    },
+    "examples": [
+      {
+        "id": "ms3d-walec-eliptyczny",
+        "file": "ms3d-walec-eliptyczny.json",
+        "title": "ms3d: Walec eliptyczny"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.plaszczyzna",
+    "module": "ms3d",
+    "name": "plaszczyzna",
+    "signature": "ms3d.plaszczyzna(a=1, b=1, c=1, d=-2)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "d",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": -2
+      }
+    ],
+    "defaults": {
+      "a": 1,
+      "b": 1,
+      "c": 1,
+      "d": -2
+    },
+    "examples": [
+      {
+        "id": "ms3d-plaszczyzna",
+        "file": "ms3d-plaszczyzna.json",
+        "title": "ms3d: Płaszczyzna"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.paraboloida_eliptyczna",
+    "module": "ms3d",
+    "name": "paraboloida_eliptyczna",
+    "signature": "ms3d.paraboloida_eliptyczna(a=3, b=3)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      }
+    ],
+    "defaults": {
+      "a": 3,
+      "b": 3
+    },
+    "examples": [
+      {
+        "id": "ms3d-paraboloida-eliptyczna",
+        "file": "ms3d-paraboloida-eliptyczna.json",
+        "title": "ms3d: Paraboloida eliptyczna"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.paraboloida_hiperboliczna",
+    "module": "ms3d",
+    "name": "paraboloida_hiperboliczna",
+    "signature": "ms3d.paraboloida_hiperboliczna(a=3, b=3)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      }
+    ],
+    "defaults": {
+      "a": 3,
+      "b": 3
+    },
+    "examples": [
+      {
+        "id": "ms3d-paraboloida-hiperboliczna",
+        "file": "ms3d-paraboloida-hiperboliczna.json",
+        "title": "ms3d: Paraboloida hiperboliczna"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.hiperboloida_jednopowlokowa",
+    "module": "ms3d",
+    "name": "hiperboloida_jednopowlokowa",
+    "signature": "ms3d.hiperboloida_jednopowlokowa(a=2, b=2, c=3)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      }
+    ],
+    "defaults": {
+      "a": 2,
+      "b": 2,
+      "c": 3
+    },
+    "examples": [
+      {
+        "id": "ms3d-hiperboloida-jednopowlokowa",
+        "file": "ms3d-hiperboloida-jednopowlokowa.json",
+        "title": "ms3d: Hiperboloida jednopowłokowa"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.hiperboloida_dwupowlokowa",
+    "module": "ms3d",
+    "name": "hiperboloida_dwupowlokowa",
+    "signature": "ms3d.hiperboloida_dwupowlokowa(a=2, b=2, c=2)",
+    "parameters": [
+      {
+        "name": "a",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "b",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "c",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      }
+    ],
+    "defaults": {
+      "a": 2,
+      "b": 2,
+      "c": 2
+    },
+    "examples": [
+      {
+        "id": "ms3d-hiperboloida-dwupowlokowa",
+        "file": "ms3d-hiperboloida-dwupowlokowa.json",
+        "title": "ms3d: Hiperboloida dwupowłokowa"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.powierzchnia_gaussa",
+    "module": "ms3d",
+    "name": "powierzchnia_gaussa",
+    "signature": "ms3d.powierzchnia_gaussa(wysokosc=4, szerokosc=2, x0=0, y0=0)",
+    "parameters": [
+      {
+        "name": "wysokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "szerokosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 2
+      },
+      {
+        "name": "x0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "y0",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "defaults": {
+      "wysokosc": 4,
+      "szerokosc": 2,
+      "x0": 0,
+      "y0": 0
+    },
+    "examples": [
+      {
+        "id": "ms3d-powierzchnia-gaussa",
+        "file": "ms3d-powierzchnia-gaussa.json",
+        "title": "ms3d: Powierzchnia Gaussa"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.fale_koncentryczne",
+    "module": "ms3d",
+    "name": "fale_koncentryczne",
+    "signature": "ms3d.fale_koncentryczne(amplituda=1.5, czestotliwosc=1.2)",
+    "parameters": [
+      {
+        "name": "amplituda",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1.5
+      },
+      {
+        "name": "czestotliwosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1.2
+      }
+    ],
+    "defaults": {
+      "amplituda": 1.5,
+      "czestotliwosc": 1.2
+    },
+    "examples": [
+      {
+        "id": "ms3d-fale-koncentryczne",
+        "file": "ms3d-fale-koncentryczne.json",
+        "title": "ms3d: Fale koncentryczne"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.fale_sinusoidalne",
+    "module": "ms3d",
+    "name": "fale_sinusoidalne",
+    "signature": "ms3d.fale_sinusoidalne(amplituda=1.5, czestotliwosc=1)",
+    "parameters": [
+      {
+        "name": "amplituda",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1.5
+      },
+      {
+        "name": "czestotliwosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      }
+    ],
+    "defaults": {
+      "amplituda": 1.5,
+      "czestotliwosc": 1
+    },
+    "examples": [
+      {
+        "id": "ms3d-fale-sinusoidalne",
+        "file": "ms3d-fale-sinusoidalne.json",
+        "title": "ms3d: Fale sinusoidalne"
+      }
+    ]
+  },
+  {
+    "id": "ms3d.powierzchnia_sinc",
+    "module": "ms3d",
+    "name": "powierzchnia_sinc",
+    "signature": "ms3d.powierzchnia_sinc(amplituda=3, czestotliwosc=1.5)",
+    "parameters": [
+      {
+        "name": "amplituda",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 3
+      },
+      {
+        "name": "czestotliwosc",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1.5
+      }
+    ],
+    "defaults": {
+      "amplituda": 3,
+      "czestotliwosc": 1.5
+    },
+    "examples": [
+      {
+        "id": "ms3d-powierzchnia-sinc",
+        "file": "ms3d-powierzchnia-sinc.json",
+        "title": "ms3d: Powierzchnia sinc"
+      }
+    ]
+  },
+  {
+    "id": "msstat.srednia",
+    "module": "msstat",
+    "name": "srednia",
+    "signature": "msstat.srednia(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-srednia",
+        "file": "msstat-srednia.json",
+        "title": "Średnia z kilku liczb"
+      },
+      {
+        "id": "msstat-dialog",
+        "file": "msstat-dialog.json",
+        "title": "Statystyka z input()"
+      },
+      {
+        "id": "msstat-odstajaca",
+        "file": "msstat-odstajaca.json",
+        "title": "Wpływ wartości odstającej"
+      }
+    ]
+  },
+  {
+    "id": "msstat.mediana",
+    "module": "msstat",
+    "name": "mediana",
+    "signature": "msstat.mediana(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-mediana",
+        "file": "msstat-mediana.json",
+        "title": "Mediana parzysta i nieparzysta"
+      },
+      {
+        "id": "msstat-dialog",
+        "file": "msstat-dialog.json",
+        "title": "Statystyka z input()"
+      },
+      {
+        "id": "msstat-odstajaca",
+        "file": "msstat-odstajaca.json",
+        "title": "Wpływ wartości odstającej"
+      }
+    ]
+  },
+  {
+    "id": "msstat.dominanty",
+    "module": "msstat",
+    "name": "dominanty",
+    "signature": "msstat.dominanty(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-dominanty",
+        "file": "msstat-dominanty.json",
+        "title": "Jedna i dwie dominanty"
+      }
+    ]
+  },
+  {
+    "id": "msstat.rozstep",
+    "module": "msstat",
+    "name": "rozstep",
+    "signature": "msstat.rozstep(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-rozstep",
+        "file": "msstat-rozstep.json",
+        "title": "Minimum, maksimum i rozstęp"
+      }
+    ]
+  },
+  {
+    "id": "msstat.wariancja",
+    "module": "msstat",
+    "name": "wariancja",
+    "signature": "msstat.wariancja(dane, proba=False)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      },
+      {
+        "name": "proba",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": false
+      }
+    ],
+    "defaults": {
+      "proba": false
+    },
+    "examples": [
+      {
+        "id": "msstat-wariancja",
+        "file": "msstat-wariancja.json",
+        "title": "Populacja i próba"
+      }
+    ]
+  },
+  {
+    "id": "msstat.odchylenie_standardowe",
+    "module": "msstat",
+    "name": "odchylenie_standardowe",
+    "signature": "msstat.odchylenie_standardowe(dane, proba=False)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      },
+      {
+        "name": "proba",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": false
+      }
+    ],
+    "defaults": {
+      "proba": false
+    },
+    "examples": [
+      {
+        "id": "msstat-odchylenie",
+        "file": "msstat-odchylenie.json",
+        "title": "Odchylenie standardowe"
+      }
+    ]
+  },
+  {
+    "id": "msstat.liczebnosci",
+    "module": "msstat",
+    "name": "liczebnosci",
+    "signature": "msstat.liczebnosci(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-liczebnosci",
+        "file": "msstat-liczebnosci.json",
+        "title": "Liczebności wartości"
+      }
+    ]
+  },
+  {
+    "id": "msstat.kwartyle",
+    "module": "msstat",
+    "name": "kwartyle",
+    "signature": "msstat.kwartyle(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-kwartyle",
+        "file": "msstat-kwartyle.json",
+        "title": "Kwartyle danych"
+      }
+    ]
+  },
+  {
+    "id": "msstat.slupki",
+    "module": "msstat",
+    "name": "slupki",
+    "signature": "msstat.slupki(dane)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      }
+    ],
+    "defaults": {},
+    "examples": [
+      {
+        "id": "msstat-slupki",
+        "file": "msstat-slupki.json",
+        "title": "Słupki liczebności"
+      },
+      {
+        "id": "msstat-dialog",
+        "file": "msstat-dialog.json",
+        "title": "Statystyka z input()"
+      }
+    ]
+  },
+  {
+    "id": "msstat.histogram",
+    "module": "msstat",
+    "name": "histogram",
+    "signature": "msstat.histogram(dane, przedzialy=10)",
+    "parameters": [
+      {
+        "name": "dane",
+        "kind": "positional_or_keyword",
+        "required": true
+      },
+      {
+        "name": "przedzialy",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 10
+      }
+    ],
+    "defaults": {
+      "przedzialy": 10
+    },
+    "examples": [
+      {
+        "id": "msstat-histogram",
+        "file": "msstat-histogram.json",
+        "title": "Histogram czterech klas"
+      },
+      {
+        "id": "msstat-dialog",
+        "file": "msstat-dialog.json",
+        "title": "Statystyka z input()"
+      }
+    ]
+  },
+  {
+    "id": "msstat.gestosc_normalna",
+    "module": "msstat",
+    "name": "gestosc_normalna",
+    "signature": "msstat.gestosc_normalna(mu=0, sigma=1)",
+    "parameters": [
+      {
+        "name": "mu",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "sigma",
+        "kind": "positional_or_keyword",
+        "required": false,
+        "default": 1
+      }
+    ],
+    "defaults": {
+      "mu": 0,
+      "sigma": 1
+    },
+    "examples": [
+      {
+        "id": "msstat-normalne",
+        "file": "msstat-normalne.json",
+        "title": "Trzy rozkłady normalne"
+      },
+      {
+        "id": "msstat-normalny",
+        "file": "msstat-normalny.json",
+        "title": "Gęstość rozkładu normalnego"
+      }
+    ]
+  }
+]

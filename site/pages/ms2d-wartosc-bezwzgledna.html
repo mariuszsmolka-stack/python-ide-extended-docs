@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Wartość bezwzględna</h1>
+<p class="lead">Dla niezerowego a wykres ma dwa proste ramiona i załamanie w punkcie (h, k). Dodatnie a daje kształt litery V, a ujemne go odwraca. Zmieniaj h i k, aby przesuwać punkt załamania.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-wartosc-bezwzgledna-start"><code>import ms2d
+
+f = ms2d.wartosc_bezwzgledna()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-wartosc-bezwzgledna-start"><samp>0.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-wartosc-bezwzgledna"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień a=1 na a=-1. Wykres odbije się względem poziomej prostej przechodzącej przez punkt załamania.</p>
+<pre data-example="ms2d-wartosc-bezwzgledna-zmiana"><code>import ms2d
+
+f = ms2d.wartosc_bezwzgledna(a=-1)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-wartosc-bezwzgledna-zmiana"><samp>0.0</samp></pre>
+<p>W odległości 1 od h wartość bezwzględna x-h wynosi 1 po obu stronach. Dlatego wykres jest symetryczny względem X=h. W punkcie załamania ramiona mają różne nachylenia.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.wartosc_bezwzgledna(a=1, h=0, k=0)</code></p><dl class="lesson-parameters"><dt><code>a=1</code></dt><dd>Skala pionowa; jej znak określa kierunek ramion.</dd><dt><code>h=0</code></dt><dd>Współrzędna X punktu załamania.</dd><dt><code>k=0</code></dt><dd>Współrzędna Y punktu załamania.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Wartość bezwzględna - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>a</mi><mrow><mo>|</mo><mrow><mi>x</mi><mo>-</mo><mi>h</mi></mrow><mo>|</mo></mrow></mrow><mo>+</mo><mi>k</mi></mrow></mrow></math><p>Dziedziną są wszystkie liczby rzeczywiste. Wartość |a| określa stromość ramion, a dla a = 0 funkcja jest stała i załamanie znika.</p><p>Dozwolony jest każdy rzeczywisty X. Parametry są skończone. Dla a=0 funkcja staje się stała i załamanie znika.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-wartosc-bezwzgledna-def"><code>
+def f(x, a=1, h=0, k=0):
+    return a * abs(x - h) + k
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-wartosc-bezwzgledna-lambda"><code>rysuj(lambda x: 1 * abs(x - 0) + 0)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw h=2 oraz k=-1. Sprawdź wartość w wierzchołku i w dwóch punktach jednakowo od niego oddalonych.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

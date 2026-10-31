@@ -1,0 +1,28 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Sinusoida</h1>
+<p class="lead">Sinusoida powtarza swój kształt. Parametry pozwalają zmienić wysokość fali, jej gęstość i przesunięcie.</p>
+<pre data-example="sinusoida-start"><code>import ms2d
+
+rysuj(ms2d.sinusoida(A=1, omega=1, faza=0, d=0))
+</code></pre>
+<p>Zmień <code>A</code> na 2. Potem zmień <code>omega</code> na 2. Która zmiana zwiększa wysokość, a która liczbę fal w tym samym przedziale X?</p>
+<div id="plot" class="docs-plot" data-preview="sinusoida"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy przykład. Przybliżaj i przesuwaj widok. Zmiany wzoru sprawdzaj w edytorze.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry</summary><div class="discovery-content"><p>Wartości domyślne: <code>A=1, omega=1, faza=0, d=0</code>. Wysokość wychylenia od linii środkowej to |A|. Parametr <code>d</code> wyznacza wysokość tej linii. <code>faza</code> przesuwa falę względem osi X.</p><p>Dla omega różnego od zera okres wynosi 2π/|omega|. Gdy omega = 0, wynik jest stały. Ujemne A odwraca falę względem linii środkowej.</p></div></details>
+<details><summary><span>B</span>Wzór i warunki</summary><div class="discovery-content"><math display="block" aria-label="y równa się A sinus omega x plus faza plus d"><mi>y</mi><mo>=</mo><mi>A</mi><mo>sin</mo><mo>(</mo><mi>ω</mi><mi>x</mi><mo>+</mo><mi>φ</mi><mo>)</mo><mo>+</mo><mi>d</mi></math><p>W zapisie Python ω to <code>omega</code>, a φ to <code>faza</code>. Kąty podajemy w radianach. Pełny obrót ma 2π radianów.</p><p>Dziedzina to wszystkie liczby rzeczywiste. Parametry muszą być skończonymi liczbami <code>int</code> lub <code>float</code>, bez wartości logicznych. Biblioteka dopuszcza także zero i liczby ujemne.</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="sinusoida-def"><code>import math
+
+def f(x, A=1, omega=1, faza=0, d=0):
+    return A*math.sin(omega*x + faza) + d
+
+rysuj(f)
+</code></pre><p>Sprawdź wartości dla X = 0 oraz X = π/2. Zapis liczby π w Pythonie to <code>math.pi</code>.</p></div></details>
+<details><summary><span>D</span>Zapis lambda</summary><div class="discovery-content"><pre data-example="sinusoida-lambda"><code>import math
+
+rysuj(lambda x: math.sin(x), lambda x: math.sin(2*x))
+</code></pre><p>Ile pełnych fal drugiej funkcji mieści się w jednym okresie pierwszej?</p></div></details>
+</div>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność wykresów 2D</a></p>
+{{RELATED}}
+{{PATH_NAV}}

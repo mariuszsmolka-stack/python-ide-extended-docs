@@ -1,0 +1,47 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Kwartyle</h1>
+<p class="lead">Kwartyle opisują położenie dolnej części, środka i górnej części uporządkowanych danych. Różnica między trzecim i pierwszym kwartylem opisuje szerokość środkowej części zbioru. Porównaj ją z rozstępem całych danych.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-kwartyle-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.kwartyle(dane)
+print(wynik)
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-kwartyle-start"><samp>(1.0, 3.0, 6.5)</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Do pięciu liczb dopisz 9. Porównaj kwartyle przed zmianą i po niej: (1,3,6.5) oraz (1,4,8). Zmieni się zarówno mediana całości, jak i podział na połowy.</p>
+<pre data-example="msstat-kwartyle-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 5, 8, 9]
+wynik = msstat.kwartyle(dane)
+print(wynik)
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-kwartyle-zmiana"><samp>(1.0, 4.0, 8.0)</samp></pre>
+<p>Dla nieparzystej liczby obserwacji mediana całości jest pomijana przy tworzeniu połówek. Q1 i Q3 są medianami tych połówek. Dla jednej liczby wszystkie kwartyle są równe, a dla dwóch wynik to minimum, średnia i maksimum.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.kwartyle(dane)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja liczb, porządkowana przed wyznaczeniem kwartylów.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Kwartyle - wzór matematyczny"><mrow><mrow><msub><mi>Q</mi><mn>1</mn></msub><mo>=</mo><mrow><mi>med</mi><mrow><mo>(</mo><mtext>dolna połowa</mtext><mo>)</mo></mrow></mrow></mrow><mo>,</mo><mrow><msub><mi>Q</mi><mn>2</mn></msub><mo>=</mo><mrow><mi>med</mi><mrow><mo>(</mo><mtext>całość</mtext><mo>)</mo></mrow></mrow></mrow><mo>,</mo><mrow><msub><mi>Q</mi><mn>3</mn></msub><mo>=</mo><mrow><mi>med</mi><mrow><mo>(</mo><mtext>górna połowa</mtext><mo>)</mo></mrow></mrow></mrow></mrow></math><p>Q2 jest medianą całości; Q1 i Q3 są medianami połówek po pominięciu mediany całości przy nieparzystym n. To konkretna konwencja biblioteki, a inne programy mogą liczyć kwartyle inaczej. Dla jednej obserwacji wszystkie kwartyle są równe, a dla dwóch wynik to minimum, średnia i maksimum.</p><p>Dane są skończonymi liczbami rzeczywistymi, bez wartości logicznych. Biblioteka ma własną, jawną konwencję median połówek; wyniki innych programów mogą się różnić dla tego samego małego zbioru.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-kwartyle-def"><code>
+def mediana(liczby):
+    n = len(liczby)
+    p = n//2
+    return liczby[p] if n % 2 else (liczby[p-1]+liczby[p])/2
+
+def oblicz(dane):
+    liczby = sorted(dane)
+    n = len(liczby)
+    if n == 1:
+        return (liczby[0],)*3
+    p = n//2
+    return (mediana(liczby[:p]), mediana(liczby), mediana(liczby[p+n%2:]))
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Wyznacz ręcznie kwartyle dla [1,2,3,4,5,6,7]. Której liczby nie użyjesz przy liczeniu median dolnej i górnej połowy?</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

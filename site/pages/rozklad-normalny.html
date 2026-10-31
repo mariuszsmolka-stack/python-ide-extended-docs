@@ -1,0 +1,30 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Rozkład normalny</h1>
+<p class="lead">Krzywa przypomina dzwon. Pokazuje gęstość rozkładu normalnego. Jej wysokość nie jest prawdopodobieństwem uzyskania dokładnie jednej liczby.</p>
+<pre data-example="normalny-start"><code>import msstat
+
+rysuj(msstat.gestosc_normalna(mu=0, sigma=1))
+</code></pre>
+<p>Zmień <code>mu</code> na 2. Potem przywróć 0 i zmień <code>sigma</code> na 2. Który parametr przesuwa krzywą, a który ją poszerza i obniża?</p>
+<div id="plot" class="docs-plot" data-preview="normalny"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd pokazuje pierwszy przykład. Przybliżaj i przesuwaj widok bez zmiany danych. Inne parametry sprawdzaj w edytorze.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p><code>msstat.gestosc_normalna(mu=0, sigma=1)</code> używa średniej mu = 0 i odchylenia standardowego sigma = 1. Taki rozkład nazywamy standardowym.</p><p>Oba parametry muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych. Sigma musi być dodatnia. Zbyt mała sigma może dać wysokość, której komputer nie potrafi zapisać.</p></div></details>
+<details><summary><span>B</span>Wzór i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="f od x równa się jeden przez sigma pierwiastek z dwa pi razy e do minus połowy kwadratu x minus mu przez sigma"><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mi>σ</mi><msqrt><mrow><mn>2</mn><mi>π</mi></mrow></msqrt></mrow></mfrac><msup><mi>e</mi><mrow><mo>-</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mrow><mo>(</mo><mfrac><mrow><mi>x</mi><mo>-</mo><mi>μ</mi></mrow><mi>σ</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow></msup></math><p>Dziedzina to wszystkie liczby rzeczywiste. Krzywa jest symetryczna względem X = mu. Największą wysokość osiąga w mu.</p><p>Prawdopodobieństwo przedziału odpowiada polu pod krzywą nad tym przedziałem. Pole pod całą krzywą wynosi 1. Pole nad pojedynczym punktem wynosi zero. Wysokość gęstości może być większa od 1.</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><p>W kodzie odległość od średniej wyrażamy w jednostkach sigma. Korzystamy z poniższego wzoru:</p><pre data-example="normalny-def"><code>import math
+
+def f(x, mu=0, sigma=1):
+    peak = (1/math.sqrt(2*math.pi))/sigma
+    z = (x-mu)/sigma
+    return peak*math.exp(-0.5*z*z)
+
+rysuj(f)
+</code></pre><p>Parametr sigma musi być dodatni.</p></div></details>
+<details><summary><span>D</span>Zapis lambda i porównanie</summary><div class="discovery-content"><pre data-example="normalny-lambda"><code>import math
+
+rysuj(lambda x: math.exp(-0.5*x*x)/math.sqrt(2*math.pi))
+</code></pre><p>To rozkład standardowy. Czy krzywa kiedykolwiek matematycznie osiąga zero? Czy sam obraz na ekranie pozwala to rozstrzygnąć?</p></div></details>
+</div>
+<p><a href="ograniczenia.html#dokladnosc">Przybliżenia i dokładność obrazu</a></p>
+{{RELATED}}
+{{PATH_NAV}}

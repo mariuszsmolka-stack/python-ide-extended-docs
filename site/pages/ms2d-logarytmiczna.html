@@ -1,0 +1,41 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja logarytmiczna</h1>
+<p class="lead">Wykres jest określony tylko na prawo od X = h. Przy niezerowym a zbliża się do tej pionowej prostej bez jej przecinania. Zmiana podstawy b wpływa na tempo i kierunek zmian wartości.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-logarytmiczna-start"><code>import ms2d
+
+f = ms2d.logarytmiczna()
+print(round(f(1), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-logarytmiczna-start"><samp>0.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-logarytmiczna"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień podstawę z 2 na 10. Obie krzywe dla a=1 rosną, lecz przy X większym od 1 logarytm dziesiętny rośnie wolniej.</p>
+<pre data-example="ms2d-logarytmiczna-zmiana"><code>import ms2d
+
+f = ms2d.logarytmiczna(b=10)
+print(round(f(1), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-logarytmiczna-zmiana"><samp>0.0</samp></pre>
+<p>Przy ustawieniach domyślnych f(1)=0 i f(2)=1. Dla podstawy 10 wartość 1 otrzymasz przy X=10. Punkty poza dziedziną są pomijane, a nie zastępowane zerem.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.logarytmiczna(a=1, b=2, h=0, k=0)</code></p><dl class="lesson-parameters"><dt><code>a=1</code></dt><dd>Skala pionowa; ujemna odwraca kierunek zmian.</dd><dt><code>b=2</code></dt><dd>Dodatnia podstawa logarytmu, różna od 1.</dd><dt><code>h=0</code></dt><dd>Lewa granica dziedziny i przesunięcie poziome.</dd><dt><code>k=0</code></dt><dd>Przesunięcie pionowe.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja logarytmiczna - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>a</mi><mrow><msub><mi>log</mi><mi>b</mi></msub><mrow><mo>(</mo><mrow><mi>x</mi><mo>-</mo><mi>h</mi></mrow><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mi>k</mi></mrow></mrow></math><p>Warunki to b &gt; 0, b różne od 1 oraz x &gt; h. Dla a różnego od zera prosta X = h jest asymptotą pionową. Dla a = 0 wartości są stałe, ale ograniczenie dziedziny pozostaje.</p><p>Wymagane są x&gt;h, b&gt;0 oraz b≠1. Ujemny argument logarytmu i zero nie należą do dziedziny, także gdy a=0. Wszystkie parametry muszą być skończone.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-logarytmiczna-def"><code>import math
+
+def f(x, a=1, b=2, h=0, k=0):
+    return a * math.log(x - h, b) + k
+
+print(round(f(1), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-logarytmiczna-lambda"><code>import math
+
+rysuj(lambda x: 1 * math.log(x - 0, 2) + 0)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń h do 2. Gdzie teraz zaczyna się dozwolony obszar X i jak przesuwa się pionowa asymptota?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

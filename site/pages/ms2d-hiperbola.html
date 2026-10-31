@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Hiperbola</h1>
+<p class="lead">Hiperbola ma dwie oddzielne gałęzie i dwie osie symetrii. W tej bibliotece gałęzie są skierowane w lewo i w prawo. Zmieniaj a i b, aby porównać ich rozwarcie.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-hiperbola-start"><code>import ms2d
+
+F = ms2d.hiperbola()
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-hiperbola-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-hiperbola"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień b z 2 na 4. Wierzchołki pozostaną w tych samych miejscach, ale gałęzie będą szybciej oddalać się od osi poziomej.</p>
+<pre data-example="ms2d-hiperbola-zmiana"><code>import ms2d
+
+F = ms2d.hiperbola(b=4)
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-hiperbola-zmiana"><samp>0.0</samp></pre>
+<p>Gałęzie zbliżają się do dwóch prostych przechodzących przez środek. Są to asymptoty o nachyleniach ±b/a. Wierzchołki leżą w (x0-a,y0) i (x0+a,y0).</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.hiperbola(a=3, b=2, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>a=3</code></dt><dd>Odległość wierzchołka gałęzi od środka wzdłuż X.</dd><dt><code>b=2</code></dt><dd>Skala w kierunku Y, wpływająca na rozwarcie.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Hiperbola - wzór matematyczny"><mrow><mrow><msup><mrow><mo>(</mo><mfrac><mrow><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mrow><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub></mrow><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mn>1</mn></mrow></math><p>Parametry a i b są dodatnie, a środek to (x0, y0). Poziome wierzchołki leżą w odległości a od środka. Asymptoty przechodzą przez środek i mają nachylenia ±b/a; F jest określona na całej płaszczyźnie.</p><p>Parametry a i b są dodatnie, a środek ma skończone współrzędne. F jest określona na całej płaszczyźnie. Krzywa nie istnieje w pasie |x-x0|&lt;a.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-hiperbola-def"><code>
+def F(x, y, a=3, b=2, x0=0, y0=0):
+    return ((x - x0) / a) ** 2 - ((y - y0) / b) ** 2 - 1
+
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-hiperbola-lambda"><code>rysuj_2(lambda x, y: ((x - 0) / 3) ** 2 - ((y - 0) / 2) ** 2 - 1)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Zwiększ samo a. Jak zmienią się odstęp między gałęziami i nachylenia asymptot?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

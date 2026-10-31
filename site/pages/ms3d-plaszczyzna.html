@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Płaszczyzna</h1>
+<p class="lead">Płaszczyzna jest płaską, nieograniczoną powierzchnią. Jej równanie może opisywać położenie poziome, pionowe lub ukośne. Zmieniaj współczynniki i porównuj orientację widocznego fragmentu.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-plaszczyzna-start"><code>import ms3d
+
+F = ms3d.plaszczyzna()
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-plaszczyzna-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-plaszczyzna"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień d z -2 na 0. Płaszczyzna zacznie przechodzić przez początek układu, zachowując orientację.</p>
+<pre data-example="ms3d-plaszczyzna-zmiana"><code>import ms3d
+
+F = ms3d.plaszczyzna(d=0)
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-plaszczyzna-zmiana"><samp>2.0</samp></pre>
+<p>Wektor (a,b,c) jest prostopadły do płaszczyzny. Zmiana tylko d przesuwa płaszczyznę równolegle do niej samej. Pomnożenie wszystkich współczynników przez tę samą niezerową liczbę nie zmienia zbioru punktów powierzchni.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.plaszczyzna(a=1, b=1, c=1, d=-2)</code></p><dl class="lesson-parameters"><dt><code>a=1</code></dt><dd>Współczynnik przy X w równaniu płaszczyzny.</dd><dt><code>b=1</code></dt><dd>Współczynnik przy Y.</dd><dt><code>c=1</code></dt><dd>Współczynnik przy Z.</dd><dt><code>d=-2</code></dt><dd>Wyraz stały, wpływający na położenie.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Płaszczyzna - wzór matematyczny"><mrow><mrow><mrow><mi>a</mi><mi>x</mi></mrow><mo>+</mo><mrow><mi>b</mi><mi>y</mi></mrow><mo>+</mo><mrow><mi>c</mi><mi>z</mi></mrow><mo>+</mo><mi>d</mi></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Współczynniki a, b i c nie mogą być jednocześnie zerowe. Wektor (a, b, c) jest prostopadły do płaszczyzny, a d wpływa na jej położenie. Dziedziną F są wszystkie rzeczywiste trójki.</p><p>Współczynniki są skończone, a a, b i c nie mogą być jednocześnie zerowe. F przyjmuje wszystkie trójki liczb rzeczywistych. Płaszczyzna jest nieograniczona, mimo skończonego podglądu.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-plaszczyzna-def"><code>
+def F(x, y, z, a=1, b=1, c=1, d=-2):
+    return a * x + b * y + c * z + d
+
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms3d-plaszczyzna-lambda"><code>rysuj_3(lambda x, y, z: 1 * x + 1 * y + 1 * z + -2)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw a=b=0 oraz c=1. Jakie położenie płaszczyzny otrzymasz dla d=0 i dla d=-2?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

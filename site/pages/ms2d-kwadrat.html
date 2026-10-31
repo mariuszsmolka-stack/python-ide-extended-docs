@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Kwadrat</h1>
+<p class="lead">Rysowany jest obwód kwadratu, bez wypełnienia. Wszystkie boki są równe i równoległe do osi. Zmieniaj bok i położenie środka, aby skalować oraz przesuwać figurę.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-kwadrat-start"><code>import ms2d
+
+F = ms2d.kwadrat()
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-kwadrat-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-kwadrat"></div><p id="plot-status" class="small-note" role="status"></p>
+{{VISUALIZATION_NOTES}}
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień bok z 6 na 4. Odległość każdego boku od środka zmniejszy się z 3 do 2.</p>
+<pre data-example="ms2d-kwadrat-zmiana"><code>import ms2d
+
+F = ms2d.kwadrat(bok=4)
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-kwadrat-zmiana"><samp>1.0</samp></pre>
+<p>Rysowany jest obwód, nie pole kwadratu. W środku F ma wartość ujemną, na brzegu zero, a poza figurą dodatnią. Ujemny wynik nie oznacza dodatkowej krzywej.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.kwadrat(bok=6, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>bok=6</code></dt><dd>Pełna długość każdego boku.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Kwadrat - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mo>|</mo><mi>X</mi><mo>|</mo></mrow><mo>,</mo><mrow><mo>|</mo><mi>Y</mi><mo>|</mo></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mfrac><mi>b</mi><mn>2</mn></mfrac></mrow></math><p>Dodatni bok oznaczono we wzorze jako b. Środek to (x0, y0), a X i Y oznaczają współrzędne pomniejszone o współrzędne środka. Równanie poziomu zero odpowiada obwodowi.</p><p>Bok musi być dodatni. Współrzędne środka są skończone, a funkcja F jest określona dla dowolnego punktu płaszczyzny.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-kwadrat-def"><code>
+def F(x, y, bok=6, x0=0, y0=0):
+    return max(abs(x - x0), abs(y - y0)) - bok / 2
+
+print(round(F(3, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-kwadrat-lambda"><code>rysuj_2(lambda x, y: max(abs(x - 0), abs(y - 0)) - 6 / 2)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń środek do (2,1). Wyznacz cztery wierzchołki kwadratu o boku 4.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

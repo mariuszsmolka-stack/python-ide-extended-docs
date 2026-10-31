@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Superelipsa</h1>
+<p class="lead">Krzywa może przypominać elipsę, romb albo zaokrąglony prostokąt. O kształcie decyduje wykładnik n, a nie tylko rozmiary. Porównaj n równe 1, 2 i 4.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-superelipsa-start"><code>import ms2d
+
+F = ms2d.superelipsa()
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-superelipsa-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-superelipsa"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Porównaj domyślne n=3 z n=1. Potem sprawdź n=2 i n=4, nie zmieniając półosi.</p>
+<pre data-example="ms2d-superelipsa-zmiana"><code>import ms2d
+
+F = ms2d.superelipsa(n=1)
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-superelipsa-zmiana"><samp>0.0</samp></pre>
+<p>Dla n=1 powstaje romb, dla n=2 elipsa, a większe n zaokrąglają obrys podobny do prostokąta. Skrajne punkty na osiach pozostają w odległościach a i b od środka.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.superelipsa(a=4, b=3, n=3, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>a=4</code></dt><dd>Dodatnia skala pozioma.</dd><dt><code>b=3</code></dt><dd>Dodatnia skala pionowa.</dd><dt><code>n=3</code></dt><dd>Dodatni wykładnik sterujący kształtem obrysu.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Superelipsa - wzór matematyczny"><mrow><mrow><msup><mrow><mo>|</mo><mfrac><mrow><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><mi>a</mi></mfrac><mo>|</mo></mrow><mi>n</mi></msup><mo>+</mo><msup><mrow><mo>|</mo><mfrac><mrow><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub></mrow><mi>b</mi></mfrac><mo>|</mo></mrow><mi>n</mi></msup></mrow><mo>=</mo><mn>1</mn></mrow></math><p>Wymagane jest a, b, n &gt; 0, a środek to (x0, y0). Dla n = 2 otrzymujemy elipsę, dla n = 1 romb, a dla n &lt; 1 krzywą wklęsłą. F jest określona na całej płaszczyźnie.</p><p>Parametry a, b i n są dodatnie, a środek ma skończone współrzędne. Dzięki wartościom bezwzględnym F jest określona na całej płaszczyźnie także dla niecałkowitego n.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-superelipsa-def"><code>
+def F(x, y, a=4, b=3, n=3, x0=0, y0=0):
+    return abs((x - x0) / a) ** n + abs((y - y0) / b) ** n - 1
+
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-superelipsa-lambda"><code>rysuj_2(lambda x, y: abs((x - 0) / 4) ** 3 + abs((y - 0) / 3) ** 3 - 1)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Wypróbuj n=0.5. Czy obszar otoczony krzywą nadal jest wypukły? Połącz w myśli dwa punkty jego wnętrza.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

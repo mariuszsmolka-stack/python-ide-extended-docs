@@ -1,0 +1,28 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Fale sinusoidalne</h1>
+<p class="lead">Wysokość tej powierzchni zmienia się w dwóch kierunkach. Sinus i cosinus tworzą powtarzające się wzniesienia i zagłębienia.</p>
+<pre data-example="fale-start"><code>import ms3d
+
+rysuj_3(ms3d.fale_sinusoidalne(amplituda=1.5, czestotliwosc=1))
+</code></pre>
+<p>Zmień <code>amplituda</code> na 3. Potem przywróć 1.5 i zmień <code>czestotliwosc</code> na 2. Która zmiana zwiększa wysokość, a która zagęszcza wzniesienia?</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="fale"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża. Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Model pokazuje pierwszy przykład. Parametry zmieniaj w edytorze. Kolor zależy od wysokości, a nie od obrotu modelu.</p>
+<div class="discoveries">
+<details><summary><span>A</span>Parametry</summary><div class="discovery-content"><p>Domyślne wartości to <code>amplituda=1.5, czestotliwosc=1</code>. Amplituda określa największe wychylenie od wysokości zero. Parametr częstotliwości określa zmianę kąta na jednostkę odległości.</p><p>Biblioteka wymaga, aby oba parametry były dodatnimi, skończonymi liczbami <code>int</code> lub <code>float</code>, bez wartości logicznych. Nie przyjmuje amplitudy równej zero ani ujemnej.</p></div></details>
+<details><summary><span>B</span>Wzór i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="z równa się A sinus k x razy cosinus k y"><mi>z</mi><mo>=</mo><mi>A</mi><mo>sin</mo><mo>(</mo><mi>k</mi><mi>x</mi><mo>)</mo><mo>cos</mo><mo>(</mo><mi>k</mi><mi>y</mi><mo>)</mo></math><p>A oznacza amplitudę, a k parametr <code>czestotliwosc</code>. Kąty są w radianach. Pełny obrót ma 2π radianów. Okres wzdłuż każdej osi wynosi 2π/k.</p><p>Wysokość jest określona dla wszystkich rzeczywistych x i y. Funkcja F przyjmuje dowolną trójkę liczb rzeczywistych. Wartość zero wskazuje punkty powierzchni.</p><p>Co dzieje się wzdłuż X = 0? A wzdłuż Y = 0?</p></div></details>
+<details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="fale-def"><code>import math
+
+def F(x, y, z, amplituda=1.5, czestotliwosc=1):
+    return z - amplituda*math.sin(czestotliwosc*x)*math.cos(czestotliwosc*y)
+
+rysuj_3(F)
+</code></pre></div></details>
+<details><summary><span>D</span>Zapis lambda</summary><div class="discovery-content"><pre data-example="fale-lambda"><code>import math
+
+rysuj_3(lambda x, y, z: z - 1.5*math.sin(x)*math.cos(y))
+</code></pre><p>Przewidź wysokość w punkcie x = π/2, y = 0. Czy znajdziesz takie wzniesienie na modelu?</p></div></details>
+</div>
+<p><a href="ograniczenia.html#matematyka-3d">Dlaczego drobne fale mogą być niedokładne?</a></p>
+{{RELATED}}
+{{PATH_NAV}}

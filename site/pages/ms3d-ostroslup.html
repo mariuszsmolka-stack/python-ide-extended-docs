@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Ostrosłup czworokątny</h1>
+<p class="lead">Powierzchnia ostrosłupa ma kwadratową podstawę i cztery trójkątne ściany boczne. Wierzchołek leży nad środkiem podstawy. Zmieniaj bok podstawy i wysokość, aby porównać nachylenie ścian.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-ostroslup-start"><code>import ms3d
+
+F = ms3d.ostroslup()
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-ostroslup-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-ostroslup"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz wysokość z 6 do 3, nie zmieniając boku podstawy. Ściany boczne staną się mniej strome.</p>
+<pre data-example="ms3d-ostroslup-zmiana"><code>import ms3d
+
+F = ms3d.ostroslup(wysokosc=3)
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-ostroslup-zmiana"><samp>1.5</samp></pre>
+<p>Podstawa leży poniżej początku układu, a wierzchołek nad nim. Poziome przekroje są kwadratami o boku malejącym liniowo z wysokością. Na Z=0 bok jest równy połowie boku podstawy.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.ostroslup(bok=6, wysokosc=6)</code></p><dl class="lesson-parameters"><dt><code>bok=6</code></dt><dd>Bok kwadratowej podstawy.</dd><dt><code>wysokosc=6</code></dt><dd>Pełna wysokość od podstawy do wierzchołka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Ostrosłup czworokątny - wzór matematyczny"><mrow><mi>u</mi><mo>=</mo><mrow><mfrac><mi>b</mi><mn>2</mn></mfrac><mrow><mo>(</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>-</mo><mfrac><mi>z</mi><mi>h</mi></mfrac></mrow><mo>)</mo></mrow></mrow></mrow></math><math display="block" aria-label="Ostrosłup czworokątny - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow><mo>-</mo><mi>u</mi></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>y</mi><mo>|</mo></mrow><mo>-</mo><mi>u</mi></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Jest to ostrosłup prawidłowy czworokątny; b = bok &gt; 0 i h = wysokosc &gt; 0. Podstawa leży na Z = -h/2, a wierzchołek na Z = h/2. Wielkość u oznacza połowę boku poziomego przekroju.</p><p>Bok i wysokość są dodatnie. F jest określona w całej przestrzeni. Rysowana jest zamknięta powierzchnia, łącznie z podstawą.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-ostroslup-def"><code>
+def F(x, y, z, bok=6, wysokosc=6):
+    a, h = (bok, wysokosc)
+    polowa = a / 2 * (0.5 - z / h)
+    return max(abs(x) - polowa, abs(y) - polowa, abs(z) - h / 2)
+
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Oblicz bok przekroju na Z=0 dla bok=6. Czy zmieni się on po zmianie samej wysokości?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

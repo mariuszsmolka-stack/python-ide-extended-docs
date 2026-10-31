@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Stożek podwójny</h1>
+<p class="lead">Dwie powierzchnie stożkowe stykają się wspólnym wierzchołkiem. Rozchodzą się w przeciwnych kierunkach i nie mają podstaw. Zwiększaj nachylenie, aby poszerzać ich rozwarcie.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-stozek-podwojny-start"><code>import ms3d
+
+F = ms3d.stozek_podwojny()
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-stozek-podwojny-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-stozek-podwojny"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz nachylenie z 0.65 do 0.35. Przy tej samej odległości od Z=0 przekrój będzie węższy.</p>
+<pre data-example="ms3d-stozek-podwojny-zmiana"><code>import ms3d
+
+F = ms3d.stozek_podwojny(nachylenie=0.35)
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-stozek-podwojny-zmiana"><samp>0.0</samp></pre>
+<p>Dwie części spotykają się w początku układu. Przekroje poziome poza wierzchołkiem są okręgami, a promień rośnie proporcjonalnie do |Z|. To nie jest skończona bryła zamknięta podstawami.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.stozek_podwojny(nachylenie=0.65)</code></p><dl class="lesson-parameters"><dt><code>nachylenie=0.65</code></dt><dd>Dodatni stosunek promienia przekroju do odległości od wierzchołka wzdłuż Z.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Stożek podwójny - wzór matematyczny"><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mrow><mi>k</mi><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow></mrow></mrow></math><p>Dodatni parametr nachylenie oznaczono jako k. Stożek jest nieograniczony, ale podgląd pokazuje tylko fragment w obszarze obliczeń. Średnica przekroju rośnie proporcjonalnie do |Z|.</p><p>Nachylenie musi być dodatnie. Matematyczna powierzchnia jest nieograniczona i nie ma podstaw. Podgląd pokazuje tylko obszar, w którym wykonano obliczenia.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-stozek-podwojny-def"><code>import math
+
+def F(x, y, z, nachylenie=0.65):
+    return math.hypot(x, y) - nachylenie * abs(z)
+
+print(round(F(0, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj promienie przekrojów na Z=1 i Z=2. Jaki stosunek otrzymasz niezależnie od dodatniego nachylenia?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

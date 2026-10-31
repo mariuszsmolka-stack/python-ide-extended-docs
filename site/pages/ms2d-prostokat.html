@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Prostokąt</h1>
+<p class="lead">Rysowany jest obwód prostokąta o niezależnej szerokości i wysokości. Przeciwległe boki są równe i równoległe. Porównaj prostokąt wydłużony poziomo z wydłużonym pionowo.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-prostokat-start"><code>import ms2d
+
+F = ms2d.prostokat()
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-prostokat-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-prostokat"></div><p id="plot-status" class="small-note" role="status"></p>
+{{VISUALIZATION_NOTES}}
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień szerokość z 8 na 4 przy wysokości 4. Prostokąt stanie się kwadratem.</p>
+<pre data-example="ms2d-prostokat-zmiana"><code>import ms2d
+
+F = ms2d.prostokat(szerokosc=4)
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-prostokat-zmiana"><samp>2.0</samp></pre>
+<p>Współrzędne pionowych boków różnią się od x0 o połowę szerokości. Podobnie poziome boki są oddalone od y0 o połowę wysokości. Zwróć uwagę na różnicę między pełnym wymiarem i jego połową.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.prostokat(szerokosc=8, wysokosc=4, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>szerokosc=8</code></dt><dd>Pełny wymiar w kierunku X.</dd><dt><code>wysokosc=4</code></dt><dd>Pełny wymiar w kierunku Y.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Prostokąt - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mrow><mo>|</mo><mi>X</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>w</mi><mn>2</mn></mfrac></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>Y</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Szerokość w i wysokość h są dodatnie, a środek to (x0, y0). We wzorze X = x-x0 i Y = y-y0. Poziom zero obejmuje cztery boki, bez wnętrza.</p><p>Szerokość i wysokość muszą być dodatnie, a środek ma skończone współrzędne. F jest określona na całej płaszczyźnie.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-prostokat-def"><code>
+def F(x, y, szerokosc=8, wysokosc=4, x0=0, y0=0):
+    a, b = (szerokosc, wysokosc)
+    return max(abs(x - x0) - a / 2, abs(y - y0) - b / 2)
+
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Zwiększ szerokość dwa razy, nie zmieniając wysokości. Co stanie się z obwodem, a co z polem figury?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

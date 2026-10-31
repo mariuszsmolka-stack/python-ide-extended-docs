@@ -1,0 +1,17 @@
+.mesh-card { min-width: 0; }
+.mesh-surface { position: relative; width: 100%; height: 360px; min-height: 200px; overflow: hidden; margin-top: 6px; background: #142C43; }
+.mesh-canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.mesh-canvas:active { cursor: grabbing; }
+.mesh-gizmo { position: absolute; width: 100px; height: 100px; top: 0; right: 5px; pointer-events: none; }
+.mesh-gizmo text { font: 600 13px system-ui, sans-serif; }
+.mesh-labels { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
+.mesh-labels text { font: 600 15px system-ui, sans-serif; }
+.mesh-help { margin: 4px 10px; font-size: 11px; line-height: 17px; color: var(--muted); }
+.mesh-context-message { position: absolute; inset: 20% 10% auto; padding: 12px; background: #162c44; color: #fff; border: 1px solid #6886a7; border-radius: 6px; font-size: 13px; }
+.mesh-context-message[hidden] { display: none; }
+.mesh-transfer-status { padding: 15px; font-size: 12px; }
+.mesh-transfer-title { margin-top: 4px; }
+.mesh-legend { padding: 2px 5px; border: 1px solid transparent; border-radius: 4px; background: transparent; font: inherit; }
+.mesh-legend::before { content: ''; display: inline-block; width: 20px; height: 4px; margin: 0 6px 3px 0; background: var(--mesh-palette); }
+.mesh-legend[aria-pressed="false"] { opacity: .55; text-decoration: line-through; border-color: var(--border); }
+.plot-tools button[aria-pressed="true"] { background: #e1edff; border-color: #1c65c4; }

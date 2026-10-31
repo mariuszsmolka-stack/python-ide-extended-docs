@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Fale koncentryczne</h1>
+<p class="lead">Wzniesienia i zagłębienia tworzą okręgi wokół środka. Ich wysokość nie maleje z odległością, bo amplituda jest stała. Zmieniaj częstotliwość, aby porównać odstępy między pierścieniami.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-fale-koncentryczne-start"><code>import ms3d
+
+F = ms3d.fale_koncentryczne()
+print(round(F(0, 0, 1.5), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-fale-koncentryczne-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-fale-koncentryczne"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz częstotliwość z 1.2 do 0.6. Odległość między kolejnymi pierścieniami podwoi się, ale ich wysokość się nie zmieni.</p>
+<pre data-example="ms3d-fale-koncentryczne-zmiana"><code>import ms3d
+
+F = ms3d.fale_koncentryczne(czestotliwosc=0.6)
+print(round(F(0, 0, 1.5), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-fale-koncentryczne-zmiana"><samp>0.0</samp></pre>
+<p>W środku występuje maksimum. Amplituda nie maleje wraz z odległością, inaczej niż w powierzchni sinc. Kształt zależy wyłącznie od odległości od środka, nie od kierunku.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.fale_koncentryczne(amplituda=1.5, czestotliwosc=1.2)</code></p><dl class="lesson-parameters"><dt><code>amplituda=1.5</code></dt><dd>Największe wychylenie od wysokości zero.</dd><dt><code>czestotliwosc=1.2</code></dt><dd>Zmiana kąta na jednostkę odległości od środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Fale koncentryczne - wzór matematyczny"><mrow><mi>z</mi><mo>=</mo><mrow><mi>A</mi><mrow><mi>cos</mi><mrow><mo>(</mo><mrow><mi>k</mi><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow><mo>)</mo></mrow></mrow></mrow></mrow></math><p>Dodatnie A = amplituda i k = czestotliwosc określają wychylenie i zmianę kąta na jednostkę odległości. Promieniowy okres wynosi 2π/k, a w środku wysokość wynosi A. Wysokość jest określona na całej płaszczyźnie.</p><p>Oba parametry są dodatnie. Wysokość jest określona dla dowolnych X i Y. Model pokazuje tylko ograniczony fragment nieograniczonej powierzchni.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-fale-koncentryczne-def"><code>import math
+
+def F(x, y, z, amplituda=1.5, czestotliwosc=1.2):
+    A, k = (amplituda, czestotliwosc)
+    return z - A * math.cos(k * math.hypot(x, y))
+
+print(round(F(0, 0, 1.5), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj punkty (3,0) i (0,3) w płaszczyźnie XY. Dlaczego mają tę samą wysokość dla dowolnych dozwolonych parametrów?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

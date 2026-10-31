@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Hiperboloida dwupowłokowa</h1>
+<p class="lead">Powierzchnia składa się z dwóch rozdzielonych części po przeciwnych stronach środka. Między nimi pozostaje przerwa. Zmieniaj c, aby porównać odległość między najbliższymi punktami obu części.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-hiperboloida-dwupowlokowa-start"><code>import ms3d
+
+F = ms3d.hiperboloida_dwupowlokowa()
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-hiperboloida-dwupowlokowa-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-hiperboloida-dwupowlokowa"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zwiększ c z 2 do 3. Odległość między najbliższymi punktami obu powłok zwiększy się z 4 do 6.</p>
+<pre data-example="ms3d-hiperboloida-dwupowlokowa-zmiana"><code>import ms3d
+
+F = ms3d.hiperboloida_dwupowlokowa(c=3)
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-hiperboloida-dwupowlokowa-zmiana"><samp>-0.555556</samp></pre>
+<p>Wierzchołki powłok to (0,0,c) i (0,0,-c). W przekroju Z=0 nie ma punktów powierzchni. Jest to różnica matematyczna, a nie efekt ukrywania tylnej części modelu.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.hiperboloida_dwupowlokowa(a=2, b=2, c=2)</code></p><dl class="lesson-parameters"><dt><code>a=2</code></dt><dd>Skala rozwarcia w kierunku X.</dd><dt><code>b=2</code></dt><dd>Skala rozwarcia w kierunku Y.</dd><dt><code>c=2</code></dt><dd>Odległość najbliższego punktu każdej powłoki od środka wzdłuż Z.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Hiperboloida dwupowłokowa - wzór matematyczny"><mrow><mrow><msup><mrow><mo>(</mo><mfrac><mi>z</mi><mi>c</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>x</mi><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><msup><mrow><mo>(</mo><mfrac><mi>y</mi><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mn>1</mn></mrow></math><p>Parametry a, b, c są dodatnie, a powłoki istnieją tylko dla |Z| ≥ c. Ich wierzchołki to (0, 0, c) i (0, 0, -c), więc dzieli je odległość 2c. Parametry a i b wpływają na rozwarcie.</p><p>Wszystkie parametry są dodatnie. F jest określona w całej przestrzeni, ale na samej powierzchni musi zachodzić |Z|≥c. Między powłokami pozostaje przerwa.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-hiperboloida-dwupowlokowa-def"><code>
+def F(x, y, z, a=2, b=2, c=2):
+    return (z / c) ** 2 - (x / a) ** 2 - (y / b) ** 2 - 1
+
+print(round(F(0, 0, 2), 6))
+rysuj_3(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms3d-hiperboloida-dwupowlokowa-lambda"><code>rysuj_3(lambda x, y, z: (z / 2) ** 2 - (x / 2) ** 2 - (y / 2) ** 2 - 1)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Zmieniaj samo a przy stałym c. Czy odległość między wierzchołkami powłok też się zmienia?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

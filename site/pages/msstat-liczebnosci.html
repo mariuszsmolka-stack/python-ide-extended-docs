@@ -1,0 +1,39 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Liczebności</h1>
+<p class="lead">Liczebność mówi, ile razy wystąpiła konkretna wartość. Suma wszystkich liczebności jest równa liczbie danych. Zmieniaj powtórzenia i porównuj udział poszczególnych wartości.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-liczebnosci-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.liczebnosci(dane)
+print(wynik)
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-liczebnosci-start"><samp>[(1.0, 2), (3.0, 1), (5.0, 1), (8.0, 1)]</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Dopisz drugą trójkę. Jej liczebność wzrośnie z 1 do 2, a liczebności pozostałych wartości nie zmienią się.</p>
+<pre data-example="msstat-liczebnosci-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 3, 5, 8]
+wynik = msstat.liczebnosci(dane)
+print(wynik)
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-liczebnosci-zmiana"><samp>[(1.0, 2), (3.0, 2), (5.0, 1), (8.0, 1)]</samp></pre>
+<p>W każdej parze pierwsza liczba jest wartością danych, a druga liczbą jej wystąpień. Suma drugich elementów wszystkich par daje liczbę obserwacji. Nie należy sumować samych różnych wartości zamiast ich liczebności.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.liczebnosci(dane)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja liczb, w której liczone są powtórzenia.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Liczebności - wzór matematyczny"><mrow><mrow><mi>c</mi><mrow><mo>(</mo><mi>v</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>#</mo><mo>{</mo><mi>i</mi><mo>:</mo><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>=</mo><mi>v</mi></mrow><mo>}</mo></mrow></mrow></math><p>Wynikiem jest rosnąca lista par (wartość, liczebność). Dane są niepuste i muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych. Symbol # oznacza liczbę elementów zbioru indeksów.</p><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych. Wynikiem jest lista par uporządkowana rosnąco według wartości, niezależnie od kolejności wejścia.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-liczebnosci-def"><code>
+from collections import Counter
+
+def oblicz(dane):
+    return sorted(Counter(dane).items())
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Policz liczebności dla danych zapisanych w odwrotnej kolejności. Dlaczego wynik powinien pozostać taki sam?</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

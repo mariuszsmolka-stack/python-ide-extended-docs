@@ -1,0 +1,40 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Odchylenie standardowe</h1>
+<p class="lead">Odchylenie standardowe jest miarą rozrzutu wyrażoną w tych samych jednostkach co dane. Wynosi zero dla jednakowych wartości. Porównaj zbiory skupione blisko średniej i mocno rozproszone.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-odchylenie-standardowe-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.odchylenie_standardowe(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-odchylenie-standardowe-start"><samp>2.6533</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Zmień proba=False na proba=True bez zmiany danych. Porównaj wynik z pierwiastkiem z odpowiedniej wariancji.</p>
+<pre data-example="msstat-odchylenie-standardowe-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.odchylenie_standardowe(dane, proba=True)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-odchylenie-standardowe-zmiana"><samp>2.966479</samp></pre>
+<p>Odchylenie standardowe ma tę samą jednostkę co dane, np. centymetry zamiast centymetrów kwadratowych. Dla początkowego zbioru wynosi około 2.6533. Nie jest to średnia odległość od średniej, lecz pierwiastek ze średniego kwadratu odchyleń przy wybranym mianowniku.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.odchylenie_standardowe(dane, proba=False)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja danych.</dd><dt><code>proba=False</code></dt><dd>False wybiera populację, a True próbę i wymaga co najmniej dwóch obserwacji.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Odchylenie standardowe - wzór matematyczny"><mrow><mi>s</mi><mo>=</mo><msqrt><mi>V</mi></msqrt></mrow></math><p>Jest to pierwiastek z wariancji V. Parametr proba wybiera ten sam mianownik co przy wariancji: n dla populacji lub n-1 dla próby, która wymaga n ≥ 2. Dane muszą być niepuste.</p><p>Dane muszą być rzeczywiste i skończone, bez wartości logicznych. Parametr proba jest wartością logiczną. Dla proba=True potrzebne są co najmniej dwie obserwacje.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-odchylenie-standardowe-def"><code>import msstat
+import math
+
+
+def oblicz(dane, proba=False):
+    return math.sqrt(msstat.wariancja(dane, proba=proba))
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Pomnóż wszystkie dane przez 3 i porównaj odchylenia. Następnie przesuń wszystkie dane o 100; czy wynik ponownie się zmieni?</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

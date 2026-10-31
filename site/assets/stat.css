@@ -1,0 +1,8 @@
+.stat-chart { display:block; width:100%; min-height:200px; }
+.stat-bar { fill:#1763bf; }
+.stat-grid { stroke:#dbe5f1; stroke-width:1; }
+.stat-count { fill:#17497d; }
+.stat-table { border-collapse:collapse; margin:8px 12px; font:12px ui-monospace,monospace; }
+.stat-table caption { text-align:left; padding:4px 0; }
+.stat-table th,.stat-table td { border:1px solid #dbe5f1; padding:4px 10px; text-align:right; }
+.stat-card .plot-details { max-height:190px; overflow:auto; }

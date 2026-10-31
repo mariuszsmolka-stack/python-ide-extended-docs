@@ -1,0 +1,41 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Powierzchnia sinc</h1>
+<p class="lead">Powierzchnia ma centralne wzniesienie i pierścieniowe oscylacje. W przeciwieństwie do fal koncentrycznych ich wychylenia maleją z odległością. Zmieniaj częstotliwość, aby porównać zagęszczenie pierścieni.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-powierzchnia-sinc-start"><code>import ms3d
+
+F = ms3d.powierzchnia_sinc()
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-powierzchnia-sinc-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-powierzchnia-sinc"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmniejsz częstotliwość z 1.5 do 0.75. Centralne wzniesienie i odstępy między pierścieniami rozszerzą się w poziomie.</p>
+<pre data-example="ms3d-powierzchnia-sinc-zmiana"><code>import ms3d
+
+F = ms3d.powierzchnia_sinc(czestotliwosc=0.75)
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-powierzchnia-sinc-zmiana"><samp>0.0</samp></pre>
+<p>Kolejne wychylenia maleją, ponieważ sinus jest dzielony przez rosnącą odległość. W samym środku nie wykonujemy dzielenia przez zero. Wartość ustalono tak, aby powierzchnia była ciągła.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.powierzchnia_sinc(amplituda=3, czestotliwosc=1.5)</code></p><dl class="lesson-parameters"><dt><code>amplituda=3</code></dt><dd>Wysokość centralnego maksimum i skala wychyleń.</dd><dt><code>czestotliwosc=1.5</code></dt><dd>Dodatni parametr zagęszczenia pierścieni.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Powierzchnia sinc - wzór matematyczny"><mrow><mi>ρ</mi><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt></mrow></math><math display="block" aria-label="Powierzchnia sinc - wzór matematyczny"><mrow><mi>z</mi><mo>=</mo><mrow><mo>{</mo><mtable><mtr><mtd><mfrac><mrow><mi>A</mi><mrow><mi>sin</mi><mrow><mo>(</mo><mrow><mi>k</mi><mi>ρ</mi></mrow><mo>)</mo></mrow></mrow></mrow><mrow><mi>k</mi><mi>ρ</mi></mrow></mfrac></mtd><mtd><mtext>ρ &gt; 0</mtext></mtd></mtr><mtr><mtd><mi>A</mi></mtd><mtd><mtext>ρ = 0</mtext></mtd></mtr></mtable></mrow></mrow></math><p>Dodatnie A = amplituda i k = czestotliwosc określają skalę; ρ jest odległością od początku układu w płaszczyźnie XY. W środku przyjęto graniczną wysokość A, więc dziedziną jest cała płaszczyzna.</p><p>Oba parametry są dodatnie. W środku przyjęta jest wartość graniczna równa amplitudzie, więc nie ma otworu w dziedzinie. Wysokość jest określona na całej płaszczyźnie.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-powierzchnia-sinc-def"><code>import math
+
+def F(x, y, z, amplituda=3, czestotliwosc=1.5):
+    A, k = (amplituda, czestotliwosc)
+    q = k * math.hypot(x, y)
+    sinc = 1 if q == 0 else math.sin(q) / q
+    return z - A * sinc
+
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj tę powierzchnię z falami koncentrycznymi. Co zmienia się w odległych pierścieniach po zwiększeniu obszaru obserwacji?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

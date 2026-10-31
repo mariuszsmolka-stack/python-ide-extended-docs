@@ -1,0 +1,41 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Tangens</h1>
+<p class="lead">Przy domyślnych parametrach wykres ma powtarzające się, rosnące gałęzie. Przerwy występują tam, gdzie cosinus kąta jest równy zero. Zmieniając omega, porównaj odstępy między gałęziami.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-tangens-start"><code>import ms2d
+
+f = ms2d.tangens()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-tangens-start"><samp>0.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-tangens"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień omega z 1 na 2. Dla niezerowego A okres zmaleje z π do π/2, więc w tym samym przedziale pojawi się więcej gałęzi.</p>
+<pre data-example="ms2d-tangens-zmiana"><code>import ms2d
+
+f = ms2d.tangens(omega=2)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-tangens-zmiana"><samp>0.0</samp></pre>
+<p>Tangens to iloraz sinusa i cosinusa tego samego kąta. Gdy mianownik zbliża się do zera, powstają osobne gałęzie ograniczone pionowymi asymptotami. Dla dodatniego A·omega każda gałąź rośnie.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.tangens(A=1, omega=1, faza=0, d=0)</code></p><dl class="lesson-parameters"><dt><code>A=1</code></dt><dd>Skala wartości; ujemna odwraca kierunek gałęzi.</dd><dt><code>omega=1</code></dt><dd>Zmiana kąta na jednostkę X; określa odstępy między gałęziami.</dd><dt><code>faza=0</code></dt><dd>Przesunięcie kąta, w radianach.</dd><dt><code>d=0</code></dt><dd>Przesunięcie wykresu w pionie.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Tangens - wzór matematyczny"><mrow><mrow><mi>tg</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mi>sin</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow><mrow><mi>cos</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow></mfrac></mrow></math><math display="block" aria-label="Tangens - wzór matematyczny"><mrow><mrow><mi>α</mi><mo>=</mo><mrow><mrow><mi>ω</mi><mi>x</mi></mrow><mo>+</mo><mi>φ</mi></mrow></mrow><mo>,</mo><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>A</mi><mrow><mi>tg</mi><mrow><mo>(</mo><mi>α</mi><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mi>d</mi></mrow></mrow></mrow></math><math display="block" aria-label="Tangens - wzór matematyczny"><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mrow><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>+</mo><mrow><mi>j</mi><mi>π</mi></mrow></mrow><mo>-</mo><mi>φ</mi></mrow><mi>ω</mi></mfrac></mrow></math><p>We wzorze ω oznacza omega, φ oznacza faza, a α jest kątem w radianach; wymagane jest cos(α) ≠ 0. Dla niezerowych A i omega proste wyznaczone przez α = π/2 + jπ są pionowymi asymptotami: gałęzie zbliżają się do nich, lecz ich nie przecinają; j jest całkowite. Okres wynosi π/|omega|, a d przesuwa wykres pionowo. Przy dodatnim A·omega tangens rośnie, a cotangens maleje; ujemny iloczyn odwraca kierunek. Dla A = 0 wartości są stałe, ale wykluczenia pozostają. Dla omega = 0 otrzymujemy stałą tylko dla dozwolonego kąta.</p><p>Wykluczone są argumenty, dla których cos(omega*x+faza)=0. Dla omega=0 dozwolona faza daje stałą, a niedozwolona nie daje żadnych wartości. Parametry są skończone.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-tangens-def"><code>import math
+
+def f(x, A=1, omega=1, faza=0, d=0):
+    kat = omega * x + faza
+    if abs(math.remainder(kat, math.pi)) == math.pi / 2:
+        raise ValueError('Niedozwolony kąt')
+    return A * math.tan(kat) + d
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw faza=π/4. Wyznacz najbliższą zeru pionową asymptotę, uwzględniając przekształcenie argumentu.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

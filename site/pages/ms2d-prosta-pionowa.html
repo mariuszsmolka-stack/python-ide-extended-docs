@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Prosta pionowa</h1>
+<p class="lead">Każdy punkt tej prostej ma tę samą współrzędną X. Nie jest to wykres pojedynczej wartości Y dla każdego X. Zmieniaj c, aby przesuwać prostą poziomo.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-prosta-pionowa-start"><code>import ms2d
+
+F = ms2d.prosta_pionowa()
+print(round(F(2, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-prosta-pionowa-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-prosta-pionowa"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień c z 2 na -2. Pionowa prosta przesunie się na drugą stronę osi Y, bez zmiany kierunku.</p>
+<pre data-example="ms2d-prosta-pionowa-zmiana"><code>import ms2d
+
+F = ms2d.prosta_pionowa(c=-2)
+print(round(F(2, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-prosta-pionowa-zmiana"><samp>4.0</samp></pre>
+<p>Do jednej wartości X należy nieskończenie wiele wartości Y. Dlatego nie zapisujemy tej prostej jako y=f(x). Funkcja pomocnicza F(x,y)=x-c pozwala opisać ją równaniem.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.prosta_pionowa(c=2)</code></p><dl class="lesson-parameters"><dt><code>c=2</code></dt><dd>Stała współrzędna X prostej.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Prosta pionowa - wzór matematyczny"><mrow><mi>x</mi><mo>=</mo><mi>c</mi></mrow></math><p>Równanie określa prostą pionową, a parametr c jej położenie. Funkcja pomocnicza F jest określona dla każdej pary liczb rzeczywistych; jej poziom zero spełnia poniższe równanie.</p><p>Funkcja F jest określona dla każdej pary rzeczywistych współrzędnych. Parametr c jest skończony. Krzywa składa się tylko z punktów, dla których F=0.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-prosta-pionowa-def"><code>
+def F(x, y, c=2):
+    return x - c
+
+print(round(F(2, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-prosta-pionowa-lambda"><code>rysuj_2(lambda x, y: x - 2)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Narysuj wspólnie pionową prostą i okrąg. Dobierz c tak, aby wystąpiły dwa, jeden albo żaden punkt wspólny.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

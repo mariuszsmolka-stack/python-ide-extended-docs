@@ -1,0 +1,40 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Graniastosłup trójkątny</h1>
+<p class="lead">Powierzchnia ma dwie równoboczne podstawy i trzy prostokątne ściany boczne. Przekroje równoległe do podstaw są takimi samymi trójkątami. Zmieniaj bok podstawy i wysokość, aby porównywać proporcje.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-graniastoslup-trojkatny-start"><code>import ms3d
+
+F = ms3d.graniastoslup_trojkatny()
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-graniastoslup-trojkatny-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-graniastoslup-trojkatny"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień bok z 5 na 3. Podstawy się zmniejszą, a wysokość pozostanie taka sama.</p>
+<pre data-example="ms3d-graniastoslup-trojkatny-zmiana"><code>import ms3d
+
+F = ms3d.graniastoslup_trojkatny(bok=3)
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-graniastoslup-trojkatny-zmiana"><samp>0.0</samp></pre>
+<p>Każdy przekrój równoległy do podstaw ma ten sam kształt i rozmiar. Środek ciężkości podstawy leży na osi Z. Jego odległość od górnego wierzchołka trójkąta jest większa niż od przeciwległego boku.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.graniastoslup_trojkatny(bok=5, wysokosc=6)</code></p><dl class="lesson-parameters"><dt><code>bok=5</code></dt><dd>Długość każdego boku równobocznej podstawy.</dd><dt><code>wysokosc=6</code></dt><dd>Pełna odległość między podstawami wzdłuż Z.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Graniastosłup trójkątny - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mrow><mo>-</mo><mi>y</mi></mrow><mo>-</mo><mfrac><mi>t</mi><mn>3</mn></mfrac></mrow><mo>,</mo><mfrac><mrow><mrow><mrow><msqrt><mn>3</mn></msqrt><mi>x</mi></mrow><mo>+</mo><mi>y</mi></mrow><mo>-</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mn>3</mn></mfrac></mrow><mn>2</mn></mfrac><mo>,</mo><mfrac><mrow><mrow><mrow><mo>-</mo><mrow><msqrt><mn>3</mn></msqrt><mi>x</mi></mrow></mrow><mo>+</mo><mi>y</mi></mrow><mo>-</mo><mfrac><mrow><mn>2</mn><mi>t</mi></mrow><mn>3</mn></mfrac></mrow><mn>2</mn></mfrac><mo>,</mo><mrow><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Wymagane są b = bok &gt; 0 i h = wysokosc &gt; 0; t = √3·b/2 to wysokość trójkąta podstawy. Oś graniastosłupa to Z, a podstawy leżą na Z = ±h/2. Nierówności tworzące maksimum opisują trzy boki i obie podstawy.</p><p>Bok i wysokość są dodatnie. Podstawy leżą na Z=±wysokosc/2. F jest określona w całej przestrzeni; poziom zero obejmuje także podstawy.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-graniastoslup-trojkatny-def"><code>import math
+
+def F(x, y, z, bok=5, wysokosc=6):
+    a, h = (bok, wysokosc)
+    t = math.sqrt(3) * a / 2
+    return max(-y - t / 3, (math.sqrt(3) * x + y - 2 * t / 3) / 2, (-math.sqrt(3) * x + y - 2 * t / 3) / 2, abs(z) - h / 2)
+
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj ten model z ostrosłupem. W którym z nich rozmiar poziomego przekroju zależy od wysokości?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

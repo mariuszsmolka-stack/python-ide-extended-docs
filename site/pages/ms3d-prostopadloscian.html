@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Prostopadłościan</h1>
+<p class="lead">Powierzchnia prostopadłościanu składa się z sześciu prostokątnych ścian. Przeciwległe ściany są równoległe i przystające. Zmieniaj trzy wymiary, aby porównać bryłę wydłużoną i zbliżoną do sześcianu.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-prostopadloscian-start"><code>import ms3d
+
+F = ms3d.prostopadloscian()
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-prostopadloscian-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-prostopadloscian"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień szerokość z 6 na 4. Wymiary w kierunkach X i Y staną się równe, lecz wysokość pozostanie równa 3.</p>
+<pre data-example="ms3d-prostopadloscian-zmiana"><code>import ms3d
+
+F = ms3d.prostopadloscian(szerokosc=4)
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-prostopadloscian-zmiana"><samp>1.0</samp></pre>
+<p>Środek pozostaje w początku układu. Każda para przeciwległych ścian leży w odległościach równych połowie odpowiedniego wymiaru od środka. Równość wszystkich wymiarów daje sześcian.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.prostopadloscian(szerokosc=6, glebokosc=4, wysokosc=3)</code></p><dl class="lesson-parameters"><dt><code>szerokosc=6</code></dt><dd>Pełny wymiar wzdłuż X.</dd><dt><code>glebokosc=4</code></dt><dd>Pełny wymiar wzdłuż Y.</dd><dt><code>wysokosc=3</code></dt><dd>Pełny wymiar wzdłuż Z.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Prostopadłościan - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>w</mi><mn>2</mn></mfrac></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>y</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>d</mi><mn>2</mn></mfrac></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Pełne dodatnie wymiary w, d i h odpowiadają szerokości, głębokości i wysokości wzdłuż X, Y, Z. Środek leży w początku układu. Poziom zero obejmuje ściany, ale nie wnętrze.</p><p>Wszystkie wymiary są dodatnie. F jest określona w całej przestrzeni. Jej poziom zero obejmuje sześć ścian, a nie wnętrze prostopadłościanu.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-prostopadloscian-def"><code>
+def F(x, y, z, szerokosc=6, glebokosc=4, wysokosc=3):
+    a, b, h = (szerokosc, glebokosc, wysokosc)
+    return max(abs(x) - a / 2, abs(y) - b / 2, abs(z) - h / 2)
+
+print(round(F(3, 0, 0), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw wszystkie wymiary na 4. Podaj współrzędne ośmiu wierzchołków i sprawdź odległość jednego z nich od środka.</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

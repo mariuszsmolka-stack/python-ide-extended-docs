@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja wykładnicza</h1>
+<p class="lead">Przy dodatnim a i podstawie b większej od 1 wartości rosną coraz szybciej. Dla podstawy między 0 i 1 wartości maleją. Porównaj te przypadki, zachowując pozostałe parametry.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-wykladnicza-start"><code>import ms2d
+
+f = ms2d.wykladnicza()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-wykladnicza-start"><samp>1.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-wykladnicza"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień podstawę z 2 na 0.5. Przy dodatniej domyślnej skali wykres zmieni się z rosnącego na malejący.</p>
+<pre data-example="ms2d-wykladnicza-zmiana"><code>import ms2d
+
+f = ms2d.wykladnicza(b=0.5)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-wykladnicza-zmiana"><samp>1.0</samp></pre>
+<p>Oba wykresy przechodzą przez (0,1), bo każda dodatnia podstawa podniesiona do zera daje 1. Dla niezerowej skali wykres zbliża się do Y=k, lecz tej prostej nie osiąga.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.wykladnicza(a=1, b=2, h=0, k=0)</code></p><dl class="lesson-parameters"><dt><code>a=1</code></dt><dd>Skala pionowa, która może też odwrócić wykres.</dd><dt><code>b=2</code></dt><dd>Dodatnia podstawa potęgi, różna od 1.</dd><dt><code>h=0</code></dt><dd>Przesunięcie poziome.</dd><dt><code>k=0</code></dt><dd>Przesunięcie pionowe i wysokość asymptoty dla a różnego od zera.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja wykładnicza - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>a</mi><msup><mi>b</mi><mrow><mi>x</mi><mo>-</mo><mi>h</mi></mrow></msup></mrow><mo>+</mo><mi>k</mi></mrow></mrow></math><p>Podstawa b musi być dodatnia i różna od 1, a dziedziną są wszystkie liczby rzeczywiste. Parametry h i k przesuwają wykres. Dla a różnego od zera prosta Y = k jest asymptotą poziomą; dla a = 0 funkcja jest stała.</p><p>Argument X może być dowolną liczbą rzeczywistą. Musi zachodzić b&gt;0 i b≠1. Pozostałe parametry są skończone; a może być zerowe.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-wykladnicza-def"><code>
+def f(x, a=1, b=2, h=0, k=0):
+    return a * b ** (x - h) + k
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-wykladnicza-lambda"><code>rysuj(lambda x: 1 * 2 ** (x - 0) + 0)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw k=2, pozostawiając a=1. Jak zmienią się punkt przecięcia z osią Y i położenie asymptoty?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

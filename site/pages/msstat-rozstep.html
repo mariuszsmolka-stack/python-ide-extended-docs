@@ -1,0 +1,37 @@
+<p class="eyebrow">Statystyka</p>
+<h1>Rozstęp</h1>
+<p class="lead">Rozstęp jest różnicą między największą i najmniejszą wartością. Nie uwzględnia rozmieszczenia pozostałych danych. Porównaj zbiory o tych samych skrajnych wartościach, ale innym środku.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="msstat-rozstep-start"><code>import msstat
+
+dane = [1, 1, 3, 5, 8]
+wynik = msstat.rozstep(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-rozstep-start"><samp>7.0</samp></pre>
+
+
+
+<h2>Eksperymentuj</h2>
+<p>Zastąp 8 przez 50. Rozstęp wzrośnie z 7 do 49, mimo że pozostałe obserwacje nie uległy zmianie.</p>
+<pre data-example="msstat-rozstep-zmiana"><code>import msstat
+
+dane = [1, 1, 3, 5, 50]
+wynik = msstat.rozstep(dane)
+print(round(wynik, 6))
+</code></pre>
+<p class="small-note">Wynik w konsoli (liczby dziesiętne zaokrąglono w kodzie tam, gdzie użyto round):</p><pre class="lesson-result" data-result-for="msstat-rozstep-zmiana"><samp>49.0</samp></pre>
+<p>Rozstęp mierzy pełną szerokość danych, a nie ich typowe skupienie. Dwa zbiory o takich samych skrajnych wartościach mogą mieć zupełnie inne rozmieszczenie pozostałych liczb.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Dane podajesz samodzielnie. Pierwszy przykład używa domyślnych wartości pozostałych parametrów.</p><p><code>msstat.rozstep(dane)</code></p><dl class="lesson-parameters"><dt><code>dane - argument wymagany</code></dt><dd>Niepusta kolekcja liczb, z której wybierane są minimum i maksimum.</dd></dl><p>Dane muszą być skończonymi liczbami rzeczywistymi, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Znaczenie wyniku i wzór</summary><div class="discovery-content"><math display="block" aria-label="Rozstęp - wzór matematyczny"><mrow><mi>R</mi><mo>=</mo><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><mo>)</mo></mrow></mrow><mo>-</mo><mrow><mi>min</mi><mrow><mo>(</mo><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><mo>)</mo></mrow></mrow></mrow></mrow></math><p>Dane muszą być niepuste. Rozstęp jest nieujemny i wynosi zero wtedy, gdy wszystkie wartości są jednakowe. Pojedyncza skrajna obserwacja może go znacznie zwiększyć.</p><p>Potrzebne są skończone liczby rzeczywiste, bez wartości logicznych. Dla jednej obserwacji i dla zbioru jednakowych wartości wynik wynosi zero.</p></div></details><details><summary><span>C</span>Zapis obliczenia w Pythonie</summary><div class="discovery-content"><pre data-example="msstat-rozstep-def"><code>
+def oblicz(dane):
+    return max(dane) - min(dane)
+
+dane = [1, 1, 3, 5, 8]
+print(oblicz(dane))
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj [1,1,1,1,8] oraz [1,4,4,4,8]. Oblicz rozstęp i odchylenie standardowe obu zbiorów.</p>
+<p><a href="ograniczenia.html#statystyka">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

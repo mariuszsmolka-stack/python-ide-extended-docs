@@ -1,0 +1,28 @@
+.docs-plot{height:600px;max-width:100%;overflow:auto;position:relative;border:1px solid var(--line);--border:var(--line);margin:20px 0 8px;overscroll-behavior:contain}
+.docs-plot .plot-card{padding:10px 0;min-width:0}.docs-plot h3{font-size:15px;margin:0 12px 8px}
+.docs-plot .plot-titlebar{display:flex;align-items:start;justify-content:space-between;flex-wrap:wrap;gap:6px;padding:6px}
+.docs-plot .plot-tools{display:flex;flex-wrap:wrap;gap:5px;max-width:100%;font-size:13px}
+.docs-plot button{border:1px solid var(--line);background:var(--paper);color:var(--brand);font:inherit;padding:4px 8px;border-radius:4px;cursor:pointer}
+.docs-plot .plot-legend{display:flex;flex-wrap:wrap;gap:8px;padding:4px 12px;font-size:12px}
+.docs-plot .plot-chart{display:block;width:100%;min-height:200px;height:auto;touch-action:none}
+.docs-plot .plot-grid line{stroke:var(--line);stroke-width:1}.docs-plot .plot-axis{stroke:var(--muted);stroke-width:1.4}.docs-plot .plot-frame{fill:none;stroke:var(--line)}
+.docs-plot .plot-tick{fill:var(--muted);font:14px system-ui}.docs-plot .plot-axis-label{fill:var(--ink);font:bold 15px system-ui}
+.docs-plot .plot-curve{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}.docs-plot .curve-1{stroke:#1768b7}.docs-plot .curve-2{stroke:#ba4772;stroke-dasharray:8 4}
+.docs-plot .plot-details,.docs-plot .plot-note,.docs-plot .plot-domain-note,.docs-plot .plot-view-status,.docs-plot .plot-data-warning{font-size:12px;line-height:1.5;margin:4px 12px}
+.docs-plot .plot-settings{max-width:100%}.docs-plot .plot-ranges{display:flex;flex-wrap:wrap;gap:6px;padding:8px}.docs-plot .plot-ranges input{width:100px;max-width:100%;font:inherit}.docs-plot .plot-ranges label{display:flex;flex-direction:column}.docs-plot .plot-ranges p{width:100%;margin:0}
+.docs-plot .plot-range-error{color:var(--ink)}.docs-plot .plot-legend button[aria-pressed=false]{opacity:.55;text-decoration:line-through}
+.model-figure:has([data-mesh]){max-width:850px;margin:22px 0}.model-figure [data-mesh]{height:430px}
+.path-steps a{display:block;border:2px solid var(--path-color);color:var(--path-color);padding:6px 10px;border-radius:4px}.path-badge{background:var(--path-surface,var(--path-color));border:2px solid var(--path-color);color:var(--path-foreground,#fff)}
+.path-list li{border-left:3px solid var(--path-color);padding-left:10px}.path-navigation{border-top-color:var(--path-color)}
+.path-steps a small{color:inherit}
+@media(max-width:600px){.docs-plot{height:670px}.model-figure [data-mesh]{height:310px}.path-steps{align-items:start}}
+.path-sequence{border:1px solid var(--line);border-top:3px solid var(--path-color);border-radius:5px;padding:16px;margin:24px 0}
+.path-sequence h2{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 14px}
+.path-sequence .track-overview{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:24px;list-style:none;padding:0;margin:0}
+.path-sequence .track-overview li{position:relative;min-width:0;margin:0;padding:0}
+.path-sequence .track-overview a{display:flex;align-items:center;gap:8px;height:100%;min-height:84px;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-bottom:3px solid var(--path-color);border-radius:4px;color:var(--ink);font-size:14px;line-height:1.5;text-decoration:none}
+.path-sequence .track-overview a:hover{text-decoration:underline;text-underline-offset:3px}
+.path-sequence .step-marker{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-width:38px;min-height:32px;padding:2px 4px;border:2px solid var(--path-color);border-radius:4px;background:var(--path-surface,var(--path-color));color:var(--path-foreground);font-size:13px;font-weight:700;white-space:nowrap}
+.path-sequence .step-title{overflow-wrap:anywhere}
+.path-sequence .track-overview li:not(:last-child)::after{content:'→';position:absolute;right:-19px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+@media(max-width:700px){.path-sequence .track-overview{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:minmax(0,1fr);gap:24px}.path-sequence .track-overview a{min-height:62px}.path-sequence .track-overview li:not(:last-child)::after{content:'↓';top:auto;right:50%;bottom:-24px;transform:translateX(50%)}.path-sequence{padding:14px}}

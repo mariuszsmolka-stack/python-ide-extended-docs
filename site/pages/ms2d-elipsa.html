@@ -1,0 +1,41 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Elipsa</h1>
+<p class="lead">Elipsa ma dwie prostopadłe osie symetrii. Długości a i b wyznaczają jej rozciągnięcie w dwóch kierunkach. Gdy a = b, otrzymujemy okrąg.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-elipsa-start"><code>import ms2d
+
+F = ms2d.elipsa()
+print(round(F(5, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-elipsa-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-elipsa"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień a z 5 na 3, pozostawiając b=3. Obie półosie staną się równe i otrzymasz okrąg.</p>
+<pre data-example="ms2d-elipsa-zmiana"><code>import ms2d
+
+F = ms2d.elipsa(a=3)
+print(round(F(5, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-elipsa-zmiana"><samp>0.666667</samp></pre>
+<p>Przy wartościach domyślnych skrajne punkty leżą w odległościach 5 i 3 od środka na odpowiednich osiach. Nie jest to rozciągnięcie obrazu w przeglądarce, tylko zmiana równania.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.elipsa(a=5, b=3, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>a=5</code></dt><dd>Półoś w kierunku X.</dd><dt><code>b=3</code></dt><dd>Półoś w kierunku Y.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X środka.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y środka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Elipsa - wzór matematyczny"><mrow><mrow><msup><mrow><mo>(</mo><mfrac><mrow><mi>x</mi><mo>-</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><mi>a</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo>(</mo><mfrac><mrow><mi>y</mi><mo>-</mo><msub><mi>y</mi><mn>0</mn></msub></mrow><mi>b</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mn>1</mn></mrow></math><p>Dodatnie a i b są półosiami wzdłuż X i Y, a środek to (x0, y0). Funkcja pomocnicza F jest określona dla każdej pary liczb rzeczywistych; poniżej podano równanie krzywej.</p><p>Wymagane są a&gt;0 i b&gt;0. Środek ma dowolne skończone współrzędne. F jest określona na całej płaszczyźnie, ale tylko jej zera należą do elipsy.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-elipsa-def"><code>import math
+
+def F(x, y, a=5, b=3, x0=0, y0=0):
+    return math.hypot((x - x0) / a, (y - y0) / b) - 1
+
+print(round(F(5, 0), 6))
+rysuj_2(F)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-elipsa-lambda"><code>import math
+
+rysuj_2(lambda x, y: math.hypot((x - 0) / 5, (y - 0) / 3) - 1)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przesuń środek do (1,-2). Sprawdź współrzędne czterech skrajnych punktów bez uruchamiania programu.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

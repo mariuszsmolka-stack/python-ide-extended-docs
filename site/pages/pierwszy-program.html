@@ -1,0 +1,27 @@
+<p class="eyebrow">Python</p>
+<h1>Pierwszy program w IDE</h1>
+<p class="lead">Program to lista poleceń. Python wykonuje je po kolei. Zacznij od wyświetlenia krótkiej wiadomości.</p>
+<h2>Najpierw uruchom</h2>
+<pre data-example="python-start"><code>imie = "Ola"
+print("Cześć,", imie)
+print("2 + 3 =", 2 + 3)
+</code></pre>
+<p>Skopiuj kod. Otwórz edytor, wklej program i wybierz Uruchom. Wynik pojawi się w konsoli, czyli dolnym panelu na wyniki programu.</p>
+<p>Zmień imię i liczby. Czy tekst <code>"2 + 3 ="</code> zmieni się sam, gdy zmienisz obliczenie?</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries">
+<details><summary><span>A</span>Tekst, liczba i nazwa</summary><div class="discovery-content"><p>Cudzysłowy oznaczają tekst. Zapis <code>2 + 3</code> bez cudzysłowów oznacza obliczenie. Nazwa <code>imie</code> pozwala wrócić do zapisanej wartości.</p><p>Znak <code>=</code> przypisuje wartość do nazwy. Nie jest tu pytaniem o równość.</p></div></details>
+<details><summary><span>B</span>Zapytaj użytkownika</summary><div class="discovery-content"><pre data-example="python-input"><code>imie = input("Jak masz na imię? ")
+print("Cześć,", imie)
+</code></pre><p>Program czeka na odpowiedź w polu pod edytorem. Wpisz ją i naciśnij Enter albo Wyślij. <code>input()</code> zwraca tekst.</p></div></details>
+<details><summary><span>C</span>Napisz własną funkcję</summary><div class="discovery-content"><pre data-example="python-def"><code>def przywitaj(imie="Ola"):
+    return "Cześć, " + imie
+
+print(przywitaj())
+print(przywitaj("Jan"))
+</code></pre><p>Parametr <code>imie</code> przyjmuje przekazany tekst. Wartość domyślna to <code>"Ola"</code>. <code>return</code> zwraca wynik. Wcięcie wskazuje polecenie należące do funkcji.</p><p>Co pojawi się po wywołaniu <code>przywitaj("Ada")</code>? Ta funkcja jest przykładem napisanym tutaj, a nie częścią bibliotek matematycznych.</p></div></details>
+</div>
+<p>To krótki start w środowisku, nie cały kurs Pythona. W kolejnych artykułach użyjesz funkcji do doświadczeń matematycznych.</p>
+<p><a href="ograniczenia.html">Czas działania, zapisywanie pracy i ograniczenia</a></p>
+{{RELATED}}
+{{PATH_NAV}}

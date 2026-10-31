@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja stała</h1>
+<p class="lead">Wykresem jest pozioma prosta, ponieważ wynik nie zależy od X. Parametr c określa jej wysokość. Porównaj wykresy dla dodatniego i ujemnego c.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-stala-start"><code>import ms2d
+
+f = ms2d.stala()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-stala-start"><samp>2.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-stala"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zastąp domyślne c=2 przez c=-2. Obie proste mają to samo nachylenie, ale leżą po przeciwnych stronach osi X.</p>
+<pre data-example="ms2d-stala-zmiana"><code>import ms2d
+
+f = ms2d.stala(c=-2)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-stala-zmiana"><samp>-2.0</samp></pre>
+<p>Wartości f(0), f(3) i f(-3) są jednakowe. Dla c=0 wykres pokrywa się z osią X, więc każdy argument jest miejscem zerowym.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.stala(c=2)</code></p><dl class="lesson-parameters"><dt><code>c=2</code></dt><dd>Wysokość poziomej prostej.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja stała - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mi>c</mi></mrow></math><p>Dziedziną są wszystkie liczby rzeczywiste. Dla c = 0 cała oś X jest wykresem, a dla c różnego od zera funkcja nie ma miejsc zerowych.</p><p>Każdy rzeczywisty X jest dozwolony. Parametr c jest skończoną liczbą; nie ma warunku dodatniości.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-stala-def"><code>
+def f(x, c=2):
+    return c
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-stala-lambda"><code>rysuj(lambda x: 2)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Narysuj na wspólnych osiach trzy funkcje stałe dla c=-2, c=0 i c=3. Która z nich ma miejsca zerowe?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja wymierna</h1>
+<p class="lead">Dla niezerowego a wykres składa się z dwóch oddzielnych gałęzi. Zbliżają się one do prostych X = h i Y = k, nazywanych asymptotami. Zmieniaj h i k, aby obserwować przesuwanie obu gałęzi.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-odwrotna-start"><code>import ms2d
+
+f = ms2d.odwrotna()
+print(round(f(1), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-odwrotna-start"><samp>1.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-odwrotna"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Przesuń h z 0 na 0.13. Przerwa nie wypadnie wtedy dokładnie w jednym z regularnie obliczanych punktów; porównaj przebieg obu gałęzi.</p>
+<pre data-example="ms2d-odwrotna-zmiana"><code>import ms2d
+
+f = ms2d.odwrotna(h=0.13)
+print(round(f(1), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-odwrotna-zmiana"><samp>1.149425</samp></pre>
+<p>Dla niezerowego a wartości bez ograniczenia rosną co do modułu przy zbliżaniu do h. Żaden odcinek nie powinien łączyć gałęzi przez asymptotę. Skończona liczba punktów nie pozwala wykryć każdej możliwej nieciągłości.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.odwrotna(a=1, h=0, k=0)</code></p><dl class="lesson-parameters"><dt><code>a=1</code></dt><dd>Skala i znak gałęzi.</dd><dt><code>h=0</code></dt><dd>Wykluczony argument i położenie pionowej asymptoty.</dd><dt><code>k=0</code></dt><dd>Przesunięcie pionowe i położenie asymptoty poziomej.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja wymierna - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mfrac><mi>a</mi><mrow><mi>x</mi><mo>-</mo><mi>h</mi></mrow></mfrac><mo>+</mo><mi>k</mi></mrow></mrow></math><p>Dziedzina wyklucza x = h. Prosta X = h jest asymptotą pionową, a Y = k poziomą, o ile a jest niezerowe. Dla a = 0 wynik wynosi k, lecz punkt x = h nadal jest wykluczony.</p><p>Dziedzina wyklucza dokładnie x=h. Parametry są skończone. Dla a=0 funkcja ma wartość k poza wykluczonym argumentem, a pionowa asymptota znika.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-odwrotna-def"><code>
+def f(x, a=1, h=0, k=0):
+    return a / (x - h) + k
+
+print(round(f(1), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-odwrotna-lambda"><code>rysuj(lambda x: 1 / (x - 0) + 0)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Ustaw h=2 i k=-1. Wskaż na wykresie obie asymptoty, a potem zmień znak a.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

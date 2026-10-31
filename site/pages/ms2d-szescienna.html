@@ -1,0 +1,38 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Funkcja sześcienna</h1>
+<p class="lead">Wykres funkcji trzeciego stopnia może mieć lokalne minimum i maksimum, ale nie musi. Na obu krańcach zmierza w przeciwne strony. Zmieniaj współczynniki, aby porównać liczbę miejsc zerowych i punktów zwrotnych.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-szescienna-start"><code>import ms2d
+
+f = ms2d.szescienna()
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-szescienna-start"><samp>0.0</samp></pre>
+<p>Wynik f w podanym argumencie jest współrzędną Y punktu wykresu. W podglądzie są tylko wartości obliczone w ograniczonym przedziale X.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-szescienna"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień c=-1 na c=1. Dla pozostałych wartości domyślnych znikają lokalne punkty zwrotne, a wykres rośnie na całej osi.</p>
+<pre data-example="ms2d-szescienna-zmiana"><code>import ms2d
+
+f = ms2d.szescienna(c=1)
+print(round(f(0), 6))
+rysuj(f)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-szescienna-zmiana"><samp>0.0</samp></pre>
+<p>Domyślny wielomian ma miejsca zerowe 0 oraz ±√10. Po zmianie c na 1 jedynym rzeczywistym miejscem zerowym jest 0. Sama obecność potęgi trzeciej nie gwarantuje minimum i maksimum.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.szescienna(a=0.1, b=0, c=-1, d=0)</code></p><dl class="lesson-parameters"><dt><code>a=0.1</code></dt><dd>Współczynnik przy trzeciej potędze X; nie może być zerowy.</dd><dt><code>b=0</code></dt><dd>Współczynnik przy kwadracie X.</dd><dt><code>c=-1</code></dt><dd>Współczynnik przy X.</dd><dt><code>d=0</code></dt><dd>Wartość funkcji przy X=0.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Funkcja sześcienna - wzór matematyczny"><mrow><mi>y</mi><mo>=</mo><mrow><mrow><mi>a</mi><msup><mi>x</mi><mn>3</mn></msup></mrow><mo>+</mo><mrow><mi>b</mi><msup><mi>x</mi><mn>2</mn></msup></mrow><mo>+</mo><mrow><mi>c</mi><mi>x</mi></mrow><mo>+</mo><mi>d</mi></mrow></mrow></math><p>Wymagane jest a różne od zera, a dziedziną są wszystkie liczby rzeczywiste. Funkcja ma co najmniej jedno rzeczywiste miejsce zerowe. Znak a określa kierunki przebiegu dla dużych dodatnich i ujemnych X.</p><p>Dziedziną są wszystkie liczby rzeczywiste. Wymagane jest a różne od zera; pozostałe współczynniki są dowolnymi skończonymi liczbami.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-szescienna-def"><code>
+def f(x, a=0.1, b=0, c=-1, d=0):
+    return ((a * x + b) * x + c) * x + d
+
+print(round(f(0), 6))
+rysuj(f)
+</code></pre></div></details><details><summary><span>D</span>Krótki zapis lambda</summary><div class="discovery-content"><p>Ten zapis dotyczy domyślnych parametrów.</p><pre data-example="ms2d-szescienna-lambda"><code>rysuj(lambda x: ((0.1 * x + 0) * x + -1) * x + 0)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Zmień d z 0 na 2. Czy przesunięcie pionowe zmienia kształt krzywej, czy tylko jej położenie?</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

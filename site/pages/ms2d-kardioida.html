@@ -1,0 +1,40 @@
+<p class="eyebrow">Matematyka 2D</p>
+<h1>Kardioida</h1>
+<p class="lead">Kardioida ma jedno ostrze i jedną oś symetrii. W tej bibliotece wybrzuszenie jest skierowane w prawo. Zmieniaj a oraz położenie ostrza, aby skalować i przesuwać krzywą.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms2d-kardioida-start"><code>import ms2d
+
+F = ms2d.kardioida()
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-kardioida-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie jest liczbą pomocniczą, a nie współrzędną Y. Do krzywej należą punkty z wynikiem zero. Dziedzina F obejmuje więcej punktów niż sama krzywa.</p>
+<div id="plot" class="docs-plot" data-preview="ms2d-kardioida"></div><p id="plot-status" class="small-note" role="status"></p>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień a z 2 na 3. Ostrze pozostanie w tym samym miejscu, a wybrzuszenie powiększy się.</p>
+<pre data-example="ms2d-kardioida-zmiana"><code>import ms2d
+
+F = ms2d.kardioida(a=3)
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms2d-kardioida-zmiana"><samp>-0.888889</samp></pre>
+<p>W kierunku dodatnich X odległość od ostrza wynosi 2a. W kierunku przeciwnym wynosi zero. Symetria dotyczy poziomej prostej przechodzącej przez ostrze, a nie obu osi.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms2d.kardioida(a=2, x0=0, y0=0)</code></p><dl class="lesson-parameters"><dt><code>a=2</code></dt><dd>Dodatnia skala krzywej.</dd><dt><code>x0=0</code></dt><dd>Współrzędna X ostrza.</dd><dt><code>y0=0</code></dt><dd>Współrzędna Y ostrza.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Kardioida - wzór matematyczny"><mrow><mi>r</mi><mo>=</mo><mrow><mi>a</mi><mrow><mo>(</mo><mrow><mn>1</mn><mo>+</mo><mrow><mi>cos</mi><mrow><mo>(</mo><mi>θ</mi><mo>)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mrow></math><p>Wzór biegunowy korzysta z odległości r od ostrza i kąta θ względem dodatniego kierunku X. Wymagane jest a &gt; 0, a ostrze leży w (x0, y0). Równanie opisuje ten sam poziom zero co funkcja biblioteki.</p><p>Parametr a jest dodatni, a położenie skończone. Funkcja pomocnicza jest określona na całej płaszczyźnie, ale równanie biegunowe opisuje odległość od ostrza i kierunek punktu.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms2d-kardioida-def"><code>import math
+
+def F(x, y, a=2, x0=0, y0=0):
+    X, Y = ((x - x0) / a, (y - y0) / a)
+    r = math.hypot(X, Y)
+    return r * r - X - r
+
+print(round(F(4, 0), 6))
+rysuj_2(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Przenieś ostrze do (-1,2). Wyznacz najdalszy punkt w prawo i porównaj odległości w kierunkach górnym oraz dolnym.</p>
+<p><a href="ograniczenia.html#matematyka-2d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}

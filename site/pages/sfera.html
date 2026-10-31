@@ -1,0 +1,87 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Sfera</h1>
+<p class="lead">Sfera to powierzchnia, której każdy punkt jest tak samo odległy od środka. Wyobraź sobie samą skórkę idealnie okrągłej piłki.</p>
+<p>Kula zawiera również wnętrze. Tutaj oglądasz samą powierzchnię.</p>
+<div class="first-experiment">
+  <section aria-labelledby="pierwszy-program"><h2 id="pierwszy-program">Najpierw zobacz</h2>
+    <p>Ten program rysuje sferę o promieniu 3, ze środkiem w początku układu współrzędnych.</p>
+    <pre data-example="sfera-start"><code>import ms3d
+
+rysuj_3(ms3d.sfera(r=3))
+</code></pre>
+    <p>Skopiuj kod i otwórz edytor Python IDE Extended. Zamień <code>3</code> na <code>2</code>, a potem na <code>4</code>. Co się zmieni?</p>
+    <p class="small-note">Kod możesz skopiować i wkleić do edytora Python IDE Extended.</p>
+  </section>
+  <figure class="model-figure">
+    <div id="sphere-model" class="mesh-surface model-frame" aria-label="Podgląd sfery"></div>
+    <figcaption>Obróć model myszą lub strzałkami. Kółko przybliża, a Home przywraca widok.</figcaption>
+    <p class="small-note">Ten podgląd pokazuje sferę o promieniu <code>r=3</code>. Zmiany kodu sprawdzaj w edytorze. Kolor zmienia się wraz z wysokością punktu na osi Z.</p>
+    <p id="model-status" class="model-status" role="status">Ładowanie modelu…</p>
+    <a class="small-link" href="ograniczenia.html#matematyka-3d">Jak dokładny jest ten obraz?</a>
+  </figure>
+</div>
+<h2>Odkrywaj w swoim tempie</h2>
+<p>Nie trzeba otwierać wszystkiego naraz. Wybierz pytanie, które Cię zaciekawiło.</p>
+<div class="discoveries">
+  <details id="parametry"><summary><span>A</span>Poznaj parametry</summary><div class="discovery-content">
+    <p>Parametr pozwala przekazać funkcji wybraną wartość. Tutaj <code>r</code> oznacza promień: odległość od środka do dowolnego punktu sfery.</p>
+    <p>Jeśli nie podasz <code>r</code>, funkcja użyje wartości <strong>5</strong>. To wartość domyślna. Wywołanie <code>ms3d.sfera()</code> daje więc taki sam promień jak <code>ms3d.sfera(r=5)</code>.</p>
+    <p>Promień musi być liczbą większą od zera. Nieskończoność nie jest dozwolona.</p>
+    <math display="block" aria-label="r jest większe od zera"><mi>r</mi><mo>&gt;</mo><mn>0</mn></math>
+    <p>W pierwszym przykładzie wybraliśmy promień <code>r=3</code>.</p>
+  </div></details>
+  <details id="wzor"><summary><span>B</span>Odkryj wzór matematyczny</summary><div class="discovery-content">
+    <p>Środek tej sfery leży w punkcie o współrzędnych zero, zero, zero. Jej punkty spełniają równanie:</p>
+    <math display="block" aria-label="x kwadrat plus y kwadrat plus z kwadrat równa się r kwadrat"><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>r</mi><mn>2</mn></msup></math>
+    <p>Funkcja <code>ms3d.sfera()</code> opisuje sferę za pomocą jej środka i promienia.</p>
+    <p>Każdy punkt sfery znajduje się w tej samej odległości od środka. Ta odległość jest równa promieniowi.</p>
+    <math display="block" aria-label="F od x y z równa się pierwiastek z sumy kwadratów x y z minus r"><mrow><mi>F</mi><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>)</mo></mrow><mo>=</mo><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup></mrow></msqrt><mo>−</mo><mi>r</mi></math>
+    <p>Na powierzchni odległość wynosi dokładnie <math aria-label="r"><mi>r</mi></math>, więc:</p>
+    <math display="block" aria-label="F od x y z równa się zero"><mrow><mi>F</mi><mo>(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>)</mo></mrow><mo>=</mo><mn>0</mn></math>
+    <p>Sprawdź w myślach punkt <code>(3, 0, 0)</code> dla promienia 3. A punkt <code>(0, 0, 0)</code>?</p>
+  </div></details>
+  <details id="dziedzina"><summary><span>C</span>Poznaj dziedzinę</summary><div class="discovery-content">
+    <p>Dziedzina mówi, jakie wartości możesz podać funkcji. Dla ustalonego dodatniego promienia funkcja <code>F(x, y, z)</code> przyjmuje dowolną trójkę liczb rzeczywistych:</p>
+    <math display="block" aria-label="Dziedzina F to R do potęgi trzeciej"><msub><mi>D</mi><mi>F</mi></msub><mo>=</mo><msup><mi mathvariant="double-struck">R</mi><mn>3</mn></msup></math>
+    <p>Dziedzina funkcji nie jest tym samym co powierzchnia. Do sfery należą tylko punkty, w których <code>F</code> ma wartość zero.</p>
+    <p>Dziedzina nie jest też obszarem podglądu. Program oblicza wartości funkcji tylko w wybranych punktach. Leżą one w sześcianie:</p>
+    <math display="block" aria-label="Sześcian od minus sześciu do sześciu w każdej osi"><msup><mrow><mo>[</mo><mo>−</mo><mn>6</mn><mo>,</mo><mn>6</mn><mo>]</mo></mrow><mn>3</mn></msup></math>
+    <p>Większa sfera może wyjść poza ten obszar. Matematycznie nadal istnieje, lecz obraz może pokazać tylko jej fragment. Więcej w <a href="ograniczenia.html#matematyka-3d">rozdziale o ograniczeniach 3D</a>.</p>
+  </div></details>
+  <details id="definicja"><summary><span>D</span>Zobacz definicję w Pythonie</summary><div class="discovery-content">
+    <p>Odległość punktu od początku układu oblicza <code>math.hypot(x, y, z)</code>. Po odjęciu promienia otrzymujemy funkcję, której zera wyznaczają sferę:</p>
+    <pre data-example="sfera-def"><code>import math
+
+def F(x, y, z):
+    return math.hypot(x, y, z) - 3
+
+rysuj_3(F)
+</code></pre>
+    <p><code>math.hypot</code> oblicza odległość punktu od początku układu. Funkcja <code>rysuj_3</code> szuka powierzchni, na której wynik <code>F</code> wynosi zero.</p>
+  </div></details>
+  <details id="lambda"><summary><span>E</span>Zapis lambda</summary><div class="discovery-content">
+    <p>Krótki wzór można zapisać bez nadawania funkcji osobnej nazwy:</p>
+    <pre data-example="sfera-lambda"><code>import math
+
+rysuj_3(lambda x, y, z: math.hypot(x, y, z) - 3)
+</code></pre>
+    <p>To ten sam wzór co w poprzednim programie. <code>lambda</code> pomaga przy krótkich doświadczeniach. Gdy obliczenie ma kilka kroków albo chcesz je opisać komentarzami, zwykłe <code>def</code> będzie czytelniejsze.</p>
+  </div></details>
+  <details id="eksperymenty"><summary><span>F</span>Spróbuj samodzielnie</summary><div class="discovery-content">
+    <ol>
+      <li>Narysuj kolejno sfery o promieniach 1, 2 i 4. Przed uruchomieniem przewidź zmianę obrazu.</li>
+      <li>Sprawdź punkt <code>(0, 3, 0)</code> w swojej funkcji. Jaką wartość otrzymasz?</li>
+      <li>Zastąp odległość równaniem z kwadratami. Czy rozpoznajesz tę samą powierzchnię?</li>
+    </ol>
+    <pre data-example="sfera-kwadraty"><code>def F(x, y, z):
+    return x*x + y*y + z*z - 9
+
+rysuj_3(F)
+</code></pre>
+    <p>Obie funkcje mają wartość zero w tych samych punktach. Dla promienia 3 punkty te tworzą sferę.</p>
+    <p>Program tworzy obraz z wybranych punktów. Dlatego obrazy uzyskane z tych dwóch zapisów mogą się nieznacznie różnić. <a href="ograniczenia.html#dokladnosc">Dlaczego tak się dzieje?</a></p>
+    <p>Spróbuj też promienia zero. Najpierw przewidź, czy funkcja przyjmie tę wartość. Potem sprawdź komunikat w konsoli, czyli miejscu na wyniki programu.</p>
+  </div></details>
+</div>
+{{RELATED}}
+{{PATH_NAV}}

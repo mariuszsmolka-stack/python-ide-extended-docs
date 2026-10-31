@@ -1,0 +1,39 @@
+<p class="eyebrow">Matematyka 3D</p>
+<h1>Stożek</h1>
+<p class="lead">Powierzchnia stożka zwęża się od kołowej podstawy do wierzchołka. Poziome przekroje mają coraz mniejszy promień. Zmieniaj promień podstawy i wysokość, aby porównać nachylenie boku.</p>
+<h2>Pierwszy przykład</h2>
+<pre data-example="ms3d-stozek-start"><code>import ms3d
+
+F = ms3d.stozek()
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-stozek-start"><samp>0.0</samp></pre>
+<p>Wartość F w podanym punkcie nie jest wysokością powierzchni. Narysowane są punkty F=0, bez wypełniania wnętrza bryły. Matematyczna powierzchnia i obszar podglądu to różne rzeczy.</p>
+<figure class="model-figure"><div class="model-frame mesh-surface" data-mesh="ms3d-stozek"></div><figcaption>Obracaj myszą lub strzałkami. Kółko przybliża, Home przywraca widok.</figcaption><p class="model-status" role="status"></p></figure>
+<p class="small-note">Podgląd przedstawia pierwszy program. Zmianę kodu wykonaj w edytorze. Obrót, przesuwanie i przybliżanie nie obliczają nowych wartości funkcji.</p>
+<h2>Eksperymentuj</h2>
+<p>Zmień wysokość z 6 na 3. Wierzchołek i podstawa zbliżą się do początku układu, ale promień podstawy się nie zmieni.</p>
+<pre data-example="ms3d-stozek-zmiana"><code>import ms3d
+
+F = ms3d.stozek(wysokosc=3)
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre>
+<p class="small-note">Wynik w konsoli:</p><pre class="lesson-result" data-result-for="ms3d-stozek-zmiana"><samp>1.5</samp></pre>
+<p>Promień przekroju zmniejsza się liniowo z wysokością. W połowie odległości od podstawy do wierzchołka wynosi połowę promienia podstawy. Powierzchnia zawiera również podstawę.</p>
+<h2>Odkrywaj w swoim tempie</h2>
+<div class="discoveries"><details><summary><span>A</span>Parametry i wartości domyślne</summary><div class="discovery-content"><p>Pierwszy program wywołuje funkcję bez ustawień, czyli korzysta z wszystkich wartości domyślnych podanych poniżej.</p><p><code>ms3d.stozek(r=3, wysokosc=6)</code></p><dl class="lesson-parameters"><dt><code>r=3</code></dt><dd>Promień podstawy.</dd><dt><code>wysokosc=6</code></dt><dd>Pełna odległość od podstawy do wierzchołka.</dd></dl><p>Parametry liczbowe muszą być skończonymi liczbami int lub float, bez wartości logicznych.</p></div></details><details><summary><span>B</span>Równanie, właściwości i dziedzina</summary><div class="discovery-content"><math display="block" aria-label="Stożek - wzór matematyczny"><mrow><mrow><mi>max</mi><mrow><mo>(</mo><mrow><mrow><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt><mo>-</mo><mrow><mi>r</mi><mrow><mo>(</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>-</mo><mfrac><mi>z</mi><mi>h</mi></mfrac></mrow><mo>)</mo></mrow></mrow></mrow><mo>,</mo><mrow><mrow><mo>|</mo><mi>z</mi><mo>|</mo></mrow><mo>-</mo><mfrac><mi>h</mi><mn>2</mn></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math><p>Parametry r i wysokość h są dodatnie. Podstawa leży na Z = -h/2, a wierzchołek na Z = h/2. Promień przekroju zależy liniowo od wysokości.</p><p>Promień i wysokość muszą być dodatnie. F przyjmuje dowolne współrzędne. Podstawa jest na Z=-wysokosc/2, a wierzchołek na Z=wysokosc/2.</p></div></details><details><summary><span>C</span>Definicja w Pythonie</summary><div class="discovery-content"><pre data-example="ms3d-stozek-def"><code>import math
+
+def F(x, y, z, r=3, wysokosc=6):
+    r, h = (r, wysokosc)
+    return max(math.hypot(x, y) - r * (0.5 - z / h), abs(z) - h / 2)
+
+print(round(F(0, 0, 3), 6))
+rysuj_3(F)
+</code></pre></div></details></div>
+<h2>Spróbuj sam</h2>
+<p>Porównaj dwa stożki o tym samym promieniu i różnych wysokościach. Który ma bardziej stromo nachylony bok?</p>
+<p><a href="ograniczenia.html#matematyka-3d">Dokładność, obszar obliczeń i ograniczenia środowiska</a></p>
+{{RELATED}}
+{{PATH_NAV}}
