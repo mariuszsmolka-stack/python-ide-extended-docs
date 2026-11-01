@@ -1,0 +1,66 @@
+<p class="eyebrow">Laboratoria / Eksperyment 04</p>
+<h1>Dlaczego prosta tylko dotyka paraboli?</h1>
+<p class="lead">Na wykresie widzimy parabolę i prostą. Prosta zbliża się do paraboli i dotyka jej w jednym punkcie.</p>
+<p>Dlaczego właśnie w tym miejscu? Czy możemy nieznacznie zmienić równanie prostej i sprawić, że przetnie parabolę w dwóch miejscach albo nie przetnie jej wcale?</p>
+<figure class="lab04-figure"><img src="../assets/laboratoria/laboratorium-04/styczna.svg" width="1100" height="550" loading="lazy" alt="Parabola y = x² i prosta y = 2x − 1."><figcaption>Najpierw spójrz: parabola i prosta. Niebieski wykres to y = x², zielony to y = 2x − 1.</figcaption></figure>
+<ul><li>Co zauważasz?</li><li>Ile punktów wspólnych mają wykresy?</li><li>Czy ich położenie jest przypadkowe?</li><li>Czy potrafisz wskazać punkt styczności?</li></ul>
+<p class="small-note"><a href="index.html">Wszystkie laboratoria</a></p>
+<section aria-labelledby="pytanie"><h2 id="pytanie">1. Pytanie badawcze</h2>
+<p><strong>Co decyduje o tym, czy prosta jest styczna do paraboli, przecina ją w dwóch punktach, czy nie ma z nią żadnego punktu wspólnego?</strong></p>
+<p>Pozostawimy parabolę y = x² bez zmian. Będziemy przesuwać prostą w górę lub w dół, zmieniając tylko jej wyraz wolny. Najpierw przewidź wynik dla liczb −0,9, −1 i −1,1.</p></section>
+<section aria-labelledby="program"><h2 id="program">2. Program Python</h2>
+<p>Skopiuj cały program do Python IDE Extended. Jedno wywołanie <code>rysuj()</code> pokaże parabolę i trzy proste na wspólnych osiach.</p>
+<pre data-example="laboratorium-04-program"><code>def parabola(x):
+    return x * x
+
+def prosta_a(x):
+    return 2 * x - 0.9
+
+def styczna(x):
+    return 2 * x - 1
+
+def prosta_b(x):
+    return 2 * x - 1.1
+
+rysuj(parabola, prosta_a, styczna, prosta_b)
+</code></pre>
+<p><a href="../assets/laboratoria/laboratorium-04/program.py" download>Pobierz program .py</a>. <a href="../instrukcja.html">Jak uruchomić program w IDE?</a></p>
+<p>W kodzie zapisujemy liczby dziesiętne z kropką, np. <code>0.9</code>. W opisach matematycznych używamy przecinka.</p>
+<p>W ustawieniach Zakresy wybierz X od −0,25 do 2,25 i Y od −2 do 4,25. Do powiększenia ustaw X od 0,5 do 1,5 oraz Y od −0,125 do 2,375. Obie osie powiększamy 2,5 razy, zachowując środek i proporcje widoku. Nie trzeba ponownie wykonywać programu.</p></section>
+<section aria-labelledby="wizualizacje"><h2 id="wizualizacje">3. Wizualizacje</h2>
+<p>Każdy rysunek pochodzi z rzeczywistego wykonania programu w IDE. Trzy osobne porównania mają identyczne zakresy: X od −0,25 do 2,25 i Y od −2 do 4,25. Kolory pozostają te same także na wykresie zbiorczym.</p>
+<section class="lab04-case"><h3>Przypadek A: y = 2x − 0,9</h3><p>Prosta leży nieco wyżej niż na pierwszym rysunku. Policz punkty wspólne, zanim przejdziesz do obliczeń.</p><figure class="lab04-figure"><img src="../assets/laboratoria/laboratorium-04/dwa-przeciecia.svg" width="1100" height="550" loading="lazy" alt="Niebieska parabola x² i różowa prosta 2x − 0,9."><figcaption>Przypadek A - parabola i prosta przesunięta o 0,1 w górę względem pierwszego rysunku.</figcaption></figure></section>
+<section class="lab04-case"><h3>Przypadek B: y = 2x − 1</h3><p>Wróć do pierwszego rysunku pod wprowadzeniem. Zakresy osi są takie same jak w przypadkach A i C. Zauważ, czy prosta przechodzi na drugą stronę paraboli.</p></section>
+<section class="lab04-case"><h3>Przypadek C: y = 2x − 1,1</h3><p>Teraz prosta jest o 0,1 niżej niż na pierwszym rysunku. Czy nadal ma punkt wspólny z parabolą?</p><figure class="lab04-figure"><img src="../assets/laboratoria/laboratorium-04/bez-przeciec.svg" width="1100" height="550" loading="lazy" alt="Niebieska parabola x² i bursztynowa prosta 2x − 1,1."><figcaption>Przypadek C - parabola i prosta przesunięta o 0,1 w dół względem pierwszego rysunku.</figcaption></figure></section>
+<h3>Porównaj wszystkie cztery funkcje</h3>
+<figure class="lab04-figure"><img src="../assets/laboratoria/laboratorium-04/porownanie.svg" width="1100" height="550" loading="lazy" alt="Parabola i trzy równoległe proste, każda w innym kolorze."><figcaption>Wspólny wykres czterech funkcji. Różnice między prostymi są niewielkie - przyjrzyj się również powiększeniu poniżej.</figcaption></figure>
+<ol class="lab-legend lab04-legend"><li><span class="lab-swatch lab-color-1" aria-hidden="true"></span><strong>1.</strong><span class="lab-formula">y = x²</span></li><li><span class="lab-swatch lab-color-2" aria-hidden="true"></span><strong>2.</strong><span class="lab-formula">y = 2x − 0,9</span></li><li><span class="lab-swatch lab-color-3" aria-hidden="true"></span><strong>3.</strong><span class="lab-formula">y = 2x − 1</span></li><li><span class="lab-swatch lab-color-4" aria-hidden="true"></span><strong>4.</strong><span class="lab-formula">y = 2x − 1,1</span></li></ol>
+<h3 id="powiekszenie">Powiększenie okolicy styczności</h3>
+<figure class="lab04-figure"><img src="../assets/laboratoria/laboratorium-04/powiekszenie.svg" width="1100" height="550" loading="lazy" alt="Powiększenie: dwa przecięcia z różową prostą, styczność z zieloną i brak przecięcia z bursztynową."><figcaption>Te same dane i kolory. X od 0,5 do 1,5; Y od −0,125 do 2,375. Obszar obejmuje oba przecięcia z prostą różową oraz punkt styczności.</figcaption></figure>
+<p>Na powiększeniu łatwiej odróżnić przecięcie od dotknięcia. Zielona prosta nie przechodzi na drugą stronę paraboli. Czy sam rysunek wystarczy, żeby mieć pewność?</p>
+<p class="small-note">Wykresy są statycznymi zapisami widoku IDE. Powiększenie korzysta z tych samych obliczonych punktów i nie zwiększa dokładności. Punktu nie oznaczamy dodatkowym symbolem - obecny panel nie udostępnia takiej funkcji. <a href="../ograniczenia.html">Możliwości i ograniczenia środowiska</a>.</p></section>
+<section aria-labelledby="obserwacje"><h2 id="obserwacje">4. Obserwacje i wnioski</h2>
+<ul><li>Dlaczego pierwsza prosta przecina parabolę w dwóch punktach?</li><li>Dlaczego druga jest styczna?</li><li>Dlaczego trzecia nie przecina paraboli?</li><li>Co zmieniliśmy w równaniach prostych?</li><li>Czy niewielka zmiana współczynnika zawsze oznacza niewielką zmianę liczby punktów wspólnych?</li></ul>
+<details class="lab04-answer"><summary>Sprawdź: skąd bierze się styczność?</summary>
+<p>Punkt wspólny musi mieć tę samą wartość y na obu wykresach. Dla prostej y = 2x − 1 otrzymujemy kolejno:</p>
+<math display="block"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>1</mn></mrow></math>
+<math display="block"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow></math>
+<math display="block"><mrow><msup><mrow><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>0</mn></mrow></math>
+<p>Kwadrat liczby jest nieujemny. Wyrażenie (x − 1)² wynosi zero tylko dla x = 1. Po podstawieniu dostajemy y = 1, czyli punkt P = (1, 1).</p>
+<p>Różnica wartości paraboli i prostej to (x − 1)². Jest dodatnia poza x = 1. Prosta leży więc poniżej paraboli i tylko w punkcie P jej dotyka. To uzasadnia styczność bez korzystania z pochodnych.</p></details>
+<details class="lab04-answer"><summary>Sprawdź: dlaczego dwa przecięcia albo żadne?</summary>
+<p>Dla y = 2x − 0,9 przekształcamy równanie x² = 2x − 0,9:</p>
+<math display="block"><mrow><msup><mrow><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>0,1</mn></mrow></math>
+<p>Istnieją dwa rozwiązania: kwadrat jest równy 0,1 zarówno dla dodatniej, jak i ujemnej wartości x − 1.</p>
+<p>Dla y = 2x − 1,1 otrzymujemy:</p>
+<math display="block"><mrow><msup><mrow><mo>(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mo>−</mo><mn>0,1</mn></mrow></math>
+<p>Nie ma rozwiązania rzeczywistego, bo kwadrat liczby rzeczywistej nie może być ujemny.</p>
+<p><strong>Zmiana wyrazu wolnego prostej może zmienić liczbę jej punktów wspólnych z parabolą.</strong> W tej rodzinie prostych są to odpowiednio dwa punkty, jeden punkt styczności i brak punktów wspólnych. Sam jeden punkt wspólny dowolnych dwóch wykresów nie jest jeszcze dowodem styczności.</p></details>
+<details class="lab04-answer"><summary>Dodatkowo: dokładne położenia dwóch przecięć</summary>
+<math display="block"><mrow><mi>x</mi><mo>=</mo><mn>1</mn><mo>±</mo><msqrt><mn>0,1</mn></msqrt></mrow></math>
+<p>Współrzędne to (1 − √0,1; 1,1 − 2√0,1) oraz (1 + √0,1; 1,1 + 2√0,1). W przybliżeniu: (0,684; 0,468) i (1,316; 1,732). Oba punkty mieszczą się w pokazanym powiększeniu.</p></details></section>
+<section aria-labelledby="eksperymenty"><h2 id="eksperymenty">5. Dalsze eksperymenty</h2>
+<section class="lab04-experiment"><h3>Eksperyment A - przesuwamy prostą</h3><p>Zmień funkcję <code>styczna</code> na <code>return 2 * x - 0.5</code>. Czy prosta przetnie parabolę? Sprawdź najpierw na wykresie, a potem obliczeniowo.</p><details><summary>Podpowiedź</summary><p>Zrównaj x² z 2x − 0,5. Spróbuj uzupełnić lewą stronę do kwadratu wyrażenia x − 1.</p></details><details><summary>Rozwiązanie</summary><p>Otrzymujemy (x − 1)² = 0,5. Są dwa rozwiązania rzeczywiste, więc prosta przecina parabolę w dwóch punktach. Ich współrzędne X to 1 ± √0,5.</p></details></section>
+<section class="lab04-experiment"><h3>Eksperyment B - szukamy nowej stycznej</h3><p>Pozostaw y = x². Dobierz liczbę b w prostej y = 4x + b tak, aby była styczna. Zmień kod prostej i sprawdź swój wybór. Dla nowego miejsca styczności możesz potrzebować szerszego widoku.</p><details><summary>Podpowiedź</summary><p>Przekształć x² − 4x = b. Jakiej liczby brakuje po lewej stronie, aby powstał kwadrat wyrażenia x − 2?</p></details><details><summary>Rozwiązanie</summary><p>Po dodaniu 4 do obu stron otrzymujemy (x − 2)² = b + 4. Jedno rozwiązanie uzyskamy dla b = −4. Wtedy x = 2 i y = 4. Prosta y = 4x − 4 jest styczna w punkcie (2, 4). Ustaw np. X od 0 do 4 i Y od −1 do 9, aby go zobaczyć.</p></details></section>
+<section class="lab04-experiment"><h3>Eksperyment C - zmieniamy parabolę</h3><p>Zmień funkcję <code>parabola</code> na <code>return 2 * x * x</code>. Pozostaw prostą y = 2x − 1. Czy nadal jest styczna? Co zmieniło się na wykresie?</p><details><summary>Podpowiedź</summary><p>Rozważ różnicę 2x² − (2x − 1). Spróbuj zapisać ją za pomocą kwadratu wyrażenia x − 0,5.</p></details><details><summary>Rozwiązanie</summary><p>Różnica wynosi 2(x − 0,5)² + 0,5. Jest zawsze dodatnia. Prosta leży poniżej nowej paraboli i nie ma z nią punktów wspólnych, więc nie jest styczna.</p></details></section>
+<p class="lab04-signature">M. Smółka</p></section>

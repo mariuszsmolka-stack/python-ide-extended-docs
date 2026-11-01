@@ -1,11 +1,11 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {validate}=require('./build.cjs'),{checkEncoding}=require('./encoding-check.cjs'),catalog=require('./catalog.json');
 const root=__dirname,dist=path.join(root,'dist');
-validate(catalog);checkEncoding();assert.equal(catalog.pages.length,66);assert.equal(catalog.functions.length,57);assert.equal(catalog.articles.length,58);
+validate(catalog);checkEncoding();assert.equal(catalog.pages.length,68);assert.equal(catalog.functions.length,57);assert.equal(catalog.articles.length,58);
 assert.equal(catalog.functions.filter(f=>f.module==='ms2d').length,26);assert.equal(catalog.functions.filter(f=>f.module==='ms3d').length,20);assert.equal(catalog.functions.filter(f=>f.module==='msstat').length,11);
 assert.ok(catalog.functions.every(f=>f.status==='ready'));assert.equal(new Set(catalog.functions.map(f=>f.article)).size,57);
 const manifest=JSON.parse(fs.readFileSync(path.join(dist,'assets/previews.json'),'utf8'));
-assert.equal(Object.keys(manifest.items).length,49);
+assert.equal(Object.keys(manifest.items).length,50);
 for(const value of Object.values(manifest.items)){assert.ok(fs.existsSync(path.join(dist,'assets',value.file)));assert.ok(catalog.pages.some(p=>p.id===value.article));}
 for(const page of catalog.pages){
  const html=fs.readFileSync(path.join(dist,page.file),'utf8');assert.ok(!html.includes('{{'));assert.match(html,/<html lang="pl">/);assert.match(html,/<meta charset="utf-8">/);
@@ -18,8 +18,12 @@ for(const page of catalog.pages){
  }
  assert.ok(html.includes('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pl'));
 }
-console.log('Sprawdzono 66 stron, 57 funkcji, 58 artykułów, 49 podglądów i odnośniki.');
+console.log('Sprawdzono 68 stron, 57 funkcji, 58 artykułów, 50 podglądów i odnośniki.');
 
 require('./lab-check.cjs').checkLab();
 
 require('./lab-02-check.cjs').checkLab02();
+
+require('./lab-03-check.cjs').checkLab03();
+
+require('./lab-04-check.cjs').checkLab04();

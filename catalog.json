@@ -1246,6 +1246,19 @@
       "file": "laboratoria/laboratorium-02.html",
       "title": "Co łączy okrąg ze sferą?",
       "kind": "laboratory"
+    },
+    {
+      "id": "laboratorium-03",
+      "file": "laboratoria/laboratorium-03.html",
+      "title": "Jak zmienić wysokość i częstotliwość fali?",
+      "kind": "laboratory",
+      "model": true
+    },
+    {
+      "id": "laboratorium-04",
+      "file": "laboratoria/laboratorium-04.html",
+      "title": "Dlaczego prosta tylko dotyka paraboli?",
+      "kind": "laboratory"
     }
   ],
   "articles": [

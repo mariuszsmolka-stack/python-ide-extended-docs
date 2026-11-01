@@ -1,0 +1,52 @@
+<p class="eyebrow">Laboratoria / Eksperyment 03</p>
+<h1>Jak zmienić wysokość i częstotliwość fali?</h1>
+<p class="lead">Wyobraź sobie boję unoszącą się na jeziorze. Fale raz podnoszą ją, a raz opuszczają. Czasem ruch jest niewielki, a czasem znacznie większy. Bywa też, że boja unosi się i opada częściej.</p>
+<p>Czy możemy pokazać takie zmiany za pomocą funkcji matematycznej?</p>
+<p class="small-note"><a href="index.html">Wszystkie laboratoria</a></p>
+<section aria-labelledby="pytanie"><h2 id="pytanie">1. Pytanie badawcze</h2>
+<p><strong>Jak zmieni się wykres funkcji sinus, gdy zwiększymy wysokość wychyleń albo sprawimy, że oscylacje będą występowały częściej?</strong></p>
+<p>Zaczynamy od funkcji y = sin(x). W tym doświadczeniu x oznacza umowny czas, a y wychylenie obserwowanego punktu od poziomu równowagi y = 0. Nie przypisujemy osiom sekund ani metrów. To uproszczony model matematyczny, a nie pełna symulacja ruchu wody.</p>
+<p>Najpierw przewidź: czy liczba 2 przed sinusem i liczba 2 przy jego argumencie zmienią wykres w ten sam sposób? Zapisz przypuszczenie i porównaj trzy rysunki w części 3.</p></section>
+<section aria-labelledby="program"><h2 id="program">2. Program Python</h2>
+<p>Skopiuj cały program do Python IDE Extended i wybierz Uruchom. Zobaczysz trzy funkcje na jednym wspólnym wykresie.</p>
+<pre data-example="laboratorium-03-program"><code>import math
+
+def podstawowa(x):
+    return math.sin(x)
+
+wyzsza = lambda x: 2 * math.sin(x)
+czestsza = lambda x: math.sin(2 * x)
+
+rysuj(podstawowa, wyzsza, czestsza)
+</code></pre>
+<p><a href="../assets/laboratoria/laboratorium-03/program.py" download>Pobierz program .py</a>. <a href="../instrukcja.html">Jak uruchomić program w IDE?</a></p>
+<p><code>math.sin()</code> oblicza sinus argumentu w radianach. Zarówno <code>def</code>, jak i <code>lambda</code> pozwalają zdefiniować funkcję. Ich składnia nie jest przedmiotem tego eksperymentu.</p>
+<p>Aby uzyskać kadr z ilustracji, wybierz w IDE Zakresy i ustaw X od −6,283185307179586 do 6,283185307179586 oraz Y od −2,5 do 2,5. To przedział X od −2π do 2π. Zmiana widoku nie wykonuje ponownie programu.</p></section>
+<section aria-labelledby="wizualizacje"><h2 id="wizualizacje">3. Wizualizacje</h2>
+<p>Wszystkie cztery rysunki pochodzą z rzeczywistego wykonania funkcji w IDE. Mają ten sam zakres X: od −2π do 2π oraz Y: od −2,5 do 2,5. Osie pozostają opisane jako X i Y; tutaj czytamy je jako umowny czas i wychylenie. Wspólna skala pozwala porównać wysokość fal.</p>
+<section class="lab03-wave"><h3>1. Punkt odniesienia</h3><math display="block" aria-label="y równa się sinus x"><mrow><mi>y</mi><mo>=</mo><mi mathvariant="normal">sin</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow></math><p>Przyjrzyj się kolejnym szczytom i dolinom. Ile pełnych oscylacji mieści się w pokazanym przedziale?</p><figure><img src="../assets/laboratoria/laboratorium-03/funkcja-1.svg" width="1000" height="500" loading="lazy" alt="y = sin(x). X od minus dwa pi do dwa pi, Y od minus 2,5 do 2,5."><figcaption>y = sin(x) - osobny wykres we wspólnej skali.</figcaption></figure></section>
+<section class="lab03-wave"><h3>2. Liczba 2 przed sinusem</h3><math display="block" aria-label="y równa się dwa sinus x"><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi mathvariant="normal">sin</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow></math><p>Porównaj wysokości szczytów z pierwszym wykresem. Czy wypadają dla tych samych wartości X?</p><figure><img src="../assets/laboratoria/laboratorium-03/funkcja-2.svg" width="1000" height="500" loading="lazy" alt="y = 2sin(x). X od minus dwa pi do dwa pi, Y od minus 2,5 do 2,5."><figcaption>y = 2sin(x) - osobny wykres we wspólnej skali.</figcaption></figure></section>
+<section class="lab03-wave"><h3>3. Liczba 2 przy argumencie</h3><math display="block" aria-label="y równa się sinus dwa x"><mrow><mi>y</mi><mo>=</mo><mi mathvariant="normal">sin</mi><mo>(</mo><mn>2</mn><mi>x</mi><mo>)</mo></mrow></math><p>Porównaj odległości między kolejnymi szczytami. Czy zmieniła się też ich wysokość?</p><figure><img src="../assets/laboratoria/laboratorium-03/funkcja-3.svg" width="1000" height="500" loading="lazy" alt="y = sin(2x). X od minus dwa pi do dwa pi, Y od minus 2,5 do 2,5."><figcaption>y = sin(2x) - osobny wykres we wspólnej skali.</figcaption></figure></section>
+<h3 id="porownanie">Porównaj wszystkie trzy funkcje</h3>
+<figure class="lab03-comparison"><img src="../assets/laboratoria/laboratorium-03/porownanie.svg" width="1000" height="500" loading="lazy" alt="Sinus x, dwa sinus x i sinus dwa x na wspólnych osiach."><figcaption>Wynik jednego wywołania rysuj(podstawowa, wyzsza, czestsza).</figcaption></figure>
+<ol class="lab-legend"><li><span class="lab-swatch lab-color-1" aria-hidden="true"></span><strong>1.</strong><span class="lab-formula">y = sin(x)</span></li><li><span class="lab-swatch lab-color-2" aria-hidden="true"></span><strong>2.</strong><span class="lab-formula">y = 2sin(x)</span></li><li><span class="lab-swatch lab-color-3" aria-hidden="true"></span><strong>3.</strong><span class="lab-formula">y = sin(2x)</span></li></ol>
+<p class="small-note">Wykresy 2D są statyczne. Zmieniony kod sprawdzaj w IDE. Rysunek opiera się na obliczonych punktach, więc przybliżanie nie dodaje dokładniejszych danych. <a href="../ograniczenia.html">Możliwości i ograniczenia środowiska</a>.</p></section>
+<section aria-labelledby="obserwacje"><h2 id="obserwacje">4. Obserwacje i wnioski</h2>
+<ul><li>Który wykres ma największe wychylenia?</li><li>Który wykonuje najwięcej oscylacji?</li><li>Czy większa amplituda oznacza także większą częstotliwość?</li><li>Co zmieniło się po dodaniu liczby 2 przed sin?</li><li>Co zmieniło się po dodaniu liczby 2 przy argumencie x?</li></ul>
+<details class="lab03-answer"><summary>Sprawdź obserwacje i wnioski</summary>
+<p>Amplituda to maksymalne wychylenie od poziomu równowagi. Dla sin(x) wynosi 1, dla 2sin(x) wynosi 2, a dla sin(2x) znów 1. Różnica między maksimum a minimum jest dwukrotnie większa od amplitudy: dla pierwszej funkcji wynosi 2, a dla drugiej 4.</p>
+<p>Liczba przed funkcją sinus wpływa na amplitudę. Dlatego drugi wykres ma dwa razy większe wychylenia, ale jego szczyty występują w tych samych chwilach co w pierwszym.</p>
+<p>Okres to odstęp argumentu, po którym przebieg zaczyna się powtarzać. Funkcje sin(x) i 2sin(x) mają okres 2π. Funkcja sin(2x) ma okres π, więc w tym samym przedziale wykonuje dwa razy więcej pełnych oscylacji.</p>
+<table class="lab03-results"><caption>Porównanie na przedziale od −2π do 2π</caption><thead><tr><th scope="col">Funkcja</th><th scope="col">Amplituda</th><th scope="col">Okres</th><th scope="col">Pełne oscylacje</th></tr></thead><tbody><tr><td>sin(x)</td><td>1</td><td>2π</td><td>2</td></tr><tr><td>2sin(x)</td><td>2</td><td>2π</td><td>2</td></tr><tr><td>sin(2x)</td><td>1</td><td>π</td><td>4</td></tr></tbody></table>
+<p>Liczba mnożąca argument sinusa wpływa na częstość oscylacji. Ponieważ w tym doświadczeniu X oznacza umowny czas, podwojenie tego mnożnika oznacza podwojenie częstotliwości. Nie podajemy jej w hercach, bo nie ustaliliśmy jednostki czasu.</p>
+</details></section>
+<section aria-labelledby="eksperymenty"><h2 id="eksperymenty">5. Dalsze eksperymenty</h2>
+<section class="lab03-experiment"><h3>Eksperyment A</h3><p>Zmień <code>2 * math.sin(x)</code> na <code>3 * math.sin(x)</code>. Co stanie się z amplitudą? Ustaw Y od −3,5 do 3,5 na wszystkich porównywanych wykresach, aby widzieć całe wychylenia.</p><details><summary>Podpowiedź</summary><p>Porównaj wysokości dla tego samego X. Wychylenie od zera jest teraz trzykrotnością wychylenia funkcji podstawowej, więc amplituda wynosi 3. Odległości między kolejnymi szczytami się nie zmieniają.</p></details></section>
+<section class="lab03-experiment"><h3>Eksperyment B</h3><p>Zmień <code>math.sin(2 * x)</code> na <code>math.sin(3 * x)</code>. Ile oscylacji zobaczysz teraz w tym samym przedziale?</p><details><summary>Podpowiedź</summary><p>Przebieg powtarza się po zmianie argumentu o 2π/3. Na przedziale od −2π do 2π zmieści się sześć pełnych oscylacji. Wysokość szczytów pozostaje taka jak dla funkcji podstawowej.</p></details></section>
+<section class="lab03-experiment"><h3>Eksperyment C</h3><p>Wypróbuj <code>0.5 * math.sin(x)</code>. Czy okres również się zmieni?</p><details><summary>Podpowiedź</summary><p>Każde wychylenie jest o połowę mniejsze. Amplituda wynosi 0,5, ale te same etapy przebiegu nadal powtarzają się co 2π.</p></details></section>
+<section class="lab03-3d" aria-labelledby="fala-3d"><h3 id="fala-3d">A jak wygląda fala w 3D?</h3>
+<p>Powierzchnia z = sin(x) powstaje przez powielenie sinusoidy w dodatkowym kierunku Y. Obróć ją myszą lub dotykiem. Możesz też użyć strzałek; plus i minus przybliżają, a Home przywraca widok.</p>
+<figure class="model-figure"><div class="mesh-surface model-frame" data-mesh="lab03-fala" aria-label="Interaktywny podgląd powierzchni z równa się sinus x"></div><p class="model-status" id="model-status" role="status">Ładowanie modelu…</p></figure>
+<p class="small-note">Tutaj X i Y oznaczają położenie w przestrzeni, a Z wysokość powierzchni. To nieruchomy model, nie symulacja rozchodzenia się fal. Obracanie zmienia kierunek patrzenia, a nie czas ani dane.</p>
+<p><strong>Czy potrafisz przewidzieć, jak zmieniłaby się ta powierzchnia, gdybyśmy zwiększyli amplitudę albo liczbę oscylacji?</strong></p></section>
+<p class="lab03-signature">M. Smółka</p></section>
