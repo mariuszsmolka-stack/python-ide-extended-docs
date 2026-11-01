@@ -3,7 +3,7 @@ function checkLab03(){
  const dist=path.join(__dirname,'dist'),assets=path.join(dist,'assets/laboratoria/laboratorium-03');
  const html=fs.readFileSync(path.join(dist,'laboratoria/laboratorium-03.html'),'utf8');
  assert.equal((html.match(/<section aria-labelledby=/g)||[]).length,5);
- assert.equal((html.match(/<details\b/g)||[]).length,4);assert.ok(!/<details[^>]*\bopen\b/.test(html));
+ assert.equal((html.match(/<details\b/g)||[]).length,7);assert.ok(!/<details[^>]*\bopen\b/.test(html));
  const program=fs.readFileSync(path.join(assets,'program.py'),'utf8');
  assert.equal(program,'import math\n\ndef podstawowa(x):\n    return math.sin(x)\n\nwyzsza = lambda x: 2 * math.sin(x)\nczestsza = lambda x: math.sin(2 * x)\n\nrysuj(podstawowa, wyzsza, czestsza)\n');
  assert.equal(html.match(/<pre data-example="laboratorium-03-program"><code>([\s\S]*?)<\/code><\/pre>/)[1],program);
