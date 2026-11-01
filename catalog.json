@@ -1228,6 +1228,18 @@
         ],
         "modifiedArguments": ""
       }
+    },
+    {
+      "id": "laboratoria",
+      "file": "laboratoria/index.html",
+      "title": "Laboratoria",
+      "kind": "laboratories"
+    },
+    {
+      "id": "laboratorium-01",
+      "file": "laboratoria/laboratorium-01.html",
+      "title": "Jak zmienia się parabola?",
+      "kind": "laboratory"
     }
   ],
   "articles": [

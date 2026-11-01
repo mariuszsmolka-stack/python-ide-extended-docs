@@ -1,0 +1,70 @@
+<p class="eyebrow">Laboratoria / Eksperyment 01</p>
+<h1>Jak zmienia się parabola?</h1>
+<p class="lead">Porównaj sześć funkcji kwadratowych. Sprawdź, jak współczynniki wzoru wpływają na rozwarcie ramion i położenie wierzchołka.</p>
+<p class="small-note">Autor materiału i koncepcji: Mariusz Smółka. <a href="index.html">Wszystkie laboratoria</a>.</p>
+<section aria-labelledby="pytanie"><h2 id="pytanie">1. Pytanie badawcze</h2>
+<p>Jak wzór funkcji kwadratowej wpływa na kształt i położenie paraboli?</p>
+<p>Badamy wykresy funkcji kwadratowych, czyli funkcji o postaci <math><mi>y</mi><mo>=</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>c</mi></math>, gdzie <math><mi>a</mi><mo>≠</mo><mn>0</mn></math>. Współczynnik a określa zwrot i rozwarcie ramion. Współczynniki b i c, razem z a, wpływają na położenie wykresu; c jest jego wysokością przy x = 0.</p>
+<p>Przed uruchomieniem przejrzyj sześć wzorów poniżej. Zwróć uwagę na wierzchołki, osie symetrii i zwrot ramion. Dziedziną każdej z tych funkcji są wszystkie liczby rzeczywiste.</p></section>
+<section aria-labelledby="program"><h2 id="program">2. Program Python</h2>
+<p>Skopiuj cały kod do Python IDE Extended i wybierz Uruchom. Pierwszy wykres pojawi się przed pytaniem. Potem przejdź przez pięć kolejnych etapów, naciskając Enter w polu odpowiedzi. Nie wpisujesz współczynników przy każdym etapie.</p>
+<pre data-example="laboratorium-01-program"><code>import ms2d
+
+# Funkcja zdefiniowana samodzielnie.
+def parabola_w_dol(x):
+    return -x**2
+
+funkcje = [
+    ms2d.parabola(a=1, b=0, c=0),
+    lambda x: 2 * x**2,
+    lambda x: (x + 2)**2,
+    ms2d.parabola(a=1, b=-4, c=0),
+    parabola_w_dol,
+    ms2d.parabola(a=-1, b=-4, c=3),
+]
+
+for krok in range(1, 7):
+    if krok &gt; 1:
+        input(&quot;Naciśnij Enter, aby zobaczyć kolejny etap...&quot;)
+    print(&quot;Etap&quot;, krok, &quot;z 6&quot;)
+    rysuj(*funkcje[:krok])
+</code></pre>
+<p><a href="../assets/laboratoria/laboratorium-01/program.py" download>Pobierz kompletny program .py</a>. <a href="../instrukcja.html">Jak uruchomić program w IDE?</a></p>
+<p><code>ms2d.parabola(...)</code> zwraca gotową funkcję o podanych współczynnikach. Zapis <code>lambda x: ...</code> tworzy krótką funkcję w jednym wierszu. Instrukcje <code>def</code> i <code>return</code> pozwalają nazwać funkcję i zapisać jej obliczenia w osobnym bloku. Te trzy sposoby mogą opisywać ten sam wzór; tutaj wykorzystujemy je do przygotowania sześciu różnych funkcji.</p>
+<p><code>funkcje[:krok]</code> wybiera pierwsze funkcje z listy. Gwiazdka w <code>rysuj(*funkcje[:krok])</code> przekazuje je jako osobne argumenty. Każde wywołanie tworzy kolejny wykres, a nie zmienia poprzedniego. Na wspólnych osiach danego etapu widzisz od jednej do sześciu poznanych funkcji.</p>
+<p>Ostatnie wywołanie jest równoważne <code>rysuj(funkcje[0], funkcje[1], funkcje[2], funkcje[3], funkcje[4], funkcje[5])</code>. Program tworzy sześć wizualizacji i mieści się w limicie ośmiu. Oczekiwanie na Enter nie oznacza końca programu.</p>
+
+</section>
+<section aria-labelledby="wizualizacja"><h2 id="wizualizacja">3. Wizualizacja</h2>
+<p>Każdy z sześciu pojedynczych wykresów poniżej pokazuje tylko jedną funkcję. Wszystkie mają ten sam kadr: X od −5 do 5, Y od −12 do 20. Dzięki temu można uczciwie porównać rozwarcie ramion i położenie wierzchołków.</p>
+<p class="small-note">Wykresy pochodzą z rzeczywistego wykonania funkcji w IDE i jego mechanizmu rysowania. Są statycznymi obrazami; zmiany kodu sprawdzaj w IDE. Pokazują fragmenty nieskończonych parabol. <a href="../ograniczenia.html">Więcej o ograniczeniach wizualizacji</a>.</p>
+<section class="lab-step" aria-labelledby="krok-1"><h3 id="krok-1">Krok 1</h3><math display="block" aria-label="y = x²"><mi>y</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></math><p>Parabola podstawowa ma wierzchołek w punkcie (0, 0), a jej ramiona są skierowane w górę. Współczynniki wynoszą a = 1, b = 0 i c = 0. Punkty o przeciwnych współrzędnych X mają tę samą wysokość.</p><pre><code>podstawowa = ms2d.parabola(a=1, b=0, c=0)</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-1.svg" width="800" height="450" loading="lazy" alt="Krok 1: y = x². Wierzchołek i ramiona w jednakowej skali."><figcaption>y = x² - pojedynczy wykres z IDE.</figcaption></figure></section>
+<section class="lab-step" aria-labelledby="krok-2"><h3 id="krok-2">Krok 2</h3><math display="block" aria-label="y = 2x²"><mi>y</mi><mo>=</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup></math><p>Współczynniki wynoszą a = 2, b = 0 i c = 0. Dla tego samego x wartość y jest dwa razy większa niż w pierwszym kroku. Wspólny kadr pokazuje węższe rozwarcie ramion; wierzchołek pozostaje w punkcie (0, 0).</p><pre><code>podwojona = lambda x: 2 * x**2</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-2.svg" width="800" height="450" loading="lazy" alt="Krok 2: y = 2x². Wierzchołek i ramiona w jednakowej skali."><figcaption>y = 2x² - pojedynczy wykres z IDE.</figcaption></figure></section>
+<section class="lab-step" aria-labelledby="krok-3"><h3 id="krok-3">Krok 3</h3><math display="block" aria-label="y = (x + 2)²"><mi>y</mi><mo>=</mo><msup><mrow><mo>(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo>)</mo></mrow><mn>2</mn></msup></math><p>Zapis x + 2 przesuwa wykres podstawowy o 2 jednostki w lewo. Wierzchołek jest teraz w punkcie (−2, 0), a rozwarcie ramion pozostaje takie samo. Po rozwinięciu nawiasu otrzymujemy współczynniki a = 1, b = 4 i c = 4.</p><pre><code>przesunieta_w_lewo = lambda x: (x + 2)**2</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-3.svg" width="800" height="450" loading="lazy" alt="Krok 3: y = (x + 2)². Wierzchołek i ramiona w jednakowej skali."><figcaption>y = (x + 2)² - pojedynczy wykres z IDE.</figcaption></figure></section>
+<section class="lab-step" aria-labelledby="krok-4"><h3 id="krok-4">Krok 4</h3><math display="block" aria-label="y = x² − 4x"><mi>y</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>x</mi></math><p>Współczynniki wynoszą a = 1, b = −4 i c = 0. Wzór można zapisać jako y = (x − 2)² − 4. Wierzchołek ma współrzędne (2, −4), a oś symetrii to prosta x = 2. Zmiana b przy ustalonych a i c wpływa na obie współrzędne wierzchołka.</p><pre><code>ze_skladnikiem_liniowym = ms2d.parabola(a=1, b=-4, c=0)</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-4.svg" width="800" height="450" loading="lazy" alt="Krok 4: y = x² − 4x. Wierzchołek i ramiona w jednakowej skali."><figcaption>y = x² − 4x - pojedynczy wykres z IDE.</figcaption></figure></section>
+<section class="lab-step" aria-labelledby="krok-5"><h3 id="krok-5">Krok 5</h3><math display="block" aria-label="y = −x²"><mi>y</mi><mo>=</mo><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></math><p>Współczynniki wynoszą a = −1, b = 0 i c = 0. W porównaniu z pierwszym krokiem każda wysokość zmienia znak: wykres jest odbiciem względem osi X. Wierzchołek nadal leży w punkcie (0, 0), a ramiona są skierowane w dół.</p><pre><code>def parabola_w_dol(x):
+    return -x**2</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-5.svg" width="800" height="450" loading="lazy" alt="Krok 5: y = −x². Wierzchołek i ramiona w jednakowej skali."><figcaption>y = −x² - pojedynczy wykres z IDE.</figcaption></figure></section>
+<section class="lab-step" aria-labelledby="krok-6"><h3 id="krok-6">Krok 6</h3><math display="block" aria-label="y = −x² − 4x + 3"><mi>y</mi><mo>=</mo><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn></math><p>Współczynniki wynoszą a = −1, b = −4 i c = 3. Wzór ma też postać y = −(x + 2)² + 7. Wierzchołek leży w punkcie (−2, 7), a ramiona są skierowane w dół. Przy x = 0 wykres przecina oś Y na wysokości 3.</p><pre><code>zlozona = ms2d.parabola(a=-1, b=-4, c=3)</code></pre><figure><img src="../assets/laboratoria/laboratorium-01/krok-6.svg" width="800" height="450" loading="lazy" alt="Krok 6: y = −x² − 4x + 3. Wierzchołek i ramiona w jednakowej skali."><figcaption>y = −x² − 4x + 3 - pojedynczy wykres z IDE.</figcaption></figure></section>
+<h3 id="porownanie">Wspólny wykres sześciu funkcji</h3>
+<figure class="lab-comparison"><img src="../assets/laboratoria/laboratorium-01/porownanie.svg" width="800" height="450" alt="Sześć parabol na wspólnych osiach. Wszystkie wierzchołki są widoczne."><figcaption>Końcowy wynik programu. Każdy numer odpowiada pozycji na liście funkcji i krokowi eksperymentu.</figcaption></figure>
+<ol class="lab-legend">
+<li><span class="lab-swatch lab-color-1" aria-hidden="true"></span><strong>1.</strong> <span class="lab-formula">y = x²</span></li>
+<li><span class="lab-swatch lab-color-2" aria-hidden="true"></span><strong>2.</strong> <span class="lab-formula">y = 2x²</span></li>
+<li><span class="lab-swatch lab-color-3" aria-hidden="true"></span><strong>3.</strong> <span class="lab-formula">y = (x + 2)²</span></li>
+<li><span class="lab-swatch lab-color-4" aria-hidden="true"></span><strong>4.</strong> <span class="lab-formula">y = x² − 4x</span></li>
+<li><span class="lab-swatch lab-color-5" aria-hidden="true"></span><strong>5.</strong> <span class="lab-formula">y = −x²</span></li>
+<li><span class="lab-swatch lab-color-6" aria-hidden="true"></span><strong>6.</strong> <span class="lab-formula">y = −x² − 4x + 3</span></li>
+</ol></section>
+<section aria-labelledby="obserwacje"><h2 id="obserwacje">4. Obserwacje</h2>
+<ul><li>Porównaj kroki 1 i 2: większe dodatnie a oznacza węższe rozwarcie ramion. Wierzchołek pozostaje w tym samym miejscu.</li>
+<li>W kroku 3 przesunięcie o 2 jednostki w lewo nie zmienia rozwarcia ramion.</li>
+<li>W kroku 4 składnik liniowy zmienia położenie osi symetrii i wierzchołka. Nie jest to wyłącznie przesunięcie w jednym kierunku.</li>
+<li>Kroki 1 i 5 są swoimi odbiciami względem osi X. Parabola nie obraca się przy zmianie znaku a.</li>
+<li>W kroku 6 widać łączne działanie współczynników: wierzchołek jest przesunięty, a ramiona skierowane w dół.</li></ul>
+<p>Które wykresy mają taką samą oś symetrii? Które mają wspólny wierzchołek? Odpowiedz na podstawie porównania, a następnie sprawdź swoje obserwacje na pojedynczych wykresach.</p></section>
+<section aria-labelledby="doswiadczenia"><h2 id="doswiadczenia">5. Dalsze doświadczenia</h2>
+<p>Zmieniaj jedną pozycję listy, a potem uruchamiaj program ponownie. Zachowaj sześć funkcji i porównuj wyniki w tym samym kadrze.</p>
+<ul><li>W drugim kroku ustaw a = 0,5, a następnie a = −2. W Pythonie zapisuj liczbę dziesiętną jako <code>0.5</code>. Jak zmieniają się rozwarcie i zwrot ramion?</li>
+<li>W trzecim kroku zamień <code>(x + 2)**2</code> na <code>(x - 2)**2</code>. W którą stronę przesuwa się wierzchołek?</li>
+<li>W czwartym kroku zmień tylko c z 0 na 3. Czy zmienia się oś symetrii, czy tylko wysokość wykresu?</li></ul>
+<p>Definicję parametrów znajdziesz w artykule <a href="../parabola.html">Parabola</a> w Bazie wiedzy. W IDE możesz ustawić granice osi w menu Zakresy, aby porównać swoje wyniki z ilustracjami.</p></section>
