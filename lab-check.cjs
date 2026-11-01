@@ -4,7 +4,7 @@ function checkLab(){
  const lab=fs.readFileSync(path.join(root,'dist/laboratoria/laboratorium-01.html'),'utf8');
  const catalog=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));
  assert.equal(catalog.functions.length,57);assert.equal(catalog.articles.length,58);
- assert.equal(catalog.pages.filter(p=>p.file.startsWith('laboratoria/')).length,2);
+ assert.equal(catalog.pages.filter(p=>p.file.startsWith('laboratoria/')).length,3);
  assert.equal((lab.match(/<section aria-labelledby=/g)||[]).length,5);
  assert.equal((lab.match(/class="lab-step"/g)||[]).length,6);
  assert.equal((lab.match(/<li><span class="lab-swatch/g)||[]).length,6);

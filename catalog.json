@@ -1240,6 +1240,12 @@
       "file": "laboratoria/laboratorium-01.html",
       "title": "Jak zmienia się parabola?",
       "kind": "laboratory"
+    },
+    {
+      "id": "laboratorium-02",
+      "file": "laboratoria/laboratorium-02.html",
+      "title": "Co łączy okrąg ze sferą?",
+      "kind": "laboratory"
     }
   ],
   "articles": [

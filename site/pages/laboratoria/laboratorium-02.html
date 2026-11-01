@@ -1,0 +1,96 @@
+<p class="eyebrow">Laboratoria / Eksperyment 02</p>
+<h1>Co łączy okrąg ze sferą?</h1>
+<p class="lead">Obejrzyj sferę o promieniu 5. Oblicz i porównaj jej przekroje na trzech wysokościach.</p>
+<p class="small-note">Autor materiału i koncepcji: Mariusz Smółka. <a href="index.html">Wszystkie laboratoria</a>.</p>
+<section aria-labelledby="pytanie"><h2 id="pytanie">1. Pytanie badawcze</h2>
+<p><strong>Jak powstaje sfera i dlaczego jej przekroje mogą mieć różne promienie?</strong></p>
+<p>Okrąg to zbiór punktów płaszczyzny oddalonych jednakowo od środka. Koło zawiera również punkty wewnątrz okręgu. Sfera jest powierzchnią w przestrzeni: wszystkie jej punkty mają tę samą odległość od środka. Kula zawiera sferę i jej wnętrze.</p>
+<p>Obracajmy okrąg wokół prostej zawierającej jego średnicę. Zbiór wszystkich punktów, przez które przechodzi obracany okrąg, tworzy sferę. To operacja geometryczna. Obracanie kamery w IDE zmienia tylko kierunek patrzenia na gotową powierzchnię.</p>
+<p>Przecinamy sferę płaszczyzną z = h. Gdy płaszczyzna przechodzi przez wnętrze kuli, jej część wspólna ze sferą jest okręgiem. Część wspólna tej samej płaszczyzny z kulą jest kołem. W tym eksperymencie badamy okręgi, nie koła.</p>
+<p>Przyjmujemy R = 5 oraz h = 0, 3 i 4. R oznacza promień sfery, h wysokość płaszczyzny względem środka, a r promień otrzymanego okręgu. Odległość płaszczyzny od środka wynosi |h|. L oznacza długość okręgu, a π stałą matematyczną pi.</p>
+<p>Przed uruchomieniem programu przewidź, na której wysokości przekrój będzie największy. Wzory i odpowiadające im ilustracje znajdziesz w części 3.</p></section>
+<section aria-labelledby="program"><h2 id="program">2. Program Python</h2>
+<p>Skopiuj cały program do Python IDE Extended i wybierz Uruchom. Najpierw pojawi się sfera. Trzy kolejne naciśnięcia Enter w polu odpowiedzi pokażą przekroje dla h = 0, 3 i 4. Czwarte naciśnięcie Enter wyświetli ich wspólne porównanie i program zakończy się naturalnie.</p>
+<pre data-example="laboratorium-02-program"><code>import math
+import ms2d
+import ms3d
+
+R = 5
+wysokosci = [0, 3, 4]
+
+# Najpierw oglądamy sferę.
+rysuj_3(ms3d.sfera(r=R))
+
+okregi = []
+
+for h in wysokosci:
+    input(f&quot;Enter - pokaż przekrój dla h = {h}&quot;)
+
+    # Obliczamy promień przekroju.
+    r = math.sqrt(R**2 - h**2)
+
+    # Obliczamy długość okręgu.
+    L = 2 * math.pi * r
+
+    print(f&quot;h = {h}, r = {r:g}, L = {L:.2f}&quot;)
+
+    okrag = ms2d.okrag(r=r)
+    okregi.append(okrag)
+
+    # Wyświetlamy pojedynczy przekrój.
+    rysuj_2(okrag)
+
+input(&quot;Enter - porównaj wszystkie przekroje&quot;)
+
+# Trzy okręgi na wspólnych osiach.
+rysuj_2(*okregi)
+</code></pre>
+<p><a href="../assets/laboratoria/laboratorium-02/program.py" download>Pobierz kompletny program .py</a>. <a href="../instrukcja.html">Jak uruchomić program w IDE?</a></p>
+<p><code>import math</code> udostępnia moduł matematyczny. <code>math.pi</code> reprezentuje liczbę pi, a <code>math.sqrt()</code> oblicza pierwiastek kwadratowy. Zapis <code>:.2f</code> wyświetla wynik z dwoma miejscami po przecinku. Standardowy wynik Pythona używa kropki dziesiętnej.</p>
+<details><summary>Skąd wziąć pi i jak użyć jej w obliczeniu?</summary>
+<pre data-example="laboratorium-02-pi"><code>import math
+
+print(math.pi)</code></pre>
+<pre data-example="laboratorium-02-dlugosc"><code>import math
+
+r = 4
+
+# Obliczamy długość okręgu.
+L = 2 * math.pi * r
+
+print(f"Długość okręgu: {L:.2f}")</code></pre>
+<p>Nie zastępuj <code>math.pi</code> ręcznie wpisanym przybliżeniem. Formatowanie zmienia sposób wyświetlenia wyniku, a nie wartość używaną w obliczeniach.</p></details>
+<p><code>ms3d.sfera(r=R)</code> opisuje powierzchnię sfery. <code>ms2d.okrag(r=r)</code> opisuje okrąg przekroju, a lista <code>okregi</code> gromadzi trzy takie funkcje. Gwiazdka w <code>rysuj_2(*okregi)</code> przekazuje je jako osobne argumenty.</p>
+<p>Program tworzy pięć oddzielnych wizualizacji, mieszcząc się w limicie ośmiu. Każde wywołanie rysujące dodaje nowy wynik. Nie przesuwa płaszczyzny na istniejącej scenie 3D i nie wykonuje interaktywnego cięcia sfery.</p>
+<p>Dla wybranych wysokości zachodzi |h| &lt; R, więc promień przekroju jest dodatni. Przy |h| = R przekrój jest punktem; <code>ms2d.okrag()</code> wymaga dodatniego promienia. Przy |h| &gt; R nie ma przekroju, a pierwiastek z ujemnej liczby nie jest liczbą rzeczywistą.</p></section>
+<section aria-labelledby="wizualizacje"><h2 id="wizualizacje">3. Wizualizacje</h2>
+<p>Wykresy 2D pokazują przekroje oglądane prostopadle do ich płaszczyzn. Współrzędne X i Y pozostają te same; wysokość z = h podaje podpis. Zachowano jednakową skalę jednostek X i Y oraz wspólny kadr dla wszystkich okręgów.</p>
+<h3>Okrąg o promieniu R = 5</h3>
+<math display="block" aria-label="x kwadrat plus y kwadrat równa się R kwadrat"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup></mrow></math><p>Wszystkie punkty tego okręgu leżą na płaszczyźnie i są oddalone od środka o 5 jednostek. W równaniu prawa strona wynosi 25.</p><figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/przekroj-h0.svg" width="900" height="900" loading="lazy" alt="Okrąg o promieniu 5, środek w początku układu."><figcaption>Okrąg R = 5. Ten sam kontur pojawi się w przekroju środkowym sfery.</figcaption></figure>
+<h3>Sfera o promieniu R = 5</h3><math display="block" aria-label="x kwadrat plus y kwadrat plus z kwadrat równa się R kwadrat"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup></mrow></math><p>Teraz punkty leżą w przestrzeni trójwymiarowej. Ich odległość od środka nadal wynosi 5. Zrzut pokazuje rzeczywisty wynik <code>rysuj_3(ms3d.sfera(r=5))</code>, z osiami X, Y i Z.</p><figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/sfera.png" width="900" height="900" loading="lazy" alt="Sfera o promieniu 5, rzeczywisty widok 3D z IDE."><figcaption>Sfera jest powierzchnią, nie wypełnioną bryłą. Widoczne drobne nierówności wynikają z numerycznej wizualizacji.</figcaption></figure>
+<h3>Jak wyznaczamy promień przekroju?</h3><math display="block" aria-label="z równa się h"><mrow><mi>z</mi><mo>=</mo><mi>h</mi></mrow></math><math display="block" aria-label="x kwadrat plus y kwadrat równa się R kwadrat minus h kwadrat"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>h</mi><mn>2</mn></msup></mrow></math><math display="block" aria-label="r równa się pierwiastek z R kwadrat minus h kwadrat"><mrow><mi>r</mi><mo>=</mo><msqrt><mrow><msup><mi>R</mi><mn>2</mn></msup><mo>−</mo><msup><mi>h</mi><mn>2</mn></msup></mrow></msqrt></mrow></math><math display="block" aria-label="L równa się dwa pi r"><mrow><mi>L</mi><mo>=</mo><mn>2</mn><mi>π</mi><mi>r</mi></mrow></math><p>Po podstawieniu z = h pozostaje równanie okręgu. Jego promień wynosi r = √(R² − h²), a długość L = 2πr. Wzór na r stosujemy dla |h| ≤ R; tylko przy |h| &lt; R otrzymujemy okrąg o dodatnim promieniu.</p>
+<p>Przy |h| = R płaszczyzna jest styczna do sfery i ma z nią wspólny jeden punkt. Przy |h| &gt; R nie ma punktów wspólnych.</p>
+<section class="lab02-section"><h3>Przekrój na wysokości h = 0</h3><math display="block" aria-label="x kwadrat plus y kwadrat równa się 25"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>25</mn></mrow></math><p>r = √(25 − 0) = 5. Długość okręgu wynosi L = 10π ≈ 31,42. Python oblicza te wartości ze wzorów.</p><figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/przekroj-h0.svg" width="900" height="900" loading="lazy" alt="Przekrój sfery dla h = 0: okrąg o promieniu 5."><figcaption>Płaszczyzna z = 0; promień okręgu r = 5.</figcaption></figure>
+</section>
+<section class="lab02-section"><h3>Przekrój na wysokości h = 3</h3><math display="block" aria-label="x kwadrat plus y kwadrat równa się 16"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>16</mn></mrow></math><p>r = √(25 − 9) = 4. Długość okręgu wynosi L = 8π ≈ 25,13. Python oblicza te wartości ze wzorów.</p><figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/przekroj-h3.svg" width="900" height="900" loading="lazy" alt="Przekrój sfery dla h = 3: okrąg o promieniu 4."><figcaption>Płaszczyzna z = 3; promień okręgu r = 4.</figcaption></figure>
+</section>
+<section class="lab02-section"><h3>Przekrój na wysokości h = 4</h3><math display="block" aria-label="x kwadrat plus y kwadrat równa się 9"><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo><mn>9</mn></mrow></math><p>r = √(25 − 16) = 3. Długość okręgu wynosi L = 6π ≈ 18,85. Python oblicza te wartości ze wzorów.</p><figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/przekroj-h4.svg" width="900" height="900" loading="lazy" alt="Przekrój sfery dla h = 4: okrąg o promieniu 3."><figcaption>Płaszczyzna z = 4; promień okręgu r = 3.</figcaption></figure>
+</section>
+<h3>Trzy przekroje na wspólnych osiach</h3>
+<p>Rysunki z różnych wysokości nakładamy na jeden układ X/Y, aby porównać ich promienie. Nie oznacza to, że wszystkie trzy okręgi leżą na tej samej wysokości w przestrzeni.</p>
+<figure class="lab02-figure"><img src="../assets/laboratoria/laboratorium-02/porownanie.svg" width="900" height="900" loading="lazy" alt="Trzy współśrodkowe okręgi o promieniach 5, 4 i 3."><figcaption>Końcowy wynik rysuj_2(*okregi). Kolory odpowiadają kolejności wysokości w programie.</figcaption></figure>
+
+<ol class="lab-legend lab02-legend"><li><span class="lab-swatch lab-color-1" aria-hidden="true"></span><strong>1.</strong><span class="lab-formula">h = 0, r = 5</span></li><li><span class="lab-swatch lab-color-2" aria-hidden="true"></span><strong>2.</strong><span class="lab-formula">h = 3, r = 4</span></li><li><span class="lab-swatch lab-color-3" aria-hidden="true"></span><strong>3.</strong><span class="lab-formula">h = 4, r = 3</span></li></ol>
+<p class="small-note">Ilustracje są statyczne i pochodzą z istniejących mechanizmów IDE. Zmiany parametrów sprawdzaj w aplikacji. <a href="../ograniczenia.html">Więcej o ograniczeniach wizualizacji</a>.</p></section>
+<section aria-labelledby="obserwacje"><h2 id="obserwacje">4. Obserwacje i wnioski</h2>
+<p>Im dalej płaszczyzna leży od środka sfery, tym mniejszy promień okręgu przekroju. W równaniu rośnie h², więc maleje R² − h². Największy okrąg otrzymujemy dla h = 0.</p>
+<table class="lab02-results"><caption>Wyniki obliczeń dla R = 5</caption><thead><tr><th scope="col">h</th><th scope="col">r</th><th scope="col">Długość L</th></tr></thead><tbody><tr><td>0</td><td>5</td><td>10π ≈ 31,42</td></tr><tr><td>3</td><td>4</td><td>8π ≈ 25,13</td></tr><tr><td>4</td><td>3</td><td>6π ≈ 18,85</td></tr></tbody></table>
+<p>Wyświetlone długości są zaokrąglone do dwóch miejsc po przecinku. Gdy promień maleje, długość okręgu maleje w tej samej proporcji. Dla przeciwnych wysokości h i −h promienie przekrojów są takie same, ponieważ we wzorze występuje h².</p></section>
+<section aria-labelledby="doswiadczenia"><h2 id="doswiadczenia">5. Dalsze doświadczenia</h2>
+<ul><li>Ustaw R = 4 i wysokości [0, 2, 3]. Najpierw przewidź, co zmieni się na wykresie, a potem uruchom program.</li><li>Dla R = 5 zastąp jedną z wysokości wartością 2. Porównaj jej okrąg z pozostałymi.</li><li>Sprawdź wysokości [0, −3, −4]. Czy okręgi różnią się od wyników dla dodatnich wysokości?</li><li>Porównaj, jak zmiana promienia przekroju wpływa na jego długość. Czy dwukrotnie większy promień daje dwukrotnie większą długość?</li></ul>
+<p>Dobieraj wysokości tak, aby |h| &lt; R. Dla pełnego widoku sfery w standardowym obszarze IDE wybierz dodatni promień mniejszy niż 6. Zachowaj trzy wysokości, aby program nadal tworzył pięć wizualizacji.</p>
+<p>W Bazie wiedzy znajdziesz artykuły <a href="../okrag.html">Okrąg</a> i <a href="../sfera.html">Sfera</a>. Opisują one parametry funkcji użytych w programie.</p>
+<section class="lab02-download" aria-labelledby="wynik-pdf"><h3 id="wynik-pdf">Wynik eksperymentu w PDF</h3>
+<p>Po wykonaniu eksperymentu możesz zachować kod programu i otrzymane wizualizacje w pliku PDF. Poniżej znajduje się przykładowy dokument wygenerowany bezpośrednio w Python IDE Extended.</p>
+<p><a href="../assets/laboratoria/laboratorium-02/wynik-eksperymentu.pdf" download>Pobierz przykładowy wynik eksperymentu (PDF)</a></p>
+<p class="small-note">Eksport zawiera kod i pięć wizualizacji. Obecna funkcja Drukuj / PDF nie dołącza treści konsoli.</p></section></section>
