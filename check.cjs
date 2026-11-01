@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {validate}=require('./build.cjs'),{checkEncoding}=require('./encoding-check.cjs'),catalog=require('./catalog.json');
 const root=__dirname,dist=path.join(root,'dist');
-validate(catalog);checkEncoding();assert.equal(catalog.pages.length,68);assert.equal(catalog.functions.length,57);assert.equal(catalog.articles.length,58);
+validate(catalog);checkEncoding();assert.equal(catalog.pages.length,69);assert.equal(catalog.functions.length,57);assert.equal(catalog.articles.length,58);
 assert.equal(catalog.functions.filter(f=>f.module==='ms2d').length,26);assert.equal(catalog.functions.filter(f=>f.module==='ms3d').length,20);assert.equal(catalog.functions.filter(f=>f.module==='msstat').length,11);
 assert.ok(catalog.functions.every(f=>f.status==='ready'));assert.equal(new Set(catalog.functions.map(f=>f.article)).size,57);
 const manifest=JSON.parse(fs.readFileSync(path.join(dist,'assets/previews.json'),'utf8'));
@@ -18,7 +18,7 @@ for(const page of catalog.pages){
  }
  assert.ok(html.includes('https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pl'));
 }
-console.log('Sprawdzono 68 stron, 57 funkcji, 58 artykułów, 50 podglądów i odnośniki.');
+console.log('Sprawdzono 69 stron, 57 funkcji, 58 artykułów, 50 podglądów i odnośniki.');
 
 require('./lab-check.cjs').checkLab();
 
@@ -27,3 +27,5 @@ require('./lab-02-check.cjs').checkLab02();
 require('./lab-03-check.cjs').checkLab03();
 
 require('./lab-04-check.cjs').checkLab04();
+
+require('./lab-05-check.cjs').checkLab05();

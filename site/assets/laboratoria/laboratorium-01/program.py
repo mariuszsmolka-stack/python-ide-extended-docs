@@ -1,20 +1,31 @@
 import ms2d
 
-# Funkcja zdefiniowana samodzielnie.
 def parabola_w_dol(x):
     return -x**2
 
-funkcje = [
-    ms2d.parabola(a=1, b=0, c=0),
-    lambda x: 2 * x**2,
-    lambda x: (x + 2)**2,
-    ms2d.parabola(a=1, b=-4, c=0),
-    parabola_w_dol,
-    ms2d.parabola(a=-1, b=-4, c=3),
-]
+f1 = ms2d.parabola(a=1, b=0, c=0)
+f2 = lambda x: 2 * x**2
+f3 = lambda x: (x + 2)**2
+f4 = ms2d.parabola(a=1, b=-4, c=0)
+f5 = parabola_w_dol
+f6 = ms2d.parabola(a=-1, b=-4, c=3)
 
-for krok in range(1, 7):
-    if krok > 1:
-        input("Naciśnij Enter, aby zobaczyć kolejny etap...")
-    print("Etap", krok, "z 6")
-    rysuj(*funkcje[:krok])
+rysuj(f1)
+input("Enter: wykres 2")
+
+rysuj(f2)
+input("Enter: wykres 3")
+
+rysuj(f3)
+input("Enter: wykres 4")
+
+rysuj(f4)
+input("Enter: wykres 5")
+
+rysuj(f5)
+input("Enter: wykres 6")
+
+rysuj(f6)
+input("Enter: porownaj wszystkie")
+
+rysuj(f1, f2, f3, f4, f5, f6)

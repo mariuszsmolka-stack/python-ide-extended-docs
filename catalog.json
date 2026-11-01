@@ -1259,6 +1259,12 @@
       "file": "laboratoria/laboratorium-04.html",
       "title": "Dlaczego prosta tylko dotyka paraboli?",
       "kind": "laboratory"
+    },
+    {
+      "id": "laboratorium-05",
+      "file": "laboratoria/laboratorium-05.html",
+      "title": "Czy można wylosować liczbę π?",
+      "kind": "laboratory"
     }
   ],
   "articles": [

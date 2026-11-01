@@ -1,0 +1,82 @@
+<p class="eyebrow">Laboratoria / Eksperyment 05</p>
+<h1>Czy można wylosować liczbę π?</h1>
+<p class="lead">Wyobraź sobie kwadrat o boku 1. W jego rogu znajduje się ćwiartka koła o promieniu 1.</p>
+<p>Losujemy punkty w kwadracie. Sprawdzamy, ile z nich trafiło do ćwiartki koła. Okazuje się, że wystarczy pomnożyć udział trafień przez 4, aby otrzymać przybliżenie liczby π. Sprawdźmy, czy to działa.</p>
+<p>Dla punktu o współrzędnych od 0 do 1 sprawdzamy warunek <code>x*x + y*y &lt;= 1</code>. Mówi on, czy punkt należy do ćwiartki koła, łącznie z jej brzegiem.</p>
+<p class="small-note">To eksperyment obliczeniowy. Wyniki odczytujemy z liczb, tabel i konsoli Python. <a href="index.html">Wszystkie laboratoria</a>.</p>
+<section aria-labelledby="pytanie"><h2 id="pytanie">1. Pytanie badawcze</h2>
+<p><strong>Czy liczba losowo rozmieszczonych punktów może pomóc nam obliczyć przybliżoną wartość π?</strong></p>
+<p>Czy większa liczba losowań zawsze daje dokładniejszy wynik? Zapisz przewidywanie. Sprawdzimy je w dwóch doświadczeniach.</p>
+<h3>Najpierw liczymy ręcznie</h3>
+<p>Poniższe punkty dobrano do ćwiczenia, nie wylosowano ich. Ten zestaw służy poznaniu reguły i nie jest dowodem skuteczności losowania.</p>
+<table class="lab05-table lab05-manual"><caption>Punkty do ręcznego ćwiczenia</caption><thead><tr><th scope="col">x</th><th scope="col">y</th></tr></thead><tbody><tr><td>0,1</td><td>0,2</td></tr><tr><td>0,3</td><td>0,4</td></tr><tr><td>0,4</td><td>0,7</td></tr><tr><td>0,5</td><td>0,5</td></tr><tr><td>0,6</td><td>0,4</td></tr><tr><td>0,7</td><td>0,6</td></tr><tr><td>0,8</td><td>0,4</td></tr><tr><td>0,9</td><td>0,3</td></tr><tr><td>0,9</td><td>0,7</td></tr><tr><td>0,8</td><td>0,8</td></tr></tbody></table>
+<ol><li>Oblicz x² + y² dla każdego punktu.</li><li>Sprawdź, czy wynik jest mniejszy lub równy 1.</li><li>Policz punkty należące do ćwiartki koła.</li><li>Oblicz 4 × trafienia / liczba punktów.</li></ol>
+<details><summary>Podpowiedź do ręcznego ćwiczenia</summary><p>Dla pierwszego punktu oblicz 0,1² + 0,2². Porównaj sumę z 1. Tak samo sprawdź pozostałe punkty.</p></details>
+<details><summary>Rozwiązanie ręcznego ćwiczenia</summary><table class="lab05-table"><caption>Sprawdzenie dziesięciu punktów w tej samej kolejności</caption><thead><tr><th scope="col">x</th><th scope="col">y</th><th scope="col">x² + y²</th><th scope="col">Trafienie?</th></tr></thead><tbody><tr><td>0,1</td><td>0,2</td><td>0,05</td><td>Tak</td></tr><tr><td>0,3</td><td>0,4</td><td>0,25</td><td>Tak</td></tr><tr><td>0,4</td><td>0,7</td><td>0,65</td><td>Tak</td></tr><tr><td>0,5</td><td>0,5</td><td>0,50</td><td>Tak</td></tr><tr><td>0,6</td><td>0,4</td><td>0,52</td><td>Tak</td></tr><tr><td>0,7</td><td>0,6</td><td>0,85</td><td>Tak</td></tr><tr><td>0,8</td><td>0,4</td><td>0,80</td><td>Tak</td></tr><tr><td>0,9</td><td>0,3</td><td>0,90</td><td>Tak</td></tr><tr><td>0,9</td><td>0,7</td><td>1,30</td><td>Nie</td></tr><tr><td>0,8</td><td>0,8</td><td>1,28</td><td>Nie</td></tr></tbody></table><p>Osiem punktów spełnia warunek, dwa nie. Przybliżenie wynosi 4 × 8 / 10 = 3,2. To wynik dobranego zestawu, a nie losowania.</p></details></section>
+<section aria-labelledby="program"><h2 id="program">2. Program Python</h2>
+<p>Liczba startowa generatora liczb pseudolosowych to ziarno. W <code>random.Random(2026)</code> tą liczbą jest <code>2026</code>. To samo ziarno pozwala powtórzyć identyczne losowanie. Zmiana na <code>random.Random(9)</code> daje inną sekwencję liczb. Każda współrzędna punktu pochodzi z przedziału od 0 do 1, bez prawego końca.</p>
+<p>Skopiuj cały program do Python IDE Extended i wybierz Uruchom. Pętla kontynuuje jeden eksperyment. Wynik po 100 próbach dotyczy pierwszych 100 punktów, a nie osobnego losowania.</p>
+<pre data-example="laboratorium-05-program"><code>import random
+
+losuj = random.Random(2026)
+trafienia = 0
+
+for n in range(1, 10001):
+    x = losuj.random()
+    y = losuj.random()
+
+    if x*x + y*y &lt;= 1:
+        trafienia += 1
+
+    if n in (100, 1000, 10000):
+        pi = 4 * trafienia / n
+        print(n, trafienia, round(pi, 4))
+</code></pre>
+<p><a href="../assets/laboratoria/laboratorium-05/program.py" download>Pobierz program .py</a>. <a href="../instrukcja.html">Jak uruchomić program w IDE?</a></p>
+<p>Trzy liczby w każdym wierszu konsoli to: liczba prób, liczba trafień i przybliżenie π. <code>round(pi, 4)</code> zaokrągla jedynie wyświetlany wynik do czterech miejsc po przecinku.</p></section>
+<section aria-labelledby="wyniki"><h2 id="wyniki">3. Wyniki eksperymentu</h2>
+<p>Porównaj swoją konsolę z wynikami rzeczywistego wykonania programu dla ziarna 2026.</p>
+<table class="lab05-table"><caption>Jedno narastające losowanie. Liczba startowa (ziarno): 2026</caption><thead><tr><th scope="col">Próby</th><th scope="col">Trafienia</th><th scope="col">Przybliżenie π</th></tr></thead><tbody><tr><th scope="row">100</th><td>77</td><td>3,08</td></tr><tr><th scope="row">1 000</th><td>784</td><td>3,136</td></tr><tr><th scope="row">10 000</th><td>7867</td><td>3,1468</td></tr></tbody></table>
+<pre class="lab05-output" aria-label="Wynik programu dla ziarna 2026"><code>100 77 3.08
+1000 784 3.136
+10000 7867 3.1468</code></pre>
+<p><strong>Dlaczego wyniki nie są identyczne z liczbą π?</strong> Zanim sprawdzisz wyjaśnienie, porównaj przybliżenia z 3,14159265…</p></section>
+<section aria-labelledby="obserwacje"><h2 id="obserwacje">4. Obserwacje i wnioski</h2>
+<h3>Dlaczego mnożymy przez 4?</h3>
+<p>Pole kwadratu o boku 1 wynosi 1. Pole ćwiartki koła o promieniu 1 wynosi π/4. W dużej próbie niezależnych, równomiernych losowań udział trafień powinien być bliski udziałowi tego pola w polu kwadratu.</p>
+<math display="block" aria-label="pi w przybliżeniu równa się cztery razy liczba trafień przez liczba prób"><mrow><mi>π</mi><mo>≈</mo><mn>4</mn><mo>×</mo><mfrac><mtext>trafienia</mtext><mtext>liczba prób</mtext></mfrac></mrow></math>
+<p><strong>Nie obliczyliśmy pola koła bezpośrednio. Oszacowaliśmy je, licząc losowe trafienia.</strong> Skończona próba daje przybliżenie, które zależy od losowania.</p>
+<h3>Jak porównać dokładność?</h3>
+<p>Błąd bezwzględny to odległość przybliżenia od wartości odniesienia. Mniejszy błąd oznacza dokładniejszy wynik. W Pythonie zapisujemy <code>blad = abs(wynik - math.pi)</code>, po <code>import math</code>. Używamy <code>math.pi</code> wyłącznie do porównania, nie do wyznaczania oszacowania.</p>
+<table class="lab05-table"><caption>Jedno narastające losowanie. Liczba startowa (ziarno): 2026</caption><thead><tr><th scope="col">Próby</th><th scope="col">Trafienia</th><th scope="col">Przybliżenie π</th><th scope="col">Błąd</th></tr></thead><tbody><tr><th scope="row">100</th><td>77</td><td>3,08</td><td>0,061593</td></tr><tr><th scope="row">1 000</th><td>784</td><td>3,136</td><td>0,005593</td></tr><tr><th scope="row">10 000</th><td>7867</td><td>3,1468</td><td>0,005207</td></tr></tbody></table>
+<p>Dla tego ziarna 10 000 prób daje nieznacznie mniejszy błąd niż 1000. Czy po zmianie losowania będzie podobnie?</p>
+<h3>Drugie doświadczenie: ziarno 9</h3>
+<p>W wierszu <code>losuj = random.Random(2026)</code> zamień <code>2026</code> na <code>9</code> i ponownie uruchom program. Porównaj błędy po 1000 i 10 000 próbach. Poniżej jest kompletny wariant wypisujący również błąd.</p>
+<details><summary>Kod doświadczenia z porównaniem błędów</summary><pre data-example="laboratorium-05-porownanie"><code>import random
+import math
+
+losuj = random.Random(9)
+trafienia = 0
+
+for n in range(1, 10001):
+    x = losuj.random()
+    y = losuj.random()
+
+    if x*x + y*y &lt;= 1:
+        trafienia += 1
+
+    if n in (100, 1000, 10000):
+        pi = 4 * trafienia / n
+        blad = abs(pi - math.pi)
+        print(n, trafienia, round(pi, 4), round(blad, 6))
+</code></pre><p><a href="../assets/laboratoria/laboratorium-05/porownanie.py" download>Pobierz program porównujący błędy</a>.</p></details>
+<details class="lab05-seed9"><summary>Sprawdź wyniki i wniosek dla ziarna 9</summary><table class="lab05-table"><caption>Jedno narastające losowanie. Liczba startowa (ziarno): 9</caption><thead><tr><th scope="col">Próby</th><th scope="col">Trafienia</th><th scope="col">Przybliżenie π</th><th scope="col">Błąd</th></tr></thead><tbody><tr><th scope="row">100</th><td>85</td><td>3,4</td><td>0,258407</td></tr><tr><th scope="row">1 000</th><td>785</td><td>3,14</td><td>0,001593</td></tr><tr><th scope="row">10 000</th><td>7869</td><td>3,1476</td><td>0,006007</td></tr></tbody></table><p>Po 1000 próbach błąd wynosi około 0,001593. Po 10 000 wzrasta do około 0,006007. Większa próba dała w tym konkretnym porównaniu mniej dokładny wynik.</p><p><strong>Więcej prób zwykle poprawia dokładność statystyczną oszacowania, ale nie gwarantuje, że każdy kolejny wynik będzie bliższy π.</strong> Ogranicza typową skalę przypadkowych wahań, a nie usuwa ich z każdego doświadczenia.</p></details>
+<h3>Pytania do obserwacji</h3>
+<ol><li>Czy w losowaniu narzuciliśmy regularne rozmieszczenie punktów?</li><li>Czy 100 punktów może dać rozsądne przybliżenie π?</li><li>Co zmienia się po zwiększeniu liczby punktów?</li><li>Czy 10 000 losowań zawsze da dokładniejszy wynik niż 1000?</li><li>Dlaczego mnożymy udział trafień przez 4?</li></ol>
+<details><summary>Sprawdź odpowiedzi na pytania</summary><ol><li>Nie. Obie współrzędne wybiera generator; nie układamy punktów w regularnych odstępach.</li><li>Może, ale mała próba daje duże wahania. Dla ziarna 2026 otrzymaliśmy 3,08, a dla ziarna 9 wynik 3,4.</li><li>W większych próbach zwykle zmniejsza się skala przypadkowych wahań udziału trafień.</li><li>Nie. W doświadczeniu z ziarnem 9 wynik po 1000 próbach jest dokładniejszy niż po 10 000.</li><li>Ćwiartka koła zajmuje część π/4 pola kwadratu. Mnożenie udziału trafień przez 4 daje oszacowanie π.</li></ol></details></section>
+<section aria-labelledby="eksperymenty"><h2 id="eksperymenty">5. Dalsze doświadczenia</h2>
+<section class="lab05-exercise"><h3>Ćwiczenie A - policz sam</h3><p>W 200 losowaniach otrzymano 157 trafień. Oblicz przybliżenie π.</p><details><summary>Podpowiedź A</summary><p>Podziel liczbę trafień przez liczbę wszystkich prób, a wynik pomnóż przez 4.</p></details><details><summary>Rozwiązanie A</summary><p>4 × 157 / 200 = 3,14.</p></details></section>
+<section class="lab05-exercise"><h3>Ćwiczenie B - znajdź błąd</h3><p>Program oszacował π na 3,2. Oblicz błąd bezwzględny względem <code>math.pi</code>.</p><details><summary>Podpowiedź B</summary><p>Po <code>import math</code> oblicz <code>abs(3.2 - math.pi)</code>.</p></details><details><summary>Rozwiązanie B</summary><p>Błąd wynosi około 0,058407. Wartość bezwzględna pozwala porównywać także przybliżenia mniejsze od wartości odniesienia.</p></details></section>
+<section class="lab05-exercise"><h3>Ćwiczenie C - zmień losowanie</h3><p>Znajdź wiersz <code>losuj = random.Random(2026)</code>. Zamień liczbę <code>2026</code> na <code>9</code>. Porównaj wyniki po 100, 1000 i 10 000 próbach. Czy większa liczba losowań zawsze poprawiła wynik?</p><details><summary>Podpowiedź C</summary><p>Zmieniaj tylko liczbę w <code>random.Random()</code>. Do porównania wykorzystaj błąd bezwzględny, a nie liczbę cyfr po przecinku.</p></details><details><summary>Rozwiązanie C</summary><p>Kolejne wyniki to 3,4; 3,14 i 3,1476, przy 85, 785 i 7869 trafieniach. Wynik po 1000 próbach jest dokładniejszy niż po 10 000.</p></details></section>
+<section class="lab05-exercise"><h3>Ćwiczenie D - duża próba</h3><p>Wykonaj 50 000 losowań z ziarnem 2026. Porównaj błąd z wynikami po 1000 i 10 000 próbach.</p><details><summary>Podpowiedź D</summary><p>Wróć do ziarna 2026. Zmień koniec pętli na <code>range(1, 50001)</code> i dopisz <code>50000</code> do warunku <code>if n in (100, 1000, 10000, 50000):</code>. Nie zeruj trafień pomiędzy etapami. Błąd licz z niezaokrąglonego przybliżenia.</p></details><details><summary>Rozwiązanie D</summary><p>Rzeczywiste wykonanie daje 39 386 trafień i oszacowanie 3,15088. Błąd wynosi około 0,009287. Jest większy niż po 1000 i 10 000 próbach w tym losowaniu. Przy czterech miejscach po przecinku konsola pokaże 3,1509; błąd obliczamy jednak z wartości 3,15088.</p></details></section>
+<p class="small-note">W tym doświadczeniu nie potrzebujemy wykresów ani dodatkowych bibliotek. <a href="../ograniczenia.html">Możliwości i ograniczenia środowiska</a>.</p><p class="lab05-signature">M. Smółka</p></section>
