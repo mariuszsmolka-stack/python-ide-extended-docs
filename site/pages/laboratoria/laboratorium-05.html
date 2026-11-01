@@ -1,7 +1,11 @@
 <p class="eyebrow">Laboratoria / Eksperyment 05</p>
 <h1>Czy można wylosować liczbę π?</h1>
 <p class="lead">Wyobraź sobie kwadrat o boku 1. W jego rogu znajduje się ćwiartka koła o promieniu 1.</p>
-<p>Losujemy punkty w kwadracie. Sprawdzamy, ile z nich trafiło do ćwiartki koła. Okazuje się, że wystarczy pomnożyć udział trafień przez 4, aby otrzymać przybliżenie liczby π. Sprawdźmy, czy to działa.</p>
+<p>Czy takie losowanie pozwoli nam przybliżyć liczbę π?</p>
+<div class="lab05-board"><h2>Na jaki obszar losujemy punkty?</h2>
+<figure><img src="../assets/laboratoria/laboratorium-05/plansza-losowania.svg" width="360" height="350" alt="Kwadrat jednostkowy i ćwiartka koła o promieniu 1, ze środkiem w lewym dolnym narożniku kwadratu."><figcaption>Schemat geometryczny obszaru losowania. Nie jest eksportem z IDE.</figcaption></figure>
+<p>Losujemy punkt w kwadracie. Za trafienie uznajemy punkt należący do zacieniowanej ćwiartki koła, również do jej brzegu. Udział trafień wykorzystujemy do oszacowania liczby π.</p>
+<p class="small-note">W kolejnej wersji dodamy „strzelanie do tarczy”. :)</p></div>
 <p>Dla punktu o współrzędnych od 0 do 1 sprawdzamy warunek <code>x*x + y*y &lt;= 1</code>. Mówi on, czy punkt należy do ćwiartki koła, łącznie z jej brzegiem.</p>
 <p><strong>Przykład 1 - trafienie.</strong> Dla <code>x = 0.3, y = 0.4</code> obliczamy 0,3² + 0,4² = 0,25. Ponieważ 0,25 ≤ 1, punkt należy do ćwiartki koła.</p>
 <p><strong>Przykład 2 - brak trafienia.</strong> Dla <code>x = 0.9, y = 0.7</code> obliczamy 0,9² + 0,7² = 1,30. Ponieważ 1,30 &gt; 1, punkt znajduje się poza ćwiartką koła.</p>

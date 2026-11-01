@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="350" viewBox="0 0 360 350" role="img" aria-labelledby="plansza-tytul plansza-opis">
+<title id="plansza-tytul">Kwadrat jednostkowy i ćwiartka koła</title>
+<desc id="plansza-opis">Kwadrat ma wierzchołki (0,0), (1,0), (1,1), (0,1). Łuk okręgu o środku (0,0) i promieniu 1 biegnie od (1,0) do (0,1). Zacieniowana jest ćwiartka koła po stronie początku układu współrzędnych. Obie osie mają jednakową skalę. To schemat geometryczny, nie eksport z IDE. Nie przedstawia punktów losowych.</desc>
+<rect width="360" height="350" fill="#FFFFFF"/>
+<path d="M54 274 L302 274 A248 248 0 0 0 54 26 Z" fill="#195B7B" fill-opacity="0.14"/>
+<rect x="54" y="26" width="248" height="248" fill="none" stroke="#183647" stroke-width="2"/>
+<path d="M302 274 A248 248 0 0 0 54 26" fill="none" stroke="#195B7B" stroke-width="3"/>
+<g font-family="system-ui, sans-serif" font-size="18" fill="#183647">
+<text x="44" y="297" text-anchor="end">0</text>
+<text x="302" y="297" text-anchor="middle">1</text>
+<text x="40" y="32" text-anchor="end">1</text>
+<text x="322" y="280">x</text><text x="47" y="16">y</text>
+<text x="169" y="235" text-anchor="middle" fill="#195B7B">Ćwiartka koła, r = 1</text>
+<text x="180" y="332" text-anchor="middle">Kwadrat 1 × 1</text>
+</g></svg>

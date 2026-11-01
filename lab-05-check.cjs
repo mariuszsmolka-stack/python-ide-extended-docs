@@ -1,7 +1,10 @@
-﻿const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 function checkLab05(){
  const dist=path.join(__dirname,'dist'),assets=path.join(dist,'assets/laboratoria/laboratorium-05'),html=fs.readFileSync(path.join(dist,'laboratoria/laboratorium-05.html'),'utf8');
- assert.equal((html.match(/<section aria-labelledby=/g)||[]).length,5);assert.equal((html.match(/<details\b/g)||[]).length,13);assert.ok(!/<details[^>]*\bopen\b/.test(html));assert.ok(!/<img\b|<canvas\b|<svg\b|data-mesh=|data-preview=/.test(html));
+ assert.equal((html.match(/<section aria-labelledby=/g)||[]).length,5);assert.equal((html.match(/<details\b/g)||[]).length,13);assert.ok(!/<details[^>]*\bopen\b/.test(html));assert.equal((html.match(/<img\b/g)||[]).length,1);assert.ok(html.includes('laboratorium-05/plansza-losowania.svg'));assert.ok(!/<canvas\b|<svg\b|data-mesh=|data-preview=/.test(html));
+ const board=fs.readFileSync(path.join(assets,'plansza-losowania.svg'),'utf8');assert.ok(board.includes('x="54" y="26" width="248" height="248"')&&board.includes('M302 274 A248 248 0 0 0 54 26')&&board.includes('M54 274 L302 274 A248 248 0 0 0 54 26 Z'));assert.ok(!/<circle\b|<script\b|<foreignObject\b|\bon\w+=/i.test(board));
+ assert.ok(html.includes('Schemat geometryczny obszaru losowania. Nie jest eksportem z IDE.')&&html.includes('W kolejnej wersji dodamy „strzelanie do tarczy”. :)'));assert.ok(html.indexOf('class="lab05-board"')<html.indexOf('x*x + y*y &lt;= 1'));
+
  const decode=s=>s.replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&quot;','"').replaceAll('&#x27;',"'").replaceAll('&amp;','&');
  for(const [name,id]of [['program.py','laboratorium-05-program'],['porownanie.py','laboratorium-05-porownanie']]){const source=fs.readFileSync(path.join(assets,name),'utf8');assert.equal(decode(html.match(new RegExp('<pre data-example="'+id+'"><code>([\\s\\S]*?)</code></pre>'))[1]),source);assert.ok(source.includes('x*x + y*y <= 1')&&source.includes('pi = 4 * trafienia / n'));assert.ok(!/rysuj|input\(|class |ms2d|ms3d|msstat/.test(source));}
  const main=fs.readFileSync(path.join(assets,'program.py'),'utf8');assert.ok(main.includes('random.Random(2026)')&&main.includes('range(1, 10001)')&&main.includes('if n in (100, 1000, 10000):'));assert.ok(!main.includes('math.pi'));
